@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+.login {
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../imgs/background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.log {
+  position: absolute;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 30%;
+
+  border-radius: 20px;
+  margin-top: 20vh;
+  margin-left: 35%;
+}
+.logform {
+  display: inline-block;
+  font-size: 16px;
+  font-family: Arial;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.regbtn {
+  color: white;
+  text-decoration: none;
+}
+.img1 {
+  display: inline-block;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.loginput {
+  font-size: 16px;
+  height: 10vh;
+  max-height: 40px;
+  width: 80vw;
+  max-width: 400px;
+  border-radius: 20px;
+  padding-left: 10px;
+  margin: 10px;
+  border: none;
+}
+
+.logbutton {
+  font-size: 18px;
+  height: 10vh;
+  max-height: 40px;
+  width: 40vw;
+  max-width: 150px;
+  border-radius: 20px;
+  margin: 10px;
+  background-color: black;
+  color: white;
+}
+.logbutton:hover {
+  background: linear-gradient(
+    to right,
+    #d4af37,
+    #f9f095,
+    #d4af37,
+    #f9f095,
+    #d4af37
+  );
+  color: black;
+  cursor: pointer;
+}
