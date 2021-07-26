@@ -1,10 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import logo from "../../imgs/logo.jpg";
 
-
 function Login() {
+  const [visible, setVisibility] = useState(false);
+  const PWInputType = visible ? "text" : "password";
+  const Icon = visible ? "far fa-eye-slash" : "far fa-eye";
+
   return (
     <Fragment>
       <section className="login">
@@ -24,13 +27,14 @@ function Login() {
               <input
                 className="loginput"
                 id="pw"
-                type="password"
+                type={PWInputType}
                 placeholder="Enter Password"
                 required="required"
               />
-              <span class="show-btn">
-                <i class="fas fa-eye"></i>
-              </span>
+              <span
+                className={Icon}
+                onClick={() => setVisibility((visibility) => !visibility)}
+              />
             </form>
             <br />
             <Link to="/home">

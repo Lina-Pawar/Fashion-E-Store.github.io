@@ -75,3 +75,8 @@
   color: black;
   cursor: pointer;
 }
+.fa-eye-slash,
+.fa-eye {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
