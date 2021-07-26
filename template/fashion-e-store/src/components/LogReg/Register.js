@@ -15,7 +15,6 @@ function Register() {
               required="required"
               placeholder="First Name"
             />
-            &nbsp;&nbsp;&nbsp;
             <input
               className="reginput2"
               type="text"
@@ -25,6 +24,7 @@ function Register() {
             />
             <br />
             <label className="reglabel">Contact:</label>
+            <br />
             <input className="ip3" value="+91" disabled />
             <input
               className="ip4"
@@ -45,7 +45,7 @@ function Register() {
             <label className="reglabel">Gender:</label>
             <br />
             <input
-              className="reginput"
+              className="regradio"
               type="radio"
               id="female"
               name="gender"
@@ -53,7 +53,7 @@ function Register() {
             />
             <label className="reglabel">Female</label>
             <input
-              className="reginput"
+              className="regradio"
               type="radio"
               id="male"
               name="gender"
@@ -96,7 +96,7 @@ function Register() {
             </button>
           </Link>
           <button className="regbutton" onclick="login()">
-            Create Account
+            Register
           </button>
         </div>
       </div>
