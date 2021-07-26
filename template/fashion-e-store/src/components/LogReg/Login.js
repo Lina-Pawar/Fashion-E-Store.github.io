@@ -16,8 +16,8 @@ function Login() {
             <form className="logform">
               <div align="center">
                 <img src={logo} className="img1" alt="try" />
-                <br />
               </div>
+                <br />
               <input
                 className="loginput"
                 placeholder="Username"
