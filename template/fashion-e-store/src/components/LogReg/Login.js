@@ -28,7 +28,7 @@ function Login() {
                 className="loginput"
                 id="pw"
                 type={PWInputType}
-                placeholder="Enter Password"
+                placeholder="Password"
                 required="required"
               />
               <span
