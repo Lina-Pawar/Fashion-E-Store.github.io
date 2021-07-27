@@ -5,7 +5,7 @@ function Home() {
   return (
     <div>
       <h1>
-        Fashion E-store <i class="fas fa-tshirt"></i>
+        Fashion E-store <i className="fas fa-tshirt"></i>
       </h1>
       <Link to="/login">Login</Link>
     </div>

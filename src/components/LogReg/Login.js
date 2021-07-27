@@ -38,12 +38,12 @@ function Login() {
             </form>
             <br />
             <Link to="/home">
-              <button className="logbutton" onclick="login()">
+              <button className="logbutton" >
                 Login
               </button>
             </Link>
             <Link to="/register">
-              <button className="logbutton" onclick="login()">
+              <button className="logbutton" >
                 Register
               </button>
             </Link>
