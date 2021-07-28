@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    background: linear-gradient(
+        to right,
+        #d4af37,
+        #f9f095,
+        #d4af37,
+        #f9f095,
+        #d4af37
+      );
+    color: white;
+}
+.logo{
+    width: 12%;
+    height:7vh;
+    margin-left: 1%;
+}
+
+.search{
+    width: 40%;
+    margin-left: 27%;
+    height: 3.8vh;
+    border:3px solid #96640d;
+    padding-left: 15px;
+    font-size: 2vh;
+    border-radius: 2vh;
+}
+.search:hover{
+    border:3px solid #96640d;
+    height: 3.8vh;
+    border-radius: 2vh;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px rgba(19, 18, 18, 0.63);
+}
+
+.nav-links{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    width: 75%;
+}
+.profile,.notify,.cart,.logout{
+    text-decoration: none;
+    color: black;
+    font-size: 2.3vh;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.profile:hover,.notify:hover,.cart:hover,.logout:hover{
+    background-color: royalblue;
+    transition: all 0.4s ease-out;
+    color: white;
+    
+}
+
+.mobile-menu-icon{
+    display: none;
+}
+
+.fa-search {
+    font-size: 18px;
+    cursor: pointer;
+    margin-left :-35px;
+    color: grey;
+  }
+@media screen and (max-width: 780px) {
+    .logo{
+        display: flex;
+        position: absolute;
+        top: 1vh;
+        left: 5vw;
+    }
+    .nav-links{
+        display: none;
+    }    
+    .nav-links-mobile{
+        position: absolute;
+        display: block;
+        list-style: none;
+        background-color:#96640d ;
+        left: 0;
+        top:7.6vh;
+        transition: all 0.5s ease-out ;
+        width: 100%;
+    }
+    .profile,.notify,.cart,.logout{
+        color: white;
+        text-align: center;
+        padding: 30px;
+        width: 100%;
+    }
+    .logo{
+        height: 7vh;
+        width: 120px;
+    }
+    .profile:hover,.notify:hover,.cart:hover,.logout:hover{
+        background-color: transparent;
+        
+    }
+    .mobile-menu-icon{
+        display: block;
+        position: absolute;
+        font-size:3.5vh;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        top:1.7vh;
+        right: 25px;
+        color: white;
+    }
+    
+    .fa-search {
+        font-size: 18px;
+        cursor: pointer;
+        margin-left :-180px;
+        color: grey;
+      }
+      .fa-times , .fa-bars{
+        color: black;
+      }
+}
