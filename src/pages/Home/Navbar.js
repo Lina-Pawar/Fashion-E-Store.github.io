@@ -23,28 +23,29 @@ const Navbar = () => {
       >
         <Link to="/profile" className="profile">
           <li>
-            <i className="fas fa-user-circle"></i>&nbsp;&nbsp;
-            <span className="moblink" >Profile</span>
+            <i className="fas fa-user-circle"></i>
+            <span className="moblink" >&nbsp;&nbsp;Profile</span>
           </li>
         </Link>
-        <Link to="/notify" className="notify" >
-          <li>
-            <i className="fas fa-bell"></i>&nbsp;&nbsp;
-            <span className="moblink">Notification</span>&nbsp;
-            <i class="fas fa-caret-down"></i>
-            <br />
-          </li>
-        </Link>
+        <li className="notify">
+          <i className="fas fa-bell"></i>
+          <span className="moblink">&nbsp;&nbsp;Notification</span>
+          <select id="dropdown">
+          <option>50% off on women tops today!</option>
+          <option>Buy 1 get 1 free on Men t-shirts.</option>
+          <option>Free shipping on all kids wear!</option>
+          </select>
+        </li>
         <Link to="/cart" className="cart">
           <li>
-            <i className="fas fa-shopping-cart"></i>&nbsp;&nbsp;
-            <span className="moblink">Cart</span>
+            <i className="fas fa-shopping-cart"></i>
+            <span className="moblink">&nbsp;&nbsp;Cart</span>
           </li>
         </Link>
         <Link to="/login" className="logout">
           <li>
-            <i className="fas fa-sign-out-alt"></i>&nbsp;&nbsp;
-            <span className="moblink">Logout</span>
+            <i className="fas fa-sign-out-alt"></i>
+            <span className="moblink">&nbsp;&nbsp;Logout</span>
           </li>
         </Link>
       </ul>

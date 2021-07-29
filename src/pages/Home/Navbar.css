@@ -29,19 +29,17 @@
     width: 40%;
     margin-left: 27%;
     height: 4.5vh;
-    border:3px solid #96640d;
     padding-left: 15px;
     font-size: 2vh;
+    border: 0;
     border-radius: 2vh;
 }
 .search:hover{
-    border:3px solid #96640d;
+    border:1px solid #96640d;
     height: 4.5vh;
     border-radius: 2vh;
-    cursor: pointer;
     
 }
-
 .nav-links{
     display: flex;
     justify-content: flex-end;
@@ -49,8 +47,6 @@
     width:60%;
     margin-right: 2%;
 }
-
-
 .profile,.notify,.cart,.logout{
     text-decoration: none;
     color: black;
@@ -65,11 +61,6 @@
     color: white;
     
 }
-/*  */
-
-
-/*  */
-
 .moblink{
     visibility: hidden;
     font-size: 0vh;
@@ -84,7 +75,24 @@
     cursor: pointer;
     margin-left :-35px;
     color: grey;
-  }
+}
+#dropdown{
+    background: transparent;
+    border: none;
+    width: 20px;
+}
+#dropdown:focus{
+    font-size: 16px;
+    outline: none;
+    border:0;
+}
+select{
+    outline: none;
+    border: 0;
+}
+option{
+    background-color: #f9f095;
+}
 @media screen and (max-width: 780px) {
     .logo{
         display: flex;
@@ -145,4 +153,13 @@
       .fa-times , .fa-bars{
         color: black;
       }
+      #dropdown{
+        background: transparent;
+        border: none;
+        color: white;
+    }
+    #dropdown:focus{
+        font-size: 16px;
+        outline: none;
+    }
 }
