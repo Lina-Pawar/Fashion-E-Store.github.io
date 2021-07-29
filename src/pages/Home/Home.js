@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 function Home() {
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <h1>
         Fashion E-store <i className="fas fa-tshirt"></i>
       </h1>

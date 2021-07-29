@@ -22,13 +22,13 @@
 .logo{
     width: 12%;
     height:7vh;
-    margin-left: 1%;
+    margin-left: 2%;
 }
 
 .search{
     width: 40%;
     margin-left: 27%;
-    height: 3.8vh;
+    height: 4.5vh;
     border:3px solid #96640d;
     padding-left: 15px;
     font-size: 2vh;
@@ -36,23 +36,26 @@
 }
 .search:hover{
     border:3px solid #96640d;
-    height: 3.8vh;
+    height: 4.5vh;
     border-radius: 2vh;
     cursor: pointer;
-    box-shadow: 2px 2px 2px 2px rgba(19, 18, 18, 0.63);
+    
 }
 
 .nav-links{
     display: flex;
     justify-content: flex-end;
     list-style: none;
-    width: 75%;
+    width:60%;
+    margin-right: 2%;
 }
+
+
 .profile,.notify,.cart,.logout{
     text-decoration: none;
     color: black;
-    font-size: 2.3vh;
-    padding: 10px 20px;
+    font-size: 2.8vh;
+    padding: 10px 10px;
     margin: 0 10px;
     cursor: pointer;
 }
@@ -61,6 +64,15 @@
     transition: all 0.4s ease-out;
     color: white;
     
+}
+/*  */
+
+
+/*  */
+
+.moblink{
+    visibility: hidden;
+    font-size: 0vh;
 }
 
 .mobile-menu-icon{
@@ -92,12 +104,17 @@
         top:7.6vh;
         transition: all 0.5s ease-out ;
         width: 100%;
-    }
+     }
+     
     .profile,.notify,.cart,.logout{
         color: white;
         text-align: center;
         padding: 30px;
         width: 100%;
+    }
+    .moblink{
+        visibility: visible;
+        font-size: 2.1vh;
     }
     .logo{
         height: 7vh;
