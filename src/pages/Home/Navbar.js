@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import navlogo from "../../imgs/nav-logo.png";
+import oneOnone from "../../imgs/1on1.png";
+import free from "../../imgs/free.png";
+import off from "../../imgs/50off.png";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
-
-  
+  const [isVisible, setVisibility] = useState(false);
+  const DropDown = isVisible ? "showdd" : "hidedd";
+  const arrow = isVisible ? "fas fa-angle-up" : "fas fa-angle-down" ;
   return (
     <nav className="navbar">
       <img className="logo" src={navlogo} alt="Nav Logo" />
@@ -27,15 +31,18 @@ const Navbar = () => {
             <span className="moblink" >&nbsp;&nbsp;Profile</span>
           </li>
         </Link>
-        <li className="notify">
+        <li className="notify" onClick={() => setVisibility((visibility) => !visibility)}>
           <i className="fas fa-bell"></i>
           <span className="moblink">&nbsp;&nbsp;Notification</span>
-          <select id="dropdown">
-          <option>50% off on women tops today!</option>
-          <option>Buy 1 get 1 free on Men t-shirts.</option>
-          <option>Free shipping on all kids wear!</option>
-          </select>
+          &nbsp;&nbsp;<i className={arrow} ></i>
+          
         </li>
+        <div className={DropDown}>
+            <div><Link to="/login" className="notlink"><p><img src={off} alt="off" />&nbsp;&nbsp;50% off on women tops today!</p></Link></div>
+            <div><Link to="/register" className="notlink"><p><img src={oneOnone} alt="1on1" />&nbsp;&nbsp;Buy 1 get 1 free on Men t-shirts.</p></Link></div>
+            <div><Link to="/login" className="notlink"><p><img src={free} alt="free" style={{width:90}}/>&nbsp;&nbsp;Free shipping on all kids wear!</p></Link></div>  
+        </div> 
+        
         <Link to="/cart" className="cart">
           <li>
             <i className="fas fa-shopping-cart"></i>
