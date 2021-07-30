@@ -1,0 +1,13 @@
+img{
+    height: 40vh;
+}
+.scroll{
+    width: 90vw;
+    max-width: 800px;
+}
+@media screen and (max-width: 780px) {
+    img{
+        width: 80vw;
+        height: 20vh;
+    }
+}

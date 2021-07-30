@@ -107,7 +107,6 @@
 .hidedd{
     display: none;
 }
-/*  */
 @media screen and (max-width: 780px) {
     .logo{
         display: flex;
