@@ -56,11 +56,8 @@
     cursor: pointer;
 }
 .profile:hover,.notify:hover,.cart:hover,.logout:hover{
-    background-color: royalblue;
+    background-color: #d4af37;
     transition: all 0.4s ease-out;
-    color: white;
-   
-    
 }
 
 .moblink{
@@ -78,34 +75,13 @@
     margin-left :-35px;
     color: grey;
 }
-/* #dropdown{
-    background: transparent;
-    border: none;
-    width: 20px;
-    
-}
-#dropdown:focus{
-    font-size: 16px;
-    outline: none;
-    border:0;
-}
-select{
-    outline: none;
-    border: 0;
-    
-}
-.opt{
-    
-    background-color: #f9f095;
-} */
-/*  */
 .showdd{
     position: absolute;
     top:8vh;
     margin-right: 8%;
-    font-size: 1.2rem;
     background-color:#96640d ;
-    width: 13%;
+    width: 70vw;
+    max-width: 250px;
 }
 .showdd div{
     border: 1px solid black;
@@ -113,9 +89,8 @@ select{
     padding-left: 6px;
 }
 .showdd div:hover{
-    background-color: royalblue;
+    background-color: #d4af37;
     transition: all 0.4s ease-out;
-    color: white;
     cursor: pointer;
 }
 .showdd div img{
@@ -125,6 +100,9 @@ select{
 .notlink{
     color: white;
     text-decoration: none;
+}
+.notlink:hover{
+    color: black;
 }
 .hidedd{
     display: none;
@@ -190,6 +168,11 @@ select{
       .fa-times , .fa-bars{
         color: black;
       }
-    
+      .showdd{
+        margin-left: 15vw;
+        margin-right: auto;
+        top: 22vh;
+        background-color:#96640d;
+    }
     
 }
