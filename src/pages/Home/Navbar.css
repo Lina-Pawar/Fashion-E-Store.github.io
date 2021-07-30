@@ -59,8 +59,10 @@
     background-color: royalblue;
     transition: all 0.4s ease-out;
     color: white;
+   
     
 }
+
 .moblink{
     visibility: hidden;
     font-size: 0vh;
@@ -76,10 +78,11 @@
     margin-left :-35px;
     color: grey;
 }
-#dropdown{
+/* #dropdown{
     background: transparent;
     border: none;
     width: 20px;
+    
 }
 #dropdown:focus{
     font-size: 16px;
@@ -89,10 +92,44 @@
 select{
     outline: none;
     border: 0;
+    
 }
-option{
+.opt{
+    
     background-color: #f9f095;
+} */
+/*  */
+.showdd{
+    position: absolute;
+    top:8vh;
+    margin-right: 8%;
+    font-size: 1.2rem;
+    background-color:#96640d ;
+    width: 13%;
 }
+.showdd div{
+    border: 1px solid black;
+    padding: 4px;
+    padding-left: 6px;
+}
+.showdd div:hover{
+    background-color: royalblue;
+    transition: all 0.4s ease-out;
+    color: white;
+    cursor: pointer;
+}
+.showdd div img{
+    height: 1.5rem;
+    width: 50px;
+}
+.notlink{
+    color: white;
+    text-decoration: none;
+}
+.hidedd{
+    display: none;
+}
+/*  */
 @media screen and (max-width: 780px) {
     .logo{
         display: flex;
@@ -153,13 +190,6 @@ option{
       .fa-times , .fa-bars{
         color: black;
       }
-      #dropdown{
-        background: transparent;
-        border: none;
-        color: white;
-    }
-    #dropdown:focus{
-        font-size: 16px;
-        outline: none;
-    }
+    
+    
 }
