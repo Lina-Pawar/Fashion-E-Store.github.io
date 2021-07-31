@@ -1,0 +1,19 @@
+.list-items{
+    display: grid;
+    width: 78vw;
+    grid-template-columns: repeat(4,auto);
+    justify-content: center;
+    list-style:none;
+    grid-gap: 2vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    
+}
+.list-item{
+    width: 16vw;
+    padding: 10px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.7);
+}

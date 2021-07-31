@@ -1,0 +1,21 @@
+.catitems{
+    color: white;
+    padding-left: 10%;
+    padding-right:10% ;
+}
+.catitems h1{
+    text-align: center;
+}
+.catitems h3 {
+    color: white;
+    margin-left: 15%;  
+}
+.catitems label{
+    color: white;
+    text-decoration: none;
+}
+.catitems label:hover{
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}

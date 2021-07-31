@@ -1,0 +1,22 @@
+.homecontent{
+    display: block;
+}
+.home{
+    width: 100%;
+    display: flex;
+    height: auto;
+}
+.category{
+    width: 20%;
+   position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);;
+    height: 92vh;
+    margin-top: 8vh;
+
+}
+.content{
+    margin-left: 20%;
+    width: 80%;
+    background-color: white;
+    margin-top: 8vh;    
+}

@@ -1,9 +1,10 @@
-img{
-    height: 40vh;
+.carimg{
+    height: 60vh;
+    width: 100%;
 }
 .scroll{
-    width: 90vw;
-    max-width: 800px;
+    width: 100%;
+    position:relative;
 }
 @media screen and (max-width: 780px) {
     img{
