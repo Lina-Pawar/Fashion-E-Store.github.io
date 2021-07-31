@@ -8,11 +8,12 @@ function Products() {
       {ProdList.map((item, index) => {
         return (
           <li className="list-item" key={item.id}>
-            <img src={demo} alt="product"/>
+            <div><img className="itemimg" src={demo} alt="product"/></div>
+            <div>
             <table width="100%">
               <tbody>
               <tr>
-                <td colSpan="2">{item.name}</td>
+                <td colSpan="2"><b>{item.name}</b></td>
               </tr>
               <tr>
                 <td>Rs. {item.price}</td>
@@ -20,6 +21,7 @@ function Products() {
               </tr>
               </tbody>
             </table>
+            </div>
           </li>
         );
       })}
