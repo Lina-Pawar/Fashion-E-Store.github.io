@@ -3,7 +3,6 @@
 }
 
 .register {
-  /* margin: 0; */
   height: 100vh;
   width: 100%;
   background-image: url("../../imgs/background.png");
@@ -116,4 +115,5 @@ input:focus{
   );
   color: black;
   cursor: pointer;
+  font-weight: bold;
 }

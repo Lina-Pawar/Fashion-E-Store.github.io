@@ -1,14 +1,13 @@
 .carimg{
-    height: 60vh;
+    height: 50vh;
     width: 100%;
 }
 .scroll{
     width: 100%;
-    position:relative;
+    position: relative;
 }
 @media screen and (max-width: 780px) {
-    img{
-        width: 80vw;
-        height: 20vh;
+    .carimg{
+        height: 25vh;
     }
 }

@@ -36,6 +36,9 @@ function Login() {
                 onClick={() => setVisibility((visibility) => !visibility)}
               />
             </form>
+            <Link to="/passwordrecovery">
+              <label className="pwlabel">Forgot password?</label>
+            </Link>
             <br />
             <Link to="/home">
               <button className="logbutton" >

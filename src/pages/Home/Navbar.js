@@ -19,7 +19,7 @@ const Navbar = () => {
         type="text"
         id="search"
         placeholder="Search"
-      ></input>
+      />
       <span className="fas fa-search"></span>
       <ul
         className={isMobile ? "nav-links-mobile" : "nav-links"}
