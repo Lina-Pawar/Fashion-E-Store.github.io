@@ -83,6 +83,11 @@ input:focus{
   );
   color: black;
   cursor: pointer;
+  font-weight: bold;
+}
+.pwlabel{
+  color: black;
+  font-size: 16px;
 }
 .fa-eye-slash,
 .fa-eye {

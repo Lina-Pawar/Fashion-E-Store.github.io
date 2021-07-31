@@ -1,19 +1,66 @@
 .list-items{
     display: grid;
-    width: 78vw;
+    width: 100%;
     grid-template-columns: repeat(4,auto);
     justify-content: center;
     list-style:none;
     grid-gap: 2vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    
+    font-size: 16px;
 }
 .list-item{
-    width: 16vw;
+    width: 35vw;
+    max-width: 250px;
     padding: 10px;
-    height: auto;
-    border: 1px solid black;
+    height: 44vh;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.7);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+    outline: none;
+    border: none;
+    font-size: 16px;
+}
+img{
+    width: 15vw;
+    height: 32vh;
+}
+.buybutton{
+    width: 100px;
+    font-size: 16px;
+    background-color: black;
+    color:white;
+    border-radius: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.buybutton:hover {
+    background: linear-gradient(
+      to right,
+      #d4af37,
+      #f9f095,
+      #d4af37,
+      #f9f095,
+      #d4af37
+    );
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+  }
+@media screen and (max-width: 780px) {
+    .list-items{
+        grid-template-columns: repeat(2,auto);
+    }
+    .list-item{
+        width: 45vw;
+        height: 38vh;
+    }
+    img{
+        width: 40vw;
+        height: 25vh;
+    }
+    .buybutton{
+        width: 20vw;
+    }
 }

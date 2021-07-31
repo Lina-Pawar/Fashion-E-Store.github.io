@@ -1,10 +1,9 @@
 import React from "react";
-//import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Carousel from "./Carousel";
-import "./Home.css";
 import CatItems from "../CatItems";
 import Products from "../../components/Products/Products";
+import "./Home.css";
 function Home() {
   
   return (
