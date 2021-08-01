@@ -89,6 +89,10 @@ input:focus{
   color: black;
   font-size: 16px;
 }
+.pwlabel:hover{
+  cursor: pointer;
+  color: white;
+}
 .fa-eye-slash,
 .fa-eye {
   font-size: 18px;
