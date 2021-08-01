@@ -17,8 +17,10 @@ function Home() {
           <CatItems />
         </div>
         <div className="content">
-          <Carousel />
+          <div className="cont1"><Carousel /></div>
+          <div className="cont2">
           <Products />
+          </div>
         </div>
       </div>
     </div>
