@@ -1,6 +1,15 @@
+import React from "react";
+import Navbar from "../Home/Navbar";
+import "./Men.css";
 function Men() {
     return(
-        <h1>Men</h1>
+       <div className="mencontent">
+        
+        <div style={{backgroundColor:"#6184c6",height:"8vh",width:"100%",position:"fixed",zIndex:"2"}}>
+        <Navbar />
+        </div>
+        <div className="menpage"><h1>Men</h1></div>
+        </div>
     )
 }
 export default Men;

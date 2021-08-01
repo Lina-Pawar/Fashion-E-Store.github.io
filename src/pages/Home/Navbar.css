@@ -11,14 +11,14 @@
     align-items: center;
     height: 8vh;
     width: 100%;
-    background: linear-gradient(
+    /* background: linear-gradient(
         to right,
         #d4af37,
         #f9f095,
         #d4af37,
         #f9f095,
         #d4af37
-      );
+      );  */
     color: white;
     z-index:5;
 }
@@ -59,8 +59,9 @@
     cursor: pointer;
 }
 .profile:hover,.notify:hover,.cart:hover,.logout:hover{
-    background-color: #d4af37;
+    background-color: #d1a103;
     transition: all 0.4s ease-out;
+    
 }
 
 .moblink{

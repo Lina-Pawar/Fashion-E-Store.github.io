@@ -3,11 +3,16 @@
     padding-left: 10%;
 }
 .catitems h2{
-    text-decoration: underline;
-    padding: 10px;
+    
+    padding: 5%;
+}
+.catitems hr{
+    
+    margin-right: 10%;
 }
 .catitems h3{
-    text-decoration-color: blue;
+   padding-left:15%;
+   padding-top: 10px;
 }
 .catitems label{
     color: white;

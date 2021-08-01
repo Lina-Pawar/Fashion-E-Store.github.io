@@ -8,15 +8,15 @@
     height: auto;
 }
 .category{
-    width: 20%;
+    width: 15%;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.9);
     height: 92vh;
-    margin-top: 8vh;
+    margin-top:8vh;
 }
 .content{
-    margin-left: 20%;
-    width: 80%;
+    margin-left: 15%;
+    width: 85%;
     margin-top: 8vh;
     font-size: 16px;
 }
