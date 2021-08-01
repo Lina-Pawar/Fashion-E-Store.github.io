@@ -6,6 +6,7 @@ import Register from "./components/LogReg/Register";
 import Women from "./pages/Women/Women";
 import Men from "./pages/Men/Men";
 import Kids from "./pages/Kids/Kids";
+import ForgotPass from "./components/LogReg/ForgotPass";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
       </Route>
       <Route path="/register">
         <Register />
+      </Route>
+      <Route path="/passwordrecovery">
+        <ForgotPass />
       </Route>
       <Route path="/men">
         <Men />
