@@ -8,19 +8,55 @@ function CatItems() {
       <h2 style={{textAlign:"center",textDecoration:"none",paddingLeft:0}}>Categories</h2>
       <h2>Clothing&nbsp;<i className="fas fa-tshirt"></i></h2>
       <hr />
-        <h3><Link to="/men"><label>Men</label></Link></h3>
-        <h3><Link to="/women"><label>Women</label></Link></h3>
-        <h3><Link to="/kids"><label>Kids</label></Link></h3> 
+        <Link to="/men">
+          <div className="catimg" id="one">
+            <h3><b>Men Clothing</b></h3>
+          </div>
+        </Link>
+        <Link to="/women">
+          <div className="catimg" id="two">
+            <h3><b>Women Clothing</b></h3>
+          </div>
+        </Link>
+        <Link to="/kids">
+          <div className="catimg" id="three">
+            <h3><b>Kids Clothing</b></h3>
+          </div>
+        </Link> 
       <h2>Accessories&nbsp;<i className="fab fa-redhat"></i></h2>
       <hr />
-        <h3><Link to="/men"><label>Men</label></Link></h3>
-        <h3><Link to="/women"><label>Women</label></Link></h3>
-        <h3><Link to="/kids"><label>Kids</label></Link></h3>
+      <Link to="/men">
+          <div className="catimg" id="four">
+            <h3><b>Men Accessories</b></h3>
+          </div>
+        </Link>
+        <Link to="/women">
+          <div className="catimg" id="five">
+            <h3><b>Women Accessories</b></h3>
+          </div>
+        </Link>
+        <Link to="/kids">
+          <div className="catimg" id="six">
+            <h3><b>Kids Accessories</b></h3>
+          </div>
+        </Link> 
       <h2>Footwear&nbsp;<i className="fas fa-shoe-prints"></i></h2>
       <hr />
-        <h3><Link to="/men"><label>Men</label></Link></h3>
-        <h3><Link to="/women"><label>Women</label></Link></h3>
-        <h3><Link to="/kids"><label>Kids</label></Link></h3>
+      <Link to="/men">
+          <div className="catimg" id="seven">
+            <h3><b>Men Footwear</b></h3>
+          </div>
+        </Link>
+        <Link to="/women">
+          <div className="catimg" id="eight">
+            <h3><b>Women Footwear</b></h3>
+          </div>
+        </Link>
+        <Link to="/kids">
+          <div className="catimg" id="nine">
+            <h3><b>Kids Footwear</b></h3>
+          </div>
+        </Link> 
     </div>
   );
 }
