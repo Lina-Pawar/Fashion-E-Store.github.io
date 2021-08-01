@@ -1,0 +1,87 @@
+.forgotpass{
+    width: 100%;
+    height: 100vh;
+    background-size:100% 100%;
+    background-attachment: fixed;
+    background-image: url("../../imgs/background.png");
+}
+
+.fp{
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 90vw;
+  max-width: 500px;
+  border-radius: 20px;
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+.fpform{
+    font-size: 16px;
+  font-family: Arial;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fpinput{
+    font-size: 16px;
+  height: 10vh;
+  max-height: 40px;
+  border-radius: 20px;
+  padding-left: 10px;
+  margin: 2%;
+  border: none;
+  width: 95%;
+}
+.fplabel{
+    font-size: 16px;
+  margin: 20px;
+  color: white;
+}
+.captcha{
+    height: 7vh;
+    width: 50%;
+    margin-top: 5px;
+    margin-left: 25%;
+    background-image: url("../../imgs/captcha.JPG");
+    background-size: 100% 100%;
+    padding-left: 1vw;
+    padding-top: 2vh;
+}
+.fpbutton {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    height: 10vh;
+    max-height: 40px;
+    width: 34vw;
+    max-width: 215px;
+    border-radius: 20px;
+    margin: 5px;
+    
+    background-color: black;
+    color: white;
+  }
+  .fpbutton:hover {
+    background: linear-gradient(
+      to right,
+      #d4af37,
+      #f9f095,
+      #d4af37,
+      #f9f095,
+      #d4af37
+    );
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .fa-check{
+    color: rgb(78, 192, 32);
+    margin-left: -50px;
+    font-size: 1.2rem;
+  }
+  .fa-times{
+      color: red;
+      margin-left: -50px;
+      font-size: 1.2rem;
+  }
