@@ -4,7 +4,9 @@ function Register() {
   return (
     <section className="register">
       <div align="center">
+        <br />
         <div className="reg">
+        <h2 style={{textAlign:"center",color:"white"}}>Register</h2>
           <form className="regform">
             <label className="reglabel">Name:</label>
             <br />
@@ -91,11 +93,11 @@ function Register() {
           </form>
           <br />
           <Link to="/login">
-            <button className="regbutton" onclick="login()">
+            <button className="regbutton" onClick="login()">
               Back
             </button>
           </Link>
-          <button className="regbutton" onclick="login()">
+          <button className="regbutton" onClick="login()">
             Register
           </button>
         </div>
