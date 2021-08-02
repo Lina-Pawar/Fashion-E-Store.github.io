@@ -75,13 +75,4 @@
     cursor: pointer;
     font-weight: bold;
   }
-  .fa-check{
-    color: rgb(78, 192, 32);
-    margin-left: -50px;
-    font-size: 1.2rem;
-  }
-  .fa-times{
-      color: red;
-      margin-left: -50px;
-      font-size: 1.2rem;
-  }
+  
