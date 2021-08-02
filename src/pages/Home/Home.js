@@ -4,6 +4,8 @@ import Carousel from "./Carousel";
 import CatItems from "../CatItems";
 import Products from "../../components/Products/Products";
 import "./Home.css";
+import Footer from "../../components/Footer";
+import { Link } from "react-router-dom";
 function Home() {
   
   return (
@@ -18,10 +20,15 @@ function Home() {
         </div>
         <div className="content">
           <div className="cont1"><Carousel /></div>
+          <h2 style={{textAlign:"center"}}><b>TRENDING PRODUCTS</b></h2>
           <div className="cont2">
           <Products />
+          <div className="chatbox"><Link to="/chats"><i className="fas fa-comment-dots"></i></Link></div>
           </div>
         </div>
+      </div>
+      <div className="homefooter" id="#contactus">
+        <Footer />
       </div>
     </div>
   );

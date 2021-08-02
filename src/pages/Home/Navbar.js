@@ -49,6 +49,12 @@ const Navbar = () => {
             <span className="moblink">&nbsp;&nbsp;Cart</span>
           </li>
         </Link>
+        <a href="#contactus" className="contactus">
+          <li>
+            <i className="fas fa-phone-alt"></i>
+            <span className="moblink">&nbsp;&nbsp;Contact Us</span>
+          </li>
+        </a>
         <Link to="/login" className="logout">
           <li>
             <i className="fas fa-sign-out-alt"></i>
