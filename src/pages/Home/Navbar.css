@@ -50,7 +50,7 @@
     width:60%;
     margin-right: 2%;
 }
-.profile,.notify,.cart,.logout{
+.profile,.notify,.cart,.logout,.contactus{
     text-decoration: none;
     color: black;
     font-size: 2.8vh;
@@ -58,7 +58,7 @@
     margin: 0 10px;
     cursor: pointer;
 }
-.profile:hover,.notify:hover,.cart:hover,.logout:hover{
+.profile:hover,.notify:hover,.cart:hover,.logout:hover,.contactus:hover{
     background-color: #d1a103;
     transition: all 0.4s ease-out;
     
@@ -131,10 +131,10 @@
         top:7.6vh;
         transition: all 0.5s ease-out ;
         width: 100%;
-        z-index: 10;
+        z-index: 60;
      }
      
-    .profile,.notify,.cart,.logout{
+    .profile,.notify,.cart,.logout,.contactus{
         color: white;
         text-align: center;
         padding: 30px;
