@@ -36,7 +36,7 @@ const Navbar = () => {
           
         </li>
         <div className={DropDown1}>
-            <div><Link to="/login" className="notlink"><p style={{fontSize:"20px"}}><b>Hi, {fname}</b></p></Link></div>
+            <div><Link to="/home" className="notlink1"><p style={{fontSize:"20px"}}><b>Hi, {fname}</b></p></Link></div>
             <div><Link to="/register" className="notlink"><p><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Edit Profile</p></Link></div>
             <div><Link to="/passwordrecovery" className="notlink"><p><i className="fas fa-exchange-alt"></i>&nbsp;&nbsp;Change Password</p></Link></div>
         </div> 
