@@ -8,9 +8,13 @@ import off from "../../imgs/50off.png";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isVisible, setVisibility] = useState(false);
-  const DropDown = isVisible ? "showdd" : "hidedd";
-  const arrow = isVisible ? "fas fa-angle-up" : "fas fa-angle-down" ;
+  const [isVisible1, setVisibility1] = useState(false);
+  const [isVisible2, setVisibility2] = useState(false);
+  const DropDown1 = isVisible1 ? "showdd" : "hidedd";
+  const arrow1 = isVisible1 ? "fas fa-angle-up" : "fas fa-angle-down" ;
+  const DropDown2 = isVisible2 ? "showdd" : "hidedd";
+  const arrow2 = isVisible2 ? "fas fa-angle-up" : "fas fa-angle-down" ;
+  const fname="Amit Naik";
   return (
     <nav className="navbar">
       <img className="logo" src={navlogo} alt="Nav Logo" />
@@ -25,19 +29,24 @@ const Navbar = () => {
         className={isMobile ? "nav-links-mobile" : "nav-links"}
         onClick={() => setIsMobile(false)}
       >
-        <Link to="/profile" className="profile">
-          <li>
-            <i className="fas fa-user-circle"></i>
-            <span className="moblink" >&nbsp;&nbsp;Profile</span>
-          </li>
-        </Link>
-        <li className="notify" onClick={() => setVisibility((visibility) => !visibility)}>
-          <i className="fas fa-bell"></i>
-          <span className="moblink">&nbsp;&nbsp;Notification</span>
-          &nbsp;&nbsp;<i className={arrow} ></i>
+        <li className="profile" onClick={() => setVisibility1((visible) => !visible)}>
+          <i className="fas fa-user-circle"></i>
+          <span className="moblink">&nbsp;&nbsp;Profile</span>
+          &nbsp;&nbsp;<i className={arrow1} ></i>
           
         </li>
-        <div className={DropDown}>
+        <div className={DropDown1}>
+            <div><Link to="/login" className="notlink"><p style={{fontSize:"20px"}}><b>Hi, {fname}</b></p></Link></div>
+            <div><Link to="/register" className="notlink"><p><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Edit Profile</p></Link></div>
+            <div><Link to="/passwordrecovery" className="notlink"><p><i className="fas fa-exchange-alt"></i>&nbsp;&nbsp;Change Password</p></Link></div>
+        </div> 
+        <li className="notify" onClick={() => setVisibility2((visible) => !visible)}>
+          <i className="fas fa-bell"></i>
+          <span className="moblink">&nbsp;&nbsp;Notification</span>
+          &nbsp;&nbsp;<i className={arrow2} ></i>
+          
+        </li>
+        <div className={DropDown2}>
             <div><Link to="/login" className="notlink"><p><img src={off} alt="off" />&nbsp;&nbsp;50% off on women tops today!</p></Link></div>
             <div><Link to="/register" className="notlink"><p><img src={oneOnone} alt="1on1" />&nbsp;&nbsp;Buy 1 get 1 free on Men t-shirts.</p></Link></div>
             <div><Link to="/login" className="notlink"><p><img src={free} alt="free" style={{width:90}}/>&nbsp;&nbsp;Free shipping on all kids wear!</p></Link></div>  

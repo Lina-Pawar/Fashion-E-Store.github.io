@@ -47,10 +47,28 @@
 .fa-comment-dots{
     color: black;
 }
+.sarrow{
+    visibility: hidden;
+}
+.showcategory,.fa-chevron-circle-left,.fa-chevron-circle-right{
+    visibility: hidden;
+    position: absolute;
+}
+.hidecategory{
+    display: none;
+}
 
 @media screen and (max-width: 780px) {
     .category{
         display: none;
+    }
+    .showcategory{
+        z-index:5;
+        width:70%;
+        position: absolute;
+        background-color:rgba(0, 0, 0, 1);
+        margin-top:8vh;
+        visibility: visible;
     }
     .content{
         margin-left: 0;
@@ -66,5 +84,26 @@
         padding: 10px;
         padding-top:4px;
         
+    }
+    .sarrow{
+        visibility: visible;
+    }
+    .fa-chevron-circle-right{
+        position: fixed;
+        top:47vh;
+        left: 1vw;
+        visibility: visible;
+        font-size: 30px;
+    }
+    .fa-chevron-circle-left{
+        position: fixed;
+        top:47vh;
+        left:70vw;
+        font-size: 30px;
+        visibility: visible;
+        
+    }
+    .hidecategory{
+        display: none;
     }
 }

@@ -43,3 +43,14 @@
 #seven{background-image: url(../imgs/category/menshoe.JPG);}
 #eight{background-image: url(../imgs/category/womenshoe.JPG);}
 #nine{background-image: url(../imgs/category/kidsshoes.JPG);}
+
+@media screen and (max-width: 780px) {
+    .catimg {
+        height:20vh;
+        margin-top: 6vh;
+
+    }
+    #nine{
+        margin-bottom: 15vh;
+    }
+}

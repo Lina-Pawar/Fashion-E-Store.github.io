@@ -116,7 +116,9 @@ const onSubmit = e => {
             autoComplete="off"
           />
           
-          <Link to="/login">
+          
+        </form>
+        <Link to="/login">
             <button className="fpbutton" onClick="login()">
               Back
             </button>
@@ -128,7 +130,6 @@ const onSubmit = e => {
           <button className="fpbutton" style={{maxWidth:"440px"}}>
             Reset Password
           </button>
-        </form>
       </div>
     </div>
   );
