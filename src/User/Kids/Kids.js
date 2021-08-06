@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Home/Navbar";
+import Navbar from "../../components/Navbar";
 import "./Kids.css";
 function Kids() {
     return(

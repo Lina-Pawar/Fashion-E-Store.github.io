@@ -103,6 +103,7 @@ input:focus{
   margin: 5px;
   background-color: black;
   color: white;
+  border:none;
 }
 .regbutton:hover {
   background: linear-gradient(

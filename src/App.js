@@ -1,30 +1,41 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
-import Home from "./pages/Home/Home";
+import { Route, Switch } from "react-router-dom";
+import Home from "./User/Home/Home";
 import Login from "./components/LogReg/Login";
-import Register from "./components/LogReg/Register";
-import Women from "./pages/Women/Women";
-import Men from "./pages/Men/Men";
-import Kids from "./pages/Kids/Kids";
+import Women from "./User/Women/Women";
+import Men from "./User/Men/Men";
+import Kids from "./User/Kids/Kids";
 import ForgotPass from "./components/LogReg/ForgotPass";
+import useToken from "./components/useToken";
+import Admin from "./Admin/Admin";
 
-function App() {
+const App = () => {
+  const { setToken } = useToken("$$$NULL$$$");
   return (
     <Switch>
       <Route path="/" exact>
-        <Redirect to="/login" />
-      </Route>
-      <Route path="/home" exact>
-        <Home />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/register">
-        <Register />
+        <Login setToken={setToken} />
       </Route>
       <Route path="/passwordrecovery">
         <ForgotPass />
+      </Route>
+      <Route path="/admin" exact>
+        <Admin/>
+      </Route>
+      <Route path="/products" exact>
+        <Admin/>
+      </Route>
+      <Route path="/customers" exact>
+        <Admin/>
+      </Route>
+      <Route path="/analytics" exact>
+        <Admin/>
+      </Route>
+      <Route path="/chatbox" exact>
+        <Admin/>
+      </Route>
+      <Route path="/home" exact>
+        <Home />
       </Route>
       <Route path="/men">
         <Men />
@@ -37,6 +48,6 @@ function App() {
       </Route>
     </Switch>
   );
-}
+};
 
 export default App;

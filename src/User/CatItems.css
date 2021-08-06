@@ -2,21 +2,12 @@
     color: white;
     padding-left: 10%;
 }
-.catitems h2{
-    
+.catitems h2{   
     padding: 5%;
 }
-.catitems hr{
-    
+.catitems hr{   
     margin-right: 10%;
 }
-/* .catitems h3{
-   padding-left:15%;
-   padding-top: 10px;
-} */
-/* .catitems label{
-    color: white;
-} */
 .catimg{
     margin-top: 1.5vh;
     height: 16.5vh;
@@ -43,3 +34,13 @@
 #seven{background-image: url(../imgs/category/menshoe.JPG);}
 #eight{background-image: url(../imgs/category/womenshoe.JPG);}
 #nine{background-image: url(../imgs/category/kidsshoes.JPG);}
+@media screen and (max-width: 780px) {
+    .catimg {
+        height:20vh;
+        margin-top: 6vh;
+
+    }
+    #nine{
+        margin-bottom: 15vh;
+    }
+}

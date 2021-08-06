@@ -16,7 +16,7 @@ function Products() {
                 <td colSpan="2"><b>{item.name}</b></td>
               </tr>
               <tr>
-                <td>Rs. {item.price}</td>
+                <td>&#8377; {item.price}</td>
                 <td align="right"><Link to="/productdetails" className="buy"><button className="buybutton">Buy</button></Link></td>
               </tr>
               </tbody>

@@ -1,0 +1,53 @@
+.admin{
+    display: flex;
+    width: 100%;
+    background-color: white;
+}
+.dashboard{
+    padding-top:10vh;
+    width: 15%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.options {
+    font-size: 18px;
+    height: 10vh;
+    max-height: 40px;
+    width: 100%;
+    max-width: 150px;
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: transparent;
+    color: white;
+    border:none;
+}
+.options:hover {
+background: linear-gradient(
+    to right,
+    #d4af37,
+    #f9f095,
+    #d4af37,
+    #f9f095,
+    #d4af37
+);
+color: black;
+cursor: pointer;
+font-weight: bold;
+}
+#bg{
+    display: block;
+    height: 92vh;
+    width: 85%;
+    margin-top: 8vh;
+    background-image: url("../imgs/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.logo1{
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top:20vh;
+}

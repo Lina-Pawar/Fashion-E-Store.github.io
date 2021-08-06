@@ -6,7 +6,7 @@ import c2 from "../../imgs/c2.png";
 import c3 from "../../imgs/c3.png";
 import c4 from "../../imgs/c4.png";
 const Carousel = () => (
-  <div className="scroll" >
+  <div className="scroll" style={{textAlign:"center"}}>
   <Slider dots infiniteLoop autoplay>
     <div>
     <img src={c1} className="carimg" alt="offers"/>
