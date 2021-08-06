@@ -1,107 +1,129 @@
 import React, { useState } from "react";
+import Service from "../Service";
 import "./ForgotPass.css";
-import { Link } from "react-router-dom";
-function ForgotPass() {
-  const [user, setUser] = useState({
-    username:""
-});
-let handleChange = (e) => {
-  let name = e.target.name;
-  let value = e.target.value;
-  user[name] = value;
-  setUser(user);
-}
 
-const onSubmit = e => {
 
- var element =  document.getElementById("succesBTN");
- var inputData = document.getElementById("inputType");
-  
-  element.style.backgroundColor ="rgba(0,0,0,0.7)";
-  element.innerHTML  = "Checking...";
-  element.style.cursor="not-allowed";
-  inputData.disabled = true;
-  element.disabled = true;
+const characters = "abcdefghijklmnopqrstuvwxyz1234567890";
 
-   var myFunctions = function(){
-       if(captcha === user.username)
-       {
-         element.style.background   = "-webkit-gradient(linear,left top, right top,from(#d4af37),color-stop(30%,#f9f095),color-stop(40%,#d4af37),color-stop(80%,#f9f095),color-stop(90%,#d4af37))";
-         element.style.color ="black"
-         element.innerHTML  = "Captcha Verified";
-         element.disabled = true;
-         element.style.cursor = "not-allowed";
-         element.style.fontWeight="bold";
-       }
-       else
-       {
-         element.style.backgroundColor   = "red";
-         element.style.cursor = "not-allowed";
-         element.innerHTML  = "Not Matched";
-         element.disabled = true;
-
-         var myFunction = function(){
-           element.style.backgroundColor   = "black";
-           element.style.cursor = "pointer";
-           element.innerHTML  = "Verify";
-           element.disabled = false;
-           inputData.disabled = false;
-           inputData.value ='';
-         };
-         setTimeout(myFunction,3000);
-       }
-     }   
-     setTimeout(myFunctions,3000); 
-};
-
-  const characters = "abc123";
-
-  function generateString(length) {
-    let result = "";
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
+function generateString(length) {
+  let result = "";
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
-
-  const captcha = generateString(6); 
+  return result;
+}
+const captcha = generateString(6);
+const ForgotPass = ({ setToken }) => {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [confirmpassword, setconfirmpassword] = useState("");
+  const [captchatext, setcaptchatext] = useState("");
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      email: email,
+      password: password,
+    };
+    var inputData = document.getElementById("inputType");
+    if(inputData.disabled!==true){
+      alert("Verify captcha!");
+    }
+    else{
+      if(password===confirmpassword){
+      Service.resetPassword(user).then((resp) => {
+        if(resp.data.response===2){
+          alert("New password cannot be same as old password!");
+        } else if (
+          resp.data.response !== 0 &&
+          resp.data.response !== undefined &&
+          resp.data.response !== null
+        ) {
+          window.location.href="/";
+        } else {
+          alert("Incorrect email address!!");
+        }
+      });  
+    }
+    else{
+      alert("Passwords do not match!");
+    }
+  }
+}
+  const verify = e => {
+    var element =  document.getElementById("succesBTN");
+    var inputData = document.getElementById("inputType");
+    element.style.backgroundColor ="rgba(0,0,0,0.7)";
+    element.innerHTML  = "Checking...";
+    element.style.cursor="not-allowed";
+    inputData.disabled = true;
+    element.disabled = true;
+    var myFunctions = function(){
+        if(captcha === captchatext)
+        {
+          element.style.background = "-webkit-gradient(linear,left top, right top,from(#d4af37),color-stop(30%,#f9f095),color-stop(40%,#d4af37),color-stop(80%,#f9f095),color-stop(90%,#d4af37))";
+          element.style.color ="black"
+          element.innerHTML  = "Captcha Verified";
+          element.disabled = true;
+          element.style.cursor = "not-allowed";
+          element.style.fontWeight="bold";
+        }
+        else
+        {
+          element.style.backgroundColor = "red";
+          element.style.cursor = "not-allowed";
+          element.innerHTML  = "Not Matched";
+          element.disabled = true;
   
-  
+          var myFunction = function(){
+            element.style.backgroundColor   = "black";
+            element.style.cursor = "pointer";
+            element.innerHTML  = "Verify";
+            element.disabled = false;
+            inputData.disabled = false;
+            inputData.value ='';
+          };
+          setTimeout(myFunction,2000);
+        }
+      }   
+      setTimeout(myFunctions,2000); 
+   };
   return (
     <div className="forgotpass" id="fp">
       <br /><br />
       <div className="fp">
         <h2 style={{ textAlign: "center", color: "white" }}>Reset Password</h2>
         <br />
-        <form className="fpform">
-          <label className="fplabel">Enter Mail Address:</label>
+        <form className="fpform" onSubmit={onSubmit}>
+          <label className="fplabel">Enter email address:</label>
           <br />
           <input
             className="fpinput"
             type="mailadd"
-            id="mailadd"
-            required="required"
-            placeholder="Enter Email Address"
+            id="email"
+            required
+            onChange={(e) => setemail(e.target.value)}
+            placeholder="Email address"
           />
           <br />
-          <label className="fplabel">Enter New Password:</label>
+          <label className="fplabel">Enter new password:</label>
           <br />
           <input
             className="fpinput"
             type="newpassword"
             id="newpassword"
-            required="required"
-            placeholder="Enter New Password"
+            required
+            onChange={(e) => setpassword(e.target.value)}
+            placeholder="New password"
           />
           <br />
-          <label className="fplabel">Re-Enter New Password:</label>
+          <label className="fplabel">Re-enter new password:</label>
           <br />
           <input
             className="fpinput"
-            id="renewpassword"
-            required="required"
-            placeholder="Re-enter New password"
+            id="renewpassword"required
+            onChange={(e) => setconfirmpassword(e.target.value)}
+            placeholder="Confirm new password"
           />
           <br />
           <div className="captcha">
@@ -112,22 +134,23 @@ const onSubmit = e => {
             id="inputType"
             className="fpinput"
             placeholder="Enter Captcha"
-            name="username"  onChange={handleChange}
+            name="captcha"
             autoComplete="off"
+            required
+            onChange={(e) => setcaptchatext(e.target.value)}
           />
-          
-          <Link to="/login">
-            <button className="fpbutton" onClick="login()">
-              Back
-            </button>
-          </Link>
-          <button className="fpbutton" id="succesBTN" onClick={onSubmit}>
+          <div align="center">
+          <button className="fpbutton" onClick={(e) => { window.location.href="/";}}>
+            Back
+          </button>
+          <button className="fpbutton" id="succesBTN" onClick={verify}>
             Verify
           </button>
           <br />
-          <button className="fpbutton" style={{maxWidth:"440px"}}>
+          <button className="fpbutton reset" type="submit">
             Reset Password
           </button>
+          </div>
         </form>
       </div>
     </div>

@@ -1,0 +1,131 @@
+.homecontent{
+    display: block;
+    background-color: white;
+}
+.home{
+    width: 100%;
+    display: flex;
+    height: auto;
+}
+.category{
+    width: 15%;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin-top:8vh;
+}
+.content{
+    width: 85%;
+    margin-top: 10vh;
+    font-size: 16px;
+}
+.cont1{
+    width: 100%;
+}
+.cont2{
+    width: 90%;
+    margin-left: 5%;
+}
+.homefooter{
+    width:100%;
+}
+.chatbox{
+    position: fixed;
+    z-index: 9999;
+    bottom: 20px;
+    right: 20px;
+    min-width: 10vw;
+    height: 5vh;
+    background-color: #d4af37;
+    border-radius: 25px;
+    font-size: 22px;
+    transform: scale(1);
+    transform-origin: 240px 77px;
+    transition: all .2s linear;
+    color: #fff;
+    cursor: pointer;
+}
+.chatbox:hover{
+    background: linear-gradient(
+      to right,
+      #d4af37,
+      #f9f095,
+      #d4af37,
+      #f9f095,
+      #d4af37
+    );
+}
+.fa-comment-dots{
+    color: black;
+}
+.sarrow{
+    visibility: hidden;
+}
+.showcategory,.fa-chevron-circle-left,.fa-chevron-circle-right{
+    visibility: hidden;
+    position: absolute;
+}
+.hidecategory{
+    display: none;
+}
+#chatwindow{
+    display: none;
+    width: 30vw;
+    height: 70vh;
+    background-color: white;
+    border-radius: 15px;
+    bottom: 56px;
+    right: 20px;
+    position: fixed;
+    z-index: 9999;
+    transition: all .3s linear;
+}
+@media screen and (max-width: 780px) {
+    .category{
+        display: none;
+    }
+    .showcategory{
+        z-index:5;
+        width:70%;
+        position: absolute;
+        background-color:rgba(0, 0, 0, 1);
+        margin-top:8vh;
+        visibility: visible;
+    }
+    .content{
+        margin-left: 0;
+        width: 100%;
+    }
+    .chatbox{
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        padding: 10px;
+        padding-top:4px;
+    }
+    .chatlabel{
+        display: none;
+    }
+    #chatwindow{
+        width: 80vw;
+    }
+    .sarrow{
+        visibility: visible;
+    }
+    .fa-chevron-circle-right{
+        position: fixed;
+        top:47vh;
+        left: 1vw;
+        visibility: visible;
+        font-size: 30px;
+    }
+    .fa-chevron-circle-left{
+        position: fixed;
+        top:47vh;
+        left:70vw;
+        font-size: 30px;
+        visibility: visible;
+
+    }
+    .hidecategory{
+        display: none;
+    }
+}

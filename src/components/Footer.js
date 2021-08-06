@@ -13,47 +13,47 @@ function Footer(){
             <div className="footer1">
                <div className="f1item">
                    <img src={f11img} alt="f11img"/>
-                   <p style={{fontSize:"1.2rem"}}><b>100% SECURE PAYMENT</b></p>
-                   <p style={{fontSize:"0.9rem",color:"grey"}}>Moving Your card details to a much more <br />secured place.</p>
+                   <p><b>100% SECURE PAYMENT</b></p>
+                   <p style={{fontSize:"0.9rem",color:"grey"}}>Moving Your card details to a much more <br/>secured place.</p>
                </div>
                <div className="f1item">
                    <img src={f12img} alt="f12img"/>
-                   <p style={{fontSize:"1.2rem"}}><b>TRUSTPAY</b></p>
-                   <p style={{fontSize:"0.9rem",color:"grey"}}>100% Payment Protection.<br />Easy Return Policy</p>
+                   <p><b>TRUSTPAY</b></p>
+                   <p style={{fontSize:"0.9rem",color:"grey"}}>100% Payment Protection.<br/>Easy Return Policy</p>
                </div>
                <div className="f1item">
                    <img src={f13img} alt="f13img"/>
-                   <p style={{fontSize:"1.2rem"}}><b>HELP CENTER</b></p>
-                   <p style={{fontSize:"0.9rem",color:"grey"}}>Got a question? Look No further. <br />Browse on FAQs or submit your query here.</p>
+                   <p><b>HELP CENTER</b></p>
+                   <p style={{fontSize:"0.9rem",color:"grey"}}>Got a question? Look No further. <br/>Browse on FAQs or submit your query here.</p>
                </div>
                <div className="f1item">
                    <img src={f14img} alt="f14img"/>
-                   <p style={{fontSize:"1.2rem"}}><b>SHOP ON THE GO</b></p>
-                   <p style={{fontSize:"0.9rem",color:"grey"}}>Download the and get exciting app<br /> only offers at your fingertip.</p>
+                   <p><b>SHOP ON THE GO</b></p>
+                   <p style={{fontSize:"0.9rem",color:"grey"}}>Download the and get exciting app<br/> only offers at your fingertip.</p>
                </div>
             </div>
             <div className="footer2">
                <div className="f2item">
-               <p style={{fontSize:"1.5rem"}}><b>POLICY INFO</b></p>
-               <br />
-                <p className="footlink">Privacy Policy</p><br />
-                <p className="footlink">Terms of Sale</p><br />
-                <p className="footlink">Terms of Use</p><br />
-                <p className="footlink">Report Abuse and Takedown Policy</p><br />
-               </div>
-               <div className="f2item" >
-               <p style={{fontSize:"1.5rem"}}><b>CONNECT</b></p>
-               <br />
-                <p className="footlink"><img src={fb} alt="fb"/> Facebook</p><br />
-                <p className="footlink"><img src={twi} alt="twi"/> Twitter</p><br />
-                <p className="footlink"> <img src={yt} alt="yt"/> Youtube</p><br />
-                <p className="footlink"><img src={ins} alt="ins"/> Instagram</p><br />
+               <p style={{fontSize:"18px"}}><b>POLICY INFO</b></p>
+               <br/>
+                <p className="footlink">Privacy Policy</p><br/>
+                <p className="footlink">Terms of Sale</p><br/>
+                <p className="footlink">Terms of Use</p><br/>
+                <p className="footlink">Report Abuse and Takedown Policy</p><br/>
                </div>
                <div className="f2item">
-               <p style={{fontSize:"1.5rem"}}><b>SUBSCRIBE</b></p>
-               <br />
-               <input placeholder="Your email address" /><button>SUBSCRIBE</button>
-               <br  /><br />
+               <p style={{fontSize:"18px"}}><b>CONNECT</b></p>
+               <br/>
+                <p className="footlink"><img src={fb} alt="fb"/> Facebook</p><br/>
+                <p className="footlink"><img src={twi} alt="twi"/> Twitter</p><br/>
+                <p className="footlink"> <img src={yt} alt="yt"/> Youtube</p><br/>
+                <p className="footlink"><img src={ins} alt="ins"/> Instagram</p><br/>
+               </div>
+               <div className="f2item">
+               <p style={{fontSize:"18px"}}><b>SUBSCRIBE</b></p>
+               <br/>
+               <input placeholder="Your email address"/><button>Subscribe</button>
+               <br/><br/>
                <div className="f2cont"><p>Need help?&nbsp; <i className="fas fa-phone-alt" style={{color:"black"}}></i>&nbsp; Call us 24/7 at <span style={{color:"black"}}>+91-92126 92126</span></p></div>
                </div>
             </div>

@@ -27,8 +27,11 @@
     width: 26vw;
     margin-top: 2vh;
 }
+.f2item p{
+    font-size: 16px;
+}
 .footlink{
-    font-size: 1.2rem;
+    font-size: 16px;
     color:grey;
 }
 .footlink:hover{
@@ -39,13 +42,11 @@
     width: 70%;
     padding-left: 8px;
     height: 40px;
-    border: 1px solid black;
 }
 .f2item button{
-    text-align: center;
     color: white;
     background-color: rgb(37, 33, 33);
-    width: 30%;
+    width: 25%;
     height: 40px;
     border: none;
     font-size: 16px;
