@@ -50,9 +50,11 @@ const ForgotPass = ({ setToken }) => {
     }
   }
 }
+
   const verify = e => {
     var element =  document.getElementById("succesBTN");
     var inputData = document.getElementById("inputType");
+    var element2 = document.getElementById("resetBtn");
     element.style.backgroundColor ="rgba(0,0,0,0.7)";
     element.innerHTML  = "Checking...";
     element.style.cursor="not-allowed";
@@ -65,8 +67,9 @@ const ForgotPass = ({ setToken }) => {
           element.style.color ="black"
           element.innerHTML  = "Captcha Verified";
           element.disabled = true;
-          element.style.cursor = "not-allowed";
+          element2.style.display="block";
           element.style.fontWeight="bold";
+          element2.style.cursor="pointer";
         }
         else
         {
@@ -147,7 +150,7 @@ const ForgotPass = ({ setToken }) => {
             Verify
           </button>
           <br />
-          <button className="fpbutton reset" type="submit">
+          <button className="fpbutton reset" type="submit" id="resetBtn" style={{display:"none"}}>
             Reset Password
           </button>
           </div>
