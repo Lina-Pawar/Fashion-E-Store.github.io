@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./User/Home/Home";
+import ProductDetail from "./components/Products/ProductDetail";
 import Login from "./components/LogReg/Login";
 import Women from "./User/Women/Women";
 import Men from "./User/Men/Men";
@@ -45,6 +46,9 @@ const App = () => {
       </Route>
       <Route path="/kids">
         <Kids />
+      </Route>
+      <Route path="/product">
+        <ProductDetail />
       </Route>
     </Switch>
   );
