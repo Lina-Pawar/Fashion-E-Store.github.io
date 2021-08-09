@@ -27,14 +27,14 @@ function ProductDetail() {
             <div>
               <img
                 src={ProdList[itemID].image}
-                className="carimg"
+                className="detimg"
                 alt="offers"
               />
             </div>
             <div>
               <img
                 src={ProdList[itemID].image2}
-                className="carimg"
+                className="detimg"
                 alt="offers"
               />
             </div>
@@ -96,9 +96,9 @@ function ProductDetail() {
                         <tr>
                           <td>&#8377; {item.price}</td>
                           <td align="right">
-                            <Link to={linkto} className="buy">
+                            <a href={linkto} className="buy">
                               <button className="buybutton">Buy</button>
-                            </Link>
+                            </a>
                           </td>
                         </tr>
                       </tbody>
