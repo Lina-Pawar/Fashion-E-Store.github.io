@@ -47,7 +47,7 @@ const App = () => {
       <Route path="/kids">
         <Kids />
       </Route>
-      <Route path="/product">
+      <Route path="/product" >
         <ProductDetail />
       </Route>
     </Switch>
