@@ -9,6 +9,7 @@ import Kids from "./User/Kids/Kids";
 import ForgotPass from "./components/LogReg/ForgotPass";
 import useToken from "./components/useToken";
 import Admin from "./Admin/Admin";
+import Cart from "./components/Cart";
 
 const App = () => {
   const { setToken } = useToken("$$$NULL$$$");
@@ -37,6 +38,9 @@ const App = () => {
       </Route>
       <Route path="/home" exact>
         <Home />
+      </Route>
+      <Route path="/cart" exact>
+        <Cart />
       </Route>
       <Route path="/men">
         <Men />
