@@ -2,7 +2,68 @@
     display: block;
     background-color: white;
 }
-.womenpage{
-    padding-top: 8vh;
-    height: 100vh;
+.home{
+    width: 100%;
+    display: flex;
+    height: auto;
+}
+.filter{
+    width: 15%;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin-top:8vh;
+    color: white;
+    
+}
+
+.wcontent{
+    width: 85%;
+    margin-top: 10vh;
+    font-size: 16px;
+}
+.farrow{
+    visibility: hidden;
+}
+.showfilter,.fa-chevron-circle-left,.fa-chevron-circle-right{
+    visibility: hidden;
+    position: absolute;
+}
+.hidefilter{
+    display: none;
+}
+@media screen and (max-width: 780px) {
+    .filter{
+        display: none;
+    }
+    .showfilter{
+        /* z-index:5; */
+        width:70%;
+        position: absolute;
+        background-color:rgba(0, 0, 0, 1);
+        margin-top:8vh;
+        visibility: visible;
+        color: white;
+    }
+    .wcontent{
+        margin-left: 0;
+        width: 100%;
+        margin-top: 8vh;
+    }
+    .fa-chevron-circle-right{
+        position: fixed;
+        top:47vh;
+        left: 1vw;
+        visibility: visible;
+        font-size: 30px;
+    }
+    .fa-chevron-circle-left{
+        position: fixed;
+        top:47vh;
+        left:70vw;
+        font-size: 30px;
+        visibility: visible;
+
+    }
+    .hidefilter{
+        display: none;
+    }
 }

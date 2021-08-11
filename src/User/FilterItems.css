@@ -1,0 +1,17 @@
+.filteritems{
+    color: white;
+    padding-left: 10%;
+}
+.filteritems h2{   
+    padding: 5%;
+}
+.filteritems h3{   
+    padding-left: 10%;
+}
+.filteritems td h3{
+    padding-left: 0;
+    
+}
+.filteritems hr{   
+    margin-right: 10%;
+}
