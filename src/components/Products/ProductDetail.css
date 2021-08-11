@@ -2,58 +2,58 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  
+  p{
+    color: rgb(116, 114, 114);
+    font-size: 18px;
+  }
  .detpage{
+    display: block;
     background-color: white;
-    padding-top: 8vh;
-    height: auto;
+    padding-top: 10vh;
     padding-bottom: 4.5vh;
     display: flex;
- }
-  .detimg{
-    height:32vh;
-    width: 100%;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
 }
-.scroll{
-    width: 100%;
+.detimg{
     height: 100%;
-    position: relative;
 }
-  .detcar{
-      margin-top: 2vh;
-      width:15%;
-      height: 32vh; 
-      margin-left: 28%;
-
-  }
-  .detcontent{
-      margin-top: 1vh;
-      padding-top: 3vh;
-      margin-left: 6%;
-  }
-  .atcbtn {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    height: 10vh;
-    max-height: 40px;
-    width: 35vw;
-    max-width: 200px;
-    border-radius: 20px;
-    background-color: black;
-    color: white;
-    border:none;
-  }
-  .atcbtn:hover {
-    background: linear-gradient(
-      to right,
-      #d4af37,
-      #f9f095,
-      #d4af37,
-      #f9f095,
-      #d4af37
-    );
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
-  }
+.detcar{
+    margin-top: 2vh;
+    margin-left: 2%;
+    width:25%;
+    height: 32vh;
+}
+.detcontent{
+    margin-top: 1vh;
+    padding-top: 3vh;
+    margin-left: 4%;
+    margin-right: 2%;
+}
+.atcbtn {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  height: 10vh;
+  max-height: 40px;
+  width: 35vw;
+  max-width: 200px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  border:none;
+}
+.atcbtn:hover {
+  background: linear-gradient(
+    to right,
+    #d4af37,
+    #f9f095,
+    #d4af37,
+    #f9f095,
+    #d4af37
+  );
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+}

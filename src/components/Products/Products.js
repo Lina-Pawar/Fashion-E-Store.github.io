@@ -1,16 +1,16 @@
 import "./Products.css";
-import { ProdList } from "./ProdList";
 import { Link } from "react-router-dom";
+import { ProdList } from "./ProdList";
+import img1 from "../../imgs/c1.png"
 
 function Products() {
   return (
     <ul className="list-items">
-      {ProdList.map((item, index) => {
-        var linkto = "/product?id="+item.id;
+      {ProdList.slice(0,12).map((item) => {
+        var linkto = "/product?name="+item.name;
         return (
-      
-          <li className="list-item" key={item.id}>
-            <div><img className="itemimg" src={item.image} alt="product"/></div>
+          <li className="list-item" key={item.name}>
+            <div><img className="itemimg" src={img1} alt="product"/></div>
             <div>
             <table width="100%">
               <tbody>

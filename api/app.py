@@ -28,5 +28,19 @@ def resetpassword():
         response = conn.resetPassword(userData)
     return {"response": response}
 
+@app.route("/UserInfo", methods=["GET", "POST"])
+def userinfo():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.getUserInfo(userData)
+    return {"response": response}
+
+@app.route("/Products", methods=["GET", "POST"])
+def products():
+    conn = Connection()
+    if request.method == "POST":
+        response = conn.Products()
+    return {"response": response}
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)
