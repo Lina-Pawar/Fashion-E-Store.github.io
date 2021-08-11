@@ -39,7 +39,7 @@ function WomenFilList(){
       <a href="/women?cat=accesories"><h3>Women Accessories</h3></a>
       <a href="/women?cat=footwear"><h3>Women Footwear</h3></a>
       <a href="/men?cat=clothing"><h3>Men Clothing</h3></a>
-      <a href="/men?cat=accesories"><h3>Men Accessories</h3></a>
+      <a href="/men?cat=accessories"><h3>Men Accessories</h3></a>
       <a href="/men?cat=footwear"><h3>Men Footwear</h3></a>
       <a href="/kids?cat=clothing"><h3>Kids Clothing</h3></a>
       <a href="/kids?cat=accesories"><h3>Kids Accessories</h3></a>
@@ -80,7 +80,7 @@ function WomenFilList(){
       <a href="/women?cat=clothing"><h3>Women Clothing</h3></a>
       <a href="/women?cat=footwear"><h3>Women Footwear</h3></a>
       <a href="/men?cat=clothing"><h3>Men Clothing</h3></a>
-      <a href="/men?cat=accesories"><h3>Men Accessories</h3></a>
+      <a href="/men?cat=accessories"><h3>Men Accessories</h3></a>
       <a href="/men?cat=footwear"><h3>Men Footwear</h3></a>
       <a href="/kids?cat=clothing"><h3>Kids Clothing</h3></a>
       <a href="/kids?cat=accesories"><h3>Kids Accessories</h3></a>
@@ -117,7 +117,7 @@ function WomenFilList(){
     <a href="/women?cat=clothing"><h3>Women Clothing</h3></a>
       <a href="/women?cat=accessories"><h3>Women Accessories</h3></a>
       <a href="/men?cat=clothing"><h3>Men Clothing</h3></a>
-      <a href="/men?cat=accesories"><h3>Men Accessories</h3></a>
+      <a href="/men?cat=accessories"><h3>Men Accessories</h3></a>
       <a href="/men?cat=footwear"><h3>Men Footwear</h3></a>
       <a href="/kids?cat=clothing"><h3>Kids Clothing</h3></a>
       <a href="/kids?cat=accesories"><h3>Kids Accessories</h3></a>
