@@ -8,6 +8,7 @@ import Men from "./User/Men/Men";
 import Kids from "./User/Kids/Kids";
 import ForgotPass from "./components/LogReg/ForgotPass";
 import useToken from "./components/useToken";
+import Profile from "./User/Home/Profile";
 import Admin from "./Admin/Admin";
 
 const App = () => {
@@ -49,6 +50,9 @@ const App = () => {
       </Route>
       <Route path="/product" >
         <ProductDetail />
+      </Route>
+      <Route path="/profile" >
+        <Profile />
       </Route>
     </Switch>
   );

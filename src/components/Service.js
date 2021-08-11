@@ -10,6 +10,10 @@ const register = async (user) => {
   return axios.post(API_BASE_URL + "RegisterUser", { ...user });
 };
 
+const userinfo = async (user) => {
+  return axios.post(API_BASE_URL + "UserInfo", { ...user });
+};
+
 const updateUserName = async (user) => {
   return axios.post(API_BASE_URL + "UpdateUserName", { ...user });
 };
@@ -17,5 +21,10 @@ const updateUserName = async (user) => {
 const resetPassword = async (user) => {
   return axios.post(API_BASE_URL + "ResetPassword", { ...user });
 };
+
+const products = async (user) => {
+  return axios.post(API_BASE_URL + "Products", { ...user });
+};
+
 // eslint-disable-next-line
-export default { login, register, updateUserName, resetPassword };
+export default { login, register, userinfo, updateUserName, resetPassword, products };
