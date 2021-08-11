@@ -27,6 +27,7 @@ function decrease(){
     x.value=parseInt(x.value)-1;
   }
 }
+window.scrollTo(0,0);
 let itemName = index();
   return (
     <div>

@@ -107,7 +107,7 @@ function Profile() {
             <br/><br/>
             <label className="reglabel profilelabel">Username:</label>
             <input
-              className="reginput profileinput1"
+              className="reginput profileinput2"
               type="text"
               id="username"
               required
@@ -115,13 +115,9 @@ function Profile() {
             />
             <br/>
           <div align="center">
-            <button className="regbutton updatepw">Change Password</button><br></br>
-            <button className="regbutton">
-                Edit
-            </button>
-            <button className="regbutton" type="submit">
-                Update
-            </button>
+            <button className="regbutton updatepw" onClick={(e) => { window.location.href="/changepassword";}}>Change Password</button><br></br>
+            <button className="regbutton">Edit</button>
+            <button className="regbutton" type="submit">Update</button>
           </div>
           </form>
         </div>
