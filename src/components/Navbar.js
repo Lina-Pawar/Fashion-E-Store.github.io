@@ -51,8 +51,8 @@ const Navbar = () => {
 
         </li>
         <div className={DropDown1}>
-            <div><Link to="/home" className="notlink1"><p style={{fontSize:"20px"}} id="fname"></p></Link></div>
-            <div><Link to="/profile" className="notlink"><p><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Edit Profile</p></Link></div>
+            <div><Link to="/home" className="notlink1"><p style={{fontSize:"20px",color:"white"}} id="fname"></p></Link></div>
+            <div><Link to="/profile" className="notlink"><p style={{color:"white"}}><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Edit Profile</p></Link></div>
         </div> 
         <li className="notify" onClick={() => setVisibility2((visible) => !visible)}>
           <i className="fas fa-bell"></i>

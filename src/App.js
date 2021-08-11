@@ -19,7 +19,7 @@ const App = () => {
       <Route path="/" exact>
         <Login setToken={setToken} />
       </Route>
-      <Route path="/passwordrecovery">
+      <Route path="/changepassword">
         <ForgotPass />
       </Route>
       <Route path="/admin" exact>

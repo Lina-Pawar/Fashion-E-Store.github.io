@@ -12,8 +12,8 @@ function generateString() {
   }
   return result;
 }
-const ForgotPass = ({ setToken }) => {
-  const captcha=generateString();
+const captcha=generateString();
+const ForgotPass = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
@@ -29,7 +29,7 @@ const ForgotPass = ({ setToken }) => {
         if(resp.data.response===2){
           alert("New password cannot be same as old password!");
         } else if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
-          window.location.href="/";
+          window.history.go(-1);
         } else {
           alert("Incorrect email address!!");
         }
@@ -119,7 +119,7 @@ const ForgotPass = ({ setToken }) => {
           />
           <br />
           <div className="captcha">
-            <h2 id="captcha">{captcha}</h2><span onclick={generateString()} className="fas fa-sync-alt"></span>
+            <h2 id="captcha">{captcha}</h2><span onclick={generateString} className="fas fa-sync-alt"></span>
           </div>
           <input
             type="text"
@@ -132,14 +132,10 @@ const ForgotPass = ({ setToken }) => {
             onChange={(e) => setcaptchatext(e.target.value)}
           />
           <div align="center">
-          <button className="fpbutton" onClick={(e) => { window.location.href="/";}}>
-            Back
-          </button>
           <button className="fpbutton" id="succesBTN" onClick={verify}>
             Verify
           </button>
-          <br />
-          <button className="fpbutton reset" type="submit" id="resetBtn" style={{display:"none"}}>
+          <button className="fpbutton" type="submit" id="resetBtn" style={{display:"none"}}>
             Reset Password
           </button>
           </div>

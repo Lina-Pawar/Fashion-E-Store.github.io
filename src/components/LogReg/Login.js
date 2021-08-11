@@ -69,7 +69,7 @@ const Login = ({ setToken }) => {
                 className={Icon}
                 onClick={() => setVisibility((visibility) => !visibility)}
               /></div>
-            <Link to="/passwordrecovery">
+            <Link to="/changepassword">
               <label className="pwlabel">Forgot password?</label>
             </Link>
             <br />
