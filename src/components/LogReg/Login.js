@@ -26,15 +26,8 @@ const Login = ({ setToken }) => {
   }
   else{
     Service.login(user).then((resp) => {
-      if (
-        resp.data.response !== 0 &&
-        resp.data.response !== undefined &&
-        resp.data.response !== null
-      ) {
-        window.localStorage.setItem(
-          "fashion-e-store-user",
-          user.username
-        );
+      if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+        window.localStorage.setItem("fashion-e-store-user",user.username);
         setToken(resp.data.response);
         window.location.href="/home";
       } else {
@@ -76,7 +69,7 @@ const Login = ({ setToken }) => {
                 className={Icon}
                 onClick={() => setVisibility((visibility) => !visibility)}
               /></div>
-            <Link to="/passwordrecovery">
+            <Link to="/changepassword">
               <label className="pwlabel">Forgot password?</label>
             </Link>
             <br />

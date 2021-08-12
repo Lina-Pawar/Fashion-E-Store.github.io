@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import Service from "../Service";
 import "./ForgotPass.css";
 
-
-const characters = "abcdefghijklmnopqrstuvwxyz1234567890";
-
-function generateString(length) {
+const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+function generateString() {
+  var length=6;
   let result = "";
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
@@ -13,8 +12,8 @@ function generateString(length) {
   }
   return result;
 }
-const captcha = generateString(6);
-const ForgotPass = ({ setToken }) => {
+const captcha=generateString();
+const ForgotPass = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
@@ -25,21 +24,12 @@ const ForgotPass = ({ setToken }) => {
       email: email,
       password: password,
     };
-    var inputData = document.getElementById("inputType");
-    if(inputData.disabled!==true){
-      alert("Verify captcha!");
-    }
-    else{
-      if(password===confirmpassword){
+    if(password===confirmpassword){
       Service.resetPassword(user).then((resp) => {
         if(resp.data.response===2){
           alert("New password cannot be same as old password!");
-        } else if (
-          resp.data.response !== 0 &&
-          resp.data.response !== undefined &&
-          resp.data.response !== null
-        ) {
-          window.location.href="/";
+        } else if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+          window.history.go(-1);
         } else {
           alert("Incorrect email address!!");
         }
@@ -49,7 +39,6 @@ const ForgotPass = ({ setToken }) => {
       alert("Passwords do not match!");
     }
   }
-}
 
   const verify = e => {
     var element =  document.getElementById("succesBTN");
@@ -130,7 +119,7 @@ const ForgotPass = ({ setToken }) => {
           />
           <br />
           <div className="captcha">
-            <h2 id="captcha">{captcha}</h2>
+            <h2 id="captcha">{captcha}</h2><span onclick={generateString} className="fas fa-sync-alt"></span>
           </div>
           <input
             type="text"
@@ -143,14 +132,10 @@ const ForgotPass = ({ setToken }) => {
             onChange={(e) => setcaptchatext(e.target.value)}
           />
           <div align="center">
-          <button className="fpbutton" onClick={(e) => { window.location.href="/";}}>
-            Back
-          </button>
           <button className="fpbutton" id="succesBTN" onClick={verify}>
             Verify
           </button>
-          <br />
-          <button className="fpbutton reset" type="submit" id="resetBtn" style={{display:"none"}}>
+          <button className="fpbutton" type="submit" id="resetBtn" style={{display:"none"}}>
             Reset Password
           </button>
           </div>

@@ -1,3 +1,4 @@
+from os import write
 import pymysql
 import hashlib
 
@@ -15,12 +16,13 @@ class Connection:
             print(e)
             return 0
 
-    def getUserInfo(self, username):
-        self.query = 'SELECT * FROM customers WHERE = %s'
-        flag = self.exec(username)
+    def getUserInfo(self, data):
+        self.query = 'SELECT * FROM customers WHERE username= %s'
+        flag = self.exec(data['username'])
         val = self.cur.fetchone()
         if flag == 1 and val is not None:
-            return val
+            info={"firstname":val[1], "lastname":val[2], "contact":val[3], "email":val[4], "gender":val[5], "username":val[6], "password":val[7]}
+            return info
         else:
             return flag
 
@@ -42,8 +44,6 @@ class Connection:
             if self.cur.fetchone()[0] == converted and flag == 1:
                 val = data['username']
                 return val
-            else:
-                return 0
         return 0
 
     def resetPassword(self,data):
@@ -60,4 +60,24 @@ class Connection:
                     return 1
             else:
                 return 2
+        return 0
+
+    def Products(self):
+        def write_file(data, filename):
+            with open(filename, 'wb') as file:
+                file.write(data)
+        self.query='SELECT * FROM products'
+        li=[]
+        flag=self.exec()
+        val1=self.cur.fetchall()
+        if flag==1:
+            for row in val1:
+                self.query='SELECT * FROM images WHERE name=%s'
+                flag2=self.exec(row[0])
+                val2=self.cur.fetchone()
+                if flag2==1 and val2 is not None:
+                    write_file(val2[1],r"C:\Users\Madhavi\Downloads\img2.png")
+                    prods={"name":row[0],"image":r"C:\Users\Madhavi\Downloads\img2.png","price":row[1],"quantity":row[2],"filters":row[3],"details":row[4]}
+                    li.append(prods)
+            return li
         return 0

@@ -5,8 +5,24 @@ import navlogo from "../imgs/nav-logo.png";
 import oneOnone from "../imgs/1on1.png";
 import free from "../imgs/free.png";
 import off from "../imgs/50off.png";
+import Service from "./Service";
 
+function setuser(){
+  var username=window.localStorage.getItem("fashion-e-store-user");
+  const user={ username:username };
+  let s="Hi, ";
+  Service.userinfo(user).then((resp) => {
+    if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+      const profiledetails=resp.data.response;
+      s+=(profiledetails['firstname']+" "+profiledetails['lastname']);
+      document.getElementById("fname").innerHTML=s;
+    } else {
+      alert("Error");
+    }
+  });
+}
 const Navbar = () => {
+  setuser();
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible1, setVisibility1] = useState(false);
   const [isVisible2, setVisibility2] = useState(false);
@@ -14,7 +30,6 @@ const Navbar = () => {
   const arrow1 = isVisible1 ? "fas fa-angle-up" : "fas fa-angle-down" ;
   const DropDown2 = isVisible2 ? "showdd" : "hidedd";
   const arrow2 = isVisible2 ? "fas fa-angle-up" : "fas fa-angle-down" ;
-  const fname="Amit Naik";
   return (
     <nav className="navbar">
       <img className="logo" src={navlogo} alt="Nav Logo" />
@@ -36,9 +51,8 @@ const Navbar = () => {
 
         </li>
         <div className={DropDown1}>
-            <div><Link to="/home" className="notlink1"><p style={{fontSize:"20px"}}><b>Hi, {fname}</b></p></Link></div>
-            <div><Link to="/register" className="notlink"><p><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Edit Profile</p></Link></div>
-            <div><Link to="/passwordrecovery" className="notlink"><p><i className="fas fa-exchange-alt"></i>&nbsp;&nbsp;Change Password</p></Link></div>
+            <div><Link to="/home" className="notlink1"><p style={{fontSize:"20px",color:"white"}} id="fname"></p></Link></div>
+            <div><Link to="/profile" className="notlink"><p style={{color:"white"}}><i className="fas fa-user-circle"></i>&nbsp;&nbsp;Edit Profile</p></Link></div>
         </div> 
         <li className="notify" onClick={() => setVisibility2((visible) => !visible)}>
           <i className="fas fa-bell"></i>

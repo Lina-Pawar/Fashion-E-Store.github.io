@@ -1,0 +1,19 @@
+.updatepw{
+    width: 50vw;
+    max-width:400px;
+}
+.editprofile{
+    max-width: 600px;
+}
+.profilelabel{
+    margin:10px;
+}
+.profileinput{
+    width: 40%;
+}
+.profileinput1{
+    width: 82%;
+}
+.profileinput2{
+    width: 60%;
+}

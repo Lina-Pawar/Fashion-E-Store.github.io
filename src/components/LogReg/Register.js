@@ -82,7 +82,7 @@ const Register = ({ setToken }) => {
 
   return (
     <section className="register">
-      <div align="center">
+      <div>
         <br/>
         <div className="reg">
           <form className="regform" onSubmit={handleSubmit}>

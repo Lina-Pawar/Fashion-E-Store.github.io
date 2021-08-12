@@ -30,7 +30,6 @@ function show() {
         </div>
         <div className={CategorySlide}>
           <CatItems />
-
         </div>
         <span className="sarrow" onClick={() => setCatVisibility((visible) => !visible)} >
             <i className={slidearrow}></i>

@@ -1,6 +1,7 @@
 import "./Products.css";
-import { ProdList } from "./ProdList";
 import { Link } from "react-router-dom";
+import { ProdList } from "./ProdList";
+import img1 from "../../imgs/c1.png"
 
 function Products() {
   const Prod=ProdList.map((item, index) => {
@@ -28,6 +29,7 @@ function Products() {
   return (
     <ul className="list-items">
       {Prod}
+
     </ul>
   );
 }
