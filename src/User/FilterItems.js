@@ -104,7 +104,7 @@ function FilterItems(){
         <h3>Price Range</h3>
         <hr /><br/>
         <input type="range" min="100" max="3000" defaultValue="100" step="10" id="slider"/>
-        <br/><label>Rs.100</label><label style={{float:"right"}}>max</label>
+        <br/><label>&#8377;. 100</label><label style={{float:"right"}}>max</label>
         <br /><br />
         <h3>Colors&nbsp;<i className={plusminus1} onClick={() => setVisibility1((visible) => !visible)}></i></h3>
         <hr/>
