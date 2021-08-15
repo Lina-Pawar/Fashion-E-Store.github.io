@@ -10,7 +10,7 @@ function FilterItems(){
   const SUBCATEGORIES = isVisible2 ? "showsc" : "hidesc";
   const plusminus2 = isVisible2 ? "fas fa-minus-circle" : "fas fa-plus-circle" ;
   //
-
+  const[sclink,setscLink]=useState(" ");
   let para = new URLSearchParams(window.location.search);
   let category=para.get("category");
   let type=para.get("type");
@@ -84,11 +84,17 @@ function FilterItems(){
   var sub=["Men clothing","Women clothing","Kids clothing",
   "Men accessories","Women accessories","Kids accessories",
   "Men footwear","Women footwear","Kids footwear"];
-  const Other = sub.map((x)=>{
+  const handler = function(e){
+    var linkto =e.currentTarget.dataset.index;
+    var nl = linkto.split(' '); 
+    var scatlink="/category?category="+nl[0].toLowerCase()+"&type="+nl[1].toLowerCase();
+    setscLink(scatlink);
+};
+  const Other = sub.map((x,index)=>{
     var s=category+" "+type;
     if(x.toLowerCase()!==s){
       return(
-        <li key={x}>&nbsp;&nbsp;<a href="/">{x}</a></li>
+        <li key={x} data-index={x} onClick={handler}>&nbsp;&nbsp;<a href={sclink}>{x}</a></li>
       );
     }
   });
