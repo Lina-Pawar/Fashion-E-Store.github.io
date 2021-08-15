@@ -1,6 +1,16 @@
+import { useState } from "react";
 import "./FilterItems.css";
 import { clothing,accessories,footwear } from "./CategoryItems";
 function FilterItems(){
+  //
+  const [isVisible1, setVisibility1] = useState(false);
+  const [isVisible2, setVisibility2] = useState(false);
+  const COLORS = isVisible1 ? "showcolor" : "hidecolor";
+  const plusminus1 = isVisible1 ? "fas fa-minus-circle" : "fas fa-plus-circle" ;
+  const SUBCATEGORIES = isVisible2 ? "showsc" : "hidesc";
+  const plusminus2 = isVisible2 ? "fas fa-minus-circle" : "fas fa-plus-circle" ;
+  //
+
   let para = new URLSearchParams(window.location.search);
   let category=para.get("category");
   let type=para.get("type");
@@ -89,15 +99,21 @@ function FilterItems(){
         <hr /><br/>
         <input type="range" min="100" max="3000" defaultValue="100" step="10" id="slider"/>
         <br/><label>Rs.100</label><label style={{float:"right"}}>max</label>
-        <h3>Colors&nbsp;<i className="fas fa-plus-circle"></i></h3>
+        <br /><br />
+        <h3>Colors&nbsp;<i className={plusminus1} onClick={() => setVisibility1((visible) => !visible)}></i></h3>
         <hr/>
         <br />
-        <ul id="colors">{Colorsavailable}</ul>
+        <div className={COLORS}>
+        <ul>{Colorsavailable}</ul>
+        </div>
         <br />
-        <h3>Categories&nbsp;<i className="fas fa-plus-circle"></i></h3>
+        <h3>Categories&nbsp;<i className={plusminus2} onClick={() => setVisibility2((visible) => !visible)}></i></h3>
         <hr />
         <br />
-        <ul id="subcategories">{Subcategories}</ul>
+        <div className={SUBCATEGORIES}>
+        <ul>{Subcategories}</ul>
+        </div>
+        <br />
         <h3>Other categories</h3>
         <hr />
         <br />

@@ -76,8 +76,8 @@ class Connection:
                 flag2=self.exec(row[0])
                 val2=self.cur.fetchone()
                 if flag2==1 and val2 is not None:
-                    write_file(val2[1],r"C:\Users\Madhavi\Downloads\img2.png")
-                    prods={"name":row[0],"image":r"C:\Users\Madhavi\Downloads\img2.png","price":row[1],"quantity":row[2],"filters":row[3],"details":row[4]}
+                   
+                    prods={"name":row[0],"price":row[1],"quantity":row[2],"filters":row[3],"details":row[4]}
                     li.append(prods)
             return li
         return 0

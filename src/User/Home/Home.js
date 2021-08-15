@@ -47,7 +47,7 @@ function show() {
           <div id="chatwindow">
           </div>
         </div>
-      </div><br/><br/>
+      </div>
       <div className="homefooter" id="#contactus">
         <Footer/>
       </div>
