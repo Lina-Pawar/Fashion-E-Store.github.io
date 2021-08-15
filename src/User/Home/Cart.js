@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import demo1 from "../imgs/c1.png";
-import demo2 from "../imgs/c2.png";
-import demo3 from "../imgs/c3.png";
-import demo4 from "../imgs/c4.png";
-import Navbar from "./Navbar";
+import demo1 from "../../imgs/c1.png";
+import demo2 from "../../imgs/c2.png";
+import demo3 from "../../imgs/c3.png";
+import demo4 from "../../imgs/c4.png";
+import Navbar from "../../components/Navbar";
 import "./Cart.css";
 function Cart(){
     const CartItem = [
@@ -61,11 +61,11 @@ function Cart(){
             <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}}>
                 <h1 style={{textAlign:"center"}}>CART</h1>
         <ul className="">
-      {CartItem.map((item, index) => {
-        var linkto = "/product?id="+item.id;
+      {CartItem.map((item) => {
+        var linkto = "/product?name="+item.name;
         var itemprice=(item.price) * (item.quantity);
         return (
-            <li className="cartbox" key={item.id}>
+            <li className="cartbox" key={item.name}>
                 <div className="cartimg">
                     <img src={item.image} alt="cartimage"/>
                 </div>
@@ -73,7 +73,6 @@ function Cart(){
                     <table>
                         <tr>
                         <th style={{textAlign:"left"}}><h1><b>{item.name}</b></h1></th>
-                        
                         </tr>
                         <tr>
                         <td style={{textAlign:"left"}}><h3>Quantity: <input type="number" style={{width:"50px"}} placeholder={item.quantity} min="0"/></h3>

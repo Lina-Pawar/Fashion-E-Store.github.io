@@ -1,12 +1,12 @@
 import "./Footer.css";
-import f11img from ".././imgs/footericons/secure.png";
-import f12img from ".././imgs/footericons/trust.png";
-import f13img from ".././imgs/footericons/help.png";
-import f14img from ".././imgs/footericons/app.png";
-import fb from ".././imgs/footericons/fb.png";
-import twi from ".././imgs/footericons/twitter.png";
-import yt from ".././imgs/footericons/yt.png";
-import ins from ".././imgs/footericons/insta.jpg";
+import f11img from "../../imgs/footericons/secure.png";
+import f12img from "../../imgs/footericons/trust.png";
+import f13img from "../../imgs/footericons/help.png";
+import f14img from "../../imgs/footericons/app.png";
+import fb from "../../imgs/footericons/fb.png";
+import twi from "../../imgs/footericons/twitter.png";
+import yt from "../../imgs/footericons/yt.png";
+import ins from "../../imgs/footericons/insta.jpg";
 function Footer(){
     return(
         <div className="footer">

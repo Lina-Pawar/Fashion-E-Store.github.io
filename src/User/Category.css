@@ -1,6 +1,5 @@
-.womencontent{
+.page{
     display: block;
-    background-color: white;
 }
 .home{
     width: 100%;
@@ -9,16 +8,14 @@
 }
 .filter{
     width: 15%;
-    background-color: rgba(0, 0, 0, 0.9);
     margin-top:8vh;
     color: white;
-    
 }
-
-.wcontent{
+.categorycontent{
     width: 85%;
     margin-top: 10vh;
-    font-size: 16px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .farrow{
     visibility: hidden;
@@ -35,7 +32,6 @@
         display: none;
     }
     .showfilter{
-        /* z-index:5; */
         width:70%;
         position: absolute;
         background-color:rgba(0, 0, 0, 1);
@@ -43,25 +39,22 @@
         visibility: visible;
         color: white;
     }
-    .wcontent{
+    .categorycontent{
         margin-left: 0;
         width: 100%;
         margin-top: 8vh;
     }
-    .fa-chevron-circle-right{
+    .fa-chevron-circle-right,.fa-chevron-circle-left{
         position: fixed;
         top:47vh;
-        left: 1vw;
         visibility: visible;
         font-size: 30px;
     }
+    .fa-chevron-circle-right{
+        left: 1vw;
+    }
     .fa-chevron-circle-left{
-        position: fixed;
-        top:47vh;
         left:70vw;
-        font-size: 30px;
-        visibility: visible;
-
     }
     .hidefilter{
         display: none;
