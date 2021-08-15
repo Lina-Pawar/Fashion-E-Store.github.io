@@ -23,8 +23,14 @@
     text-decoration:underline;
     color: white;
 }
-#colors,#subcategories{
-    display: none;
+.showcolor,.showsc{
+   display:block;
     padding-left: 10%;
     padding-right: 10%;
+}
+.hidesc, .hidecolor{
+    display: none;
+}
+.fa-plus-circle:hover,.fa-plus-circle:hover{
+    cursor: pointer;
 }
