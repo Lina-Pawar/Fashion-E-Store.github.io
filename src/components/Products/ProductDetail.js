@@ -1,9 +1,9 @@
 import { ProdList } from "./ProdList";
-import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Slider from "infinite-react-carousel";
 import img1 from "../../imgs/c1.png"
 import "./ProductDetail.css";
+import Products from "./Products";
 
 function ProductDetail() {
   let para = new URLSearchParams(window.location.search);
@@ -69,10 +69,15 @@ let itemName = index();
           <p>{ProdList[itemName].details}</p>
           <br />
           <br />
-          <h3>Size: XS S M L XL</h3>
+          <h3>Choose a size: 
+            <button className="size">XS</button>
+            <button className="size">S</button>
+            <button className="size">M</button>
+            <button className="size">L</button>
+            <button className="size">XL</button>
+            </h3>
           <br />
-          <h3>
-            Prize: &#8377;. {ProdList[itemName].price}
+          <h3>Rs. {ProdList[itemName].price}
             &nbsp;&nbsp;&nbsp;&nbsp; Quantity:&nbsp;&nbsp;
             <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={decrease}>-</button>
             <input style={{width: "40px",height: "40px",paddingLeft: "8px",fontSize: "16px",textAlign:"center"}} id="quantity" value="1"/>
@@ -86,43 +91,7 @@ let itemName = index();
       <div style={{ backgroundColor: "white" }}>
         <h3 style={{ textAlign: "center" }}>SIMILAR PRODUCTS</h3>
         <div style={{ paddingBottom: "1.3vh" }}>
-          <ul
-            className="list-items"
-            style={{ gridTemplateColumns: "repeat(5,18%)" }}
-          >
-            {ProdList.slice(0,4).map((item) => {
-              var linkto = "/product?name=" + item.name;
-              return (
-                <li className="list-item" key={item.name}>
-                  <div>
-                    <img className="itemimg" src={img1} alt="product" />
-                  </div>
-                  <div>
-                    <table width="100%">
-                      <tbody>
-                        <tr>
-                          <td colSpan="2">
-                            <b>{item.name}</b>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>&#8377; {item.price}</td>
-                          <td align="right">
-                            <a href={linkto} className="buy">
-                              <button className="buybutton">Buy</button>
-                            </a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </li>
-              );
-            })}
-            <li style={{ paddingTop: "15vh", color: "red", fontSize: "18px" }}>
-              <Link to="/home">View More..</Link>
-            </li>
-          </ul>
+          <Products/>
         </div>
       </div>
     </div>

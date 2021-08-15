@@ -1,0 +1,109 @@
+.footer1{
+    z-index: 5;
+    border-top: 5px solid grey;
+    border-bottom: 5px solid grey;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+.f1item{
+    width: 24.7vw;
+    border-left: 2px solid lightgray;
+    border-right: 2px solid lightgray;
+    height: auto;
+    padding-top: 3vh;
+    padding-bottom: 2.5vh;
+}
+.footer2{
+    width: 80%;
+    margin-left: 10%;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+}
+.f2item{
+    width: 26vw;
+    margin-top: 2vh;
+}
+.f2item p{
+    font-size: 16px;
+}
+.footlink{
+    font-size: 16px;
+    color:grey;
+}
+.footlink:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.f2item input{
+    width: 70%;
+    padding-left: 8px;
+    height: 40px;
+}
+.f2item button{
+    color: white;
+    background-color: rgb(37, 33, 33);
+    width: 25%;
+    height: 40px;
+    border: none;
+    font-size: 16px;
+}
+.f2item button:hover{
+    cursor: pointer;
+}
+.f2cont{
+    height: auto;
+    width: 100%;
+    color: rgb(82, 77, 77);
+    background-color: lightgray;
+    padding-top:5px ;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    margin-bottom: 2vh;
+}
+
+@media screen and (max-width:780px) {
+    .footer1{
+        grid-template-columns: repeat(2,auto);
+    }
+    .f1item{
+        width:50vw;
+        border-top: 2px solid lightgray;
+        border-bottom: 2px solid lightgray;
+        padding-left: 1vw;
+        padding-right: 1vw;
+
+    }
+    .f1item img{
+        height: 50px;
+        width: 50px;
+    }
+     
+    .f1item p{
+        font-size: 0.6rem;
+    }
+    .f1item p b{
+        font-size: 1rem;
+    }
+    .footer2{
+        grid-template-columns: repeat(1,auto);
+    }
+    .f2item{
+        width: 80vw;
+        margin-left: 5vw;
+    }
+    .footlink{
+        font-size: 1rem;
+    }
+    .f2item button{
+        font-size: 12px;
+    }
+    .f2cont{
+        padding-left: 10px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}
