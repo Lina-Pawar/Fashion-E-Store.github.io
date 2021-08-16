@@ -12,10 +12,10 @@
     color: white;
 }
 .categorycontent{
-    width: 85%;
+    width: 96%;
     margin-top: 10vh;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 .farrow{
     visibility: hidden;
