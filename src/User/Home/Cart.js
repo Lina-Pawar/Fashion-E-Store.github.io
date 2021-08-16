@@ -73,7 +73,7 @@ function Cart(){
             <Navbar />
             </div>
             <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}}>
-                <h1 style={{textAlign:"center"}}>CART</h1>
+                <h2 style={{textAlign:"center"}}>Cart</h2>
         <ul className="">
       {CartItem.map((item) => {
         var linkto = "/product?name="+item.name;
