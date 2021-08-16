@@ -37,7 +37,7 @@ function Category(){
                     <i className={slidearrow}></i>
                 </span>
                 <div className="categorycontent">
-                    <Products/>
+                    <Products category={category} type={type}/>
                 </div>
             </div>
             <Footer/>
