@@ -11,14 +11,12 @@ function Products(props) {
     n=12;
   }else if(str.match("/product")){
     n=4;
-  }else{
-    n=20;
   }
   return (
     <ul className="list-items">
-      {ProdList.map((item) => {
+      {ProdList.map((item,index) => {
         var Filters=item.filters.toLowerCase().split(" ");
-        if(Filters.indexOf(props.category)>=0 && Filters.indexOf(props.type)>=0){
+        if((str.match("/home") && index<n) || (Filters.indexOf(props.category)>=0 && Filters.indexOf(props.type)>=0)){
           var linkto = "/product?name="+item.name;
           var productname=item.name && item.name.length > 50 ? item.name.slice(0,50).split(' ').slice(0, -1).join(' ') : item.name;
           if (productname!==item.name){
