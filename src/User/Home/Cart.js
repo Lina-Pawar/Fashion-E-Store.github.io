@@ -5,6 +5,7 @@ import demo3 from "../../imgs/c3.png";
 import demo4 from "../../imgs/c4.png";
 import Navbar from "../../components/Navbar";
 import "./Cart.css";
+import { useState } from "react/cjs/react.development";
 function Cart(){
     const CartItem = [
         {
@@ -48,6 +49,19 @@ function Cart(){
             quantity:2
         },
     ]
+    function increase(){
+        var x=document.getElementById("quantity");
+        if(x.value<10){
+          x.value=parseInt(x.value)+1;
+        }
+      }
+      function decrease(){
+        var x=document.getElementById("quantity");
+        if(x.value>1){
+          x.value=parseInt(x.value)-1;
+        }
+      }
+      
     return(
         <div>
             <div style={{background:
@@ -63,7 +77,6 @@ function Cart(){
         <ul className="">
       {CartItem.map((item) => {
         var linkto = "/product?name="+item.name;
-        var itemprice=(item.price) * (item.quantity);
         return (
             <li className="cartbox" key={item.name}>
                 <div className="cartimg">
@@ -71,17 +84,24 @@ function Cart(){
                 </div>
                 <div className="cartcontent">
                     <table>
-                        <tbody>
+                    <tbody>
+                    <colgroup>
+                            <col style={{width:"65%"}}/>
+                            <col style={{width:"35%"}}/>
+                    </colgroup>
                         <tr>
-                        <th style={{textAlign:"left"}}><h1><b>{item.name}</b></h1></th>
+                            <th style={{fontSize:"20px"}}>{item.name}</th>
+                            <th><button className="cartbtn">Remove</button></th>
                         </tr>
                         <tr>
-                        <td style={{textAlign:"left"}}><h3>Quantity: <input type="number" style={{width:"50px"}} placeholder={item.quantity} min="0"/></h3>
-                        <h3>Price: {itemprice}</h3></td>                            
-                        </tr>
-                        <tr  style={{textAlign:"right"}}>
+                            <td>Quantity: 
+                                &nbsp;&nbsp;
+                                <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={decrease}>-</button>
+                                <input style={{width: "40px",height: "40px",fontSize: "16px",textAlign:"center"}} id="quantity" value={item.quantity} />
+                                <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={increase}>+</button> <br />
+                                Price: Rs. {item.price*item.quantity}
+                            </td>
                             <td>
-                                <button className="cartbtn">Remove</button>&nbsp;&nbsp;&nbsp;
                                 <Link to={linkto}><button className="cartbtn">View Details</button></Link>
                             </td>
                         </tr>
