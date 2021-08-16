@@ -32,7 +32,7 @@ const Navbar = () => {
   const arrow2 = isVisible2 ? "fas fa-angle-up" : "fas fa-angle-down" ;
   return (
     <nav className="navbar">
-      <span className="logo"><Link to= "/home" ><img src={navlogo} alt="Nav Logo" /></Link></span>
+      <Link to= "/home" className="alogo" ><img src={navlogo} alt="Nav Logo" className="logo" /></Link>
       <input
         className="search"
         type="text"
