@@ -97,7 +97,7 @@ function FilterItems(){
         <li key={x} data-index={x} onClick={handler}>&nbsp;&nbsp;<a href={sclink}>{x}</a></li>
       );
     }
-    return x;
+    return '';
   });
     return(
         <div className="filteritems">
