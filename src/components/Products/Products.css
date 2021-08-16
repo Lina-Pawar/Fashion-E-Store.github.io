@@ -58,12 +58,14 @@
     .list-item{
         width: 45vw;
         height: auto;
+        font-size: 14px;
     }
     .itemimg{
         width: 40vw;
         height: 25vh;
     }
     .buybutton{
-        width: 20vw;
+        width: 15vw;
+        font-size: 14px;
     }
 }

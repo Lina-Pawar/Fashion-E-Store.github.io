@@ -90,13 +90,14 @@ function FilterItems(){
     var scatlink="/category?category="+nl[0].toLowerCase()+"&type="+nl[1].toLowerCase();
     setscLink(scatlink);
 };
-  const Other = sub.map((x,index)=>{
+  const Other = sub.map((x)=>{
     var s=category+" "+type;
     if(x.toLowerCase()!==s){
       return(
         <li key={x} data-index={x} onClick={handler}>&nbsp;&nbsp;<a href={sclink}>{x}</a></li>
       );
     }
+    return x;
   });
     return(
         <div className="filteritems">

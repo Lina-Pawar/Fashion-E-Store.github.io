@@ -61,9 +61,15 @@ const Navbar = () => {
           
         </li>
         <div className={DropDown2}>
-            <div><Link to="/women" className="notlink"><p><img src={off} alt="off" />&nbsp;&nbsp;50% off on women tops today!</p></Link></div>
-            <div><Link to="/men" className="notlink"><p><img src={oneOnone} alt="1on1" />&nbsp;&nbsp;Buy 1 get 1 free on Men t-shirts.</p></Link></div>
-            <div><Link to="/kids" className="notlink"><p><img src={free} alt="free" style={{width:90}}/>&nbsp;&nbsp;Free shipping on all kids wear!</p></Link></div>  
+            <div><Link to="/women" className="notlink">
+              <p style={{color:"white"}}><img src={off} alt="off"/>&nbsp;&nbsp;50% off on women tops today!</p></Link>
+            </div>
+            <div><Link to="/men" className="notlink">
+              <p style={{color:"white"}}><img src={oneOnone} alt="1on1" />&nbsp;&nbsp;Buy 1 get 1 free on Men t-shirts.</p></Link>
+            </div>
+            <div><Link to="/kids" className="notlink">
+              <p style={{color:"white"}}><img src={free} alt="free" style={{width:90}}/>&nbsp;&nbsp;Free shipping on all kids wear!</p></Link>
+            </div>  
         </div> 
         
         <Link to="/cart" className="cart">
