@@ -71,6 +71,7 @@ function Cart(){
                 </div>
                 <div className="cartcontent">
                     <table>
+                        <tbody>
                         <tr>
                         <th style={{textAlign:"left"}}><h1><b>{item.name}</b></h1></th>
                         </tr>
@@ -84,6 +85,7 @@ function Cart(){
                                 <Link to={linkto}><button className="cartbtn">View Details</button></Link>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
             </li>

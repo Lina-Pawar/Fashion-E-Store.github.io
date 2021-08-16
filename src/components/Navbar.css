@@ -81,19 +81,23 @@
     right: 9.5%;
     top: 8vh;
     z-index: 10;
-    background-color:#96640d ;
+    background:rgb(0,0,0,0.9);
     width: 70vw;
     max-width: 250px;
 }
 .showdd div{
-    border: 1px solid black;
+    border: 1px solid rgb(155, 153, 153);
+    color: white;
     padding: 4px;
     padding-left: 6px;
 }
 .showdd div:hover{
-    background-color: #d4af37;
+    background: rgb(155, 153, 153,0.5);
     transition: all 0.4s ease-out;
     cursor: pointer;
+}
+.white{
+    color: white;
 }
 .showdd div img{
     height: 1.5rem;
@@ -127,7 +131,7 @@
         position: absolute;
         display: block;
         list-style: none;
-        background-color:#96640d ;
+        background:rgb(0,0,0,0.9);
         left: 0;
         top:7.6vh;
         transition: all 0.5s ease-out ;
@@ -177,7 +181,7 @@
         margin-left: 15vw;
         margin-right: auto;
         top: 22vh;
-        background-color:#96640d;
+        background:rgb(0,0,0,0.9);
     }
     
 }
