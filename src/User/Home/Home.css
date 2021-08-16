@@ -21,8 +21,8 @@
     width: 100%;
 }
 .cont2{
-    width: 90%;
-    margin-left: 5%;
+    width: 96%;
+    margin-left: 2%;
 }
 .homefooter{
     width:100%;
@@ -94,6 +94,7 @@
         margin-left: 0;
         width: 100%;
         margin-top: 8vh;
+        font-size: 14px;
     }
     .chatbox{
         width: 40px;

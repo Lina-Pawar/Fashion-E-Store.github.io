@@ -17,6 +17,10 @@ function Products() {
     <ul className="list-items">
       {ProdList.slice(0,n).map((item) => {
         var linkto = "/product?name="+item.name;
+        var productname=item.name && item.name.length > 50 ? item.name.slice(0,50).split(' ').slice(0, -1).join(' ') : item.name;
+        if (productname!==item.name){
+          productname+="..";
+        }
         return (
           <li className="list-item" key={item.name}>
             <div><img className="itemimg" src={img1} alt="product"/></div>
@@ -24,9 +28,9 @@ function Products() {
             <table width="100%">
               <tbody>
               <tr>
-                <td colSpan="2"><b>{item.name}</b></td>
+                <td colSpan="2" height="45px"><b>{productname}</b></td>
               </tr>
-              <tr>
+              <tr style={{verticalAlign:"bottom"}}>
                 <td>Rs. {item.price}</td>
                 <td align="right"><Link to={linkto} className="buy"><button className="buybutton">Buy</button></Link></td>
               </tr>

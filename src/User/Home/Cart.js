@@ -84,10 +84,11 @@ function Cart(){
                 </div>
                 <div className="cartcontent">
                     <table>
-                        <colgroup>
+                    <tbody>
+                    <colgroup>
                             <col style={{width:"65%"}}/>
                             <col style={{width:"35%"}}/>
-                        </colgroup>
+                    </colgroup>
                         <tr>
                             <th style={{fontSize:"20px"}}>{item.name}</th>
                             <th><button className="cartbtn">Remove</button></th>
@@ -104,6 +105,7 @@ function Cart(){
                                 <Link to={linkto}><button className="cartbtn">View Details</button></Link>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
             </li>
