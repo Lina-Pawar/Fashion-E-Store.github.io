@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Navbar from "../components/Navbar";
 import Products from "../components/Products/Products";
 import FilterItems from "../User/FilterItems";
-//import Footer from "../User/Home/Footer";
+import Footer from "../User/Home/Footer";
 import "./Category.css";
 
 function Category(){
@@ -40,6 +40,7 @@ function Category(){
                     <Products/>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
