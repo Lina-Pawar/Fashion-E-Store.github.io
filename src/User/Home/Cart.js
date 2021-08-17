@@ -74,8 +74,8 @@ function Cart(){
             </div>
             <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}}>
                 <h2 style={{textAlign:"center"}}>Cart</h2>
-        <ul className="">
-      {CartItem.map((item) => {
+        <ul>
+        {CartItem.map((item) => {
         var linkto = "/product?name="+item.name;
         return (
             <li className="cartbox" key={item.name}>
