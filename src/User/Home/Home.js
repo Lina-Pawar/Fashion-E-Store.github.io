@@ -39,7 +39,7 @@ function show() {
           <div className="cont1"><Carousel/></div>
           <h2 style={{textAlign:"center"}}><b>TRENDING PRODUCTS</b></h2>
           <div className="cont2">
-          <Products/>
+          <Products n={12}/>
           <div className="chatbox" style={{textAlign:"center"}} onClick={show}>
             <i className="fas fa-comment-dots"><span className="chatlabel">&nbsp;Chatbox</span></i>
           </div>

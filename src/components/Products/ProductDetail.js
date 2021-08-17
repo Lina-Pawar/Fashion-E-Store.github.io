@@ -91,7 +91,7 @@ let itemName = index();
       <div style={{ backgroundColor: "white" }}>
         <h3 style={{ textAlign: "center" }}>SIMILAR PRODUCTS</h3>
         <div style={{ paddingBottom: "1.3vh" }}>
-          <Products/>
+          <Products n={4}/>
         </div>
       </div>
     </div>
