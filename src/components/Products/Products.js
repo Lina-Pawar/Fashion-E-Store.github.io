@@ -2,7 +2,7 @@ import "./Products.css";
 import { Link } from "react-router-dom";
 import { ProdList } from "./ProdList";
 import img1 from "../../imgs/c1.png"
-import Category from "../../User/Category";
+//import Category from "../../User/Category";
 
 function Products(props) {
   var n;

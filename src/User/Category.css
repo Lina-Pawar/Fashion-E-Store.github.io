@@ -10,6 +10,7 @@
     width: 15%;
     margin-top:8vh;
     color: white;
+    background-color: rgba(0, 0, 0, 1);
 }
 .categorycontent{
     width: 96%;
