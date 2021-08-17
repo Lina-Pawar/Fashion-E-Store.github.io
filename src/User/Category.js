@@ -26,11 +26,11 @@ function Category(){
     return(
         <div className="page">
             <div style={{backgroundColor:theme,height:"8vh",width:"100%",position:"fixed",zIndex:"2"}}><Navbar/></div>
-            <div className="home">
-                <div className="filter">
+            <div className="home" style={{height:"auto"}}>
+                <div className="filter" style={{height:"auto"}}>
                     <FilterItems/>
                 </div>
-                <div className={FilterSlide}>
+                <div className={FilterSlide} style={{height:"auto"}}>
                     <FilterItems/>
                 </div>
                 <span className="farrow" onClick={() => setFilterVisibility((visible) => !visible)}>
