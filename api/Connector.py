@@ -20,9 +20,11 @@ class Connection:
         self.query = 'SELECT * FROM customers WHERE username= %s'
         flag = self.exec(data['username'])
         val = self.cur.fetchone()
+        li=[]
         if flag == 1 and val is not None:
             info={"firstname":val[1], "lastname":val[2], "contact":val[3], "email":val[4], "gender":val[5], "username":val[6], "password":val[7]}
-            return info
+            li.append(info)
+            return li
         else:
             return flag
 

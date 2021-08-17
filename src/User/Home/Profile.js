@@ -2,14 +2,25 @@ import React, {useState} from "react";
 import "./Profile.css";
 import Service from "../../components/Service";
 
+var username=window.localStorage.getItem("fashion-e-store-user");
+const profiledetails=[];
+const user={ username:username };
+Service.userinfo(user).then((resp) => {
+  if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+    const values=resp.data.response;
+    const dets=values.map((dets)=>{
+      profiledetails.push(dets['firstname'],dets['lastname'],dets['contact'],dets['email'],dets['gender'],dets['username']);
+      return dets;
+    });
+  }
+});
 function Profile() {
   const [fname, setfname] = useState("");
   const [lname, setlname] = useState("");
   const [contact, setcontact] = useState("");
   const [email, setemail] = useState("");
   const [gender, setgender] = useState("");
-  const [username, setusername] = useState("");
-
+  const [username, setusername] = useState("");  
   const handleSubmit = (e) => {
     e.preventDefault();
       var user = {fname:fname,lname:lname,contact:contact,email:email,gender:gender,username:username};
@@ -39,7 +50,23 @@ function Profile() {
         }
       });
   };
-
+  
+  function gendervalue(val){
+    var g=profiledetails[4];
+    if(g===val){
+      return true;
+    }
+    else{
+      return false;
+    }
+  };
+  function edit(){
+    document.getElementById("fname").disabled=false;
+    document.getElementById("lname").disabled=false;
+    document.getElementById("contact").disabled=false;
+    document.getElementById("email").disabled=false;
+    document.getElementById("username").disabled=false;
+  }
   return (
     <section className="register">
       <div>
@@ -51,17 +78,21 @@ function Profile() {
               type="text"
               className="reginput1 profileinput"
               id="fname"
+              value={profiledetails[0]}
               required
               onChange={(e) => setfname(e.target.value)}
               placeholder="First Name"
+              disabled
             />
             <input
               className="reginput2 profileinput"
               type="text"
               id="lname"
+              value={profiledetails[1]}
               required
               onChange={(e) => setlname(e.target.value)}
               placeholder="Last Name"
+              disabled
             />
             <br/>
             <label className="reglabel profilelabel">Contact:</label>
@@ -70,8 +101,10 @@ function Profile() {
               className="ip4"
               type="text"
               id="contact"
+              value={profiledetails[2]}
               required
               onChange={(e) => setcontact(e.target.value)}
+              disabled
             />
             <br/>
             <label className="reglabel profilelabel">Email:</label>
@@ -79,8 +112,10 @@ function Profile() {
               className="reginput profileinput1"
               type="text"
               id="email"
+              value={profiledetails[3]}
               required
               onChange={(e) => setemail(e.target.value)}
+              disabled
             />
             <br/>
             <label className="reglabel profilelabel">Gender:</label>
@@ -91,7 +126,7 @@ function Profile() {
               name="gender"
               value="Female"
               required
-              onChange={(e) => setgender(e.target.value)}
+              checked={gendervalue("Female")}
             />
             <label className="reglabel profilelabel">Female</label>
             <input
@@ -101,7 +136,7 @@ function Profile() {
               name="gender"
               value="Male"
               required
-              onChange={(e) => setgender(e.target.value)}
+              checked={gendervalue("Male")}
             />
             <label className="reglabel profilelabel">Male</label>
             <br/><br/>
@@ -111,12 +146,14 @@ function Profile() {
               type="text"
               id="username"
               required
+              value={profiledetails[5]}
               onChange={(e) => setusername(e.target.value)}
+              disabled
             />
             <br/>
           <div align="center">
             <button className="regbutton updatepw" onClick={(e) => { window.location.href="/changepassword";}}>Change Password</button><br></br>
-            <button className="regbutton">Edit</button>
+            <button className="regbutton" onClick={edit}>Edit</button>
             <button className="regbutton" type="submit">Update</button>
           </div>
           </form>
