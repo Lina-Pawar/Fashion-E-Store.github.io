@@ -82,3 +82,6 @@
   width: 50vw;
   max-width:440px;
 }
+.fa-sync-alt:hover{
+  cursor: pointer;
+}

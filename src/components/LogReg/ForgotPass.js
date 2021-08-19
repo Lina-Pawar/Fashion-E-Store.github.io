@@ -119,7 +119,7 @@ const ForgotPass = () => {
           />
           <br />
           <div className="captcha">
-            <h2 id="captcha">{captcha}</h2><span onclick={generateString} className="fas fa-sync-alt"></span>
+            <h2 id="captcha">{captcha}</h2><span onClick={generateString} className="fas fa-sync-alt"></span>
           </div>
           <input
             type="text"
