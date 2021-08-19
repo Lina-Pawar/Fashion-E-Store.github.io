@@ -3,6 +3,7 @@ import demo1 from "../../imgs/c1.png";
 import demo2 from "../../imgs/c2.png";
 import demo3 from "../../imgs/c3.png";
 import demo4 from "../../imgs/c4.png";
+import image from "../../imgs/logo.png";
 import Navbar from "../../components/Navbar";
 import "./Cart.css";
 function Cart(){
@@ -61,7 +62,7 @@ for(const key in CartItem){
           document.getElementById(pname).innerHTML=st;
           const index=FinalPrice.findIndex(x=>x.id===pid);
             FinalPrice[index].price=st;
-            document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);;
+            document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
         }
       }
       function decrease(pid,pname){
@@ -77,17 +78,16 @@ for(const key in CartItem){
         }
       }
     //   payment
-    
     var options = {
         "key": "rzp_test_dO928nWzZAVW6J", // Enter the Key ID generated from the Dashboard
         "amount": FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0)*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         "currency": "INR",
-        "name": "Style Zone-Fashion E-Store",
+        "name": "StyleZone-Fashion Store",
         "description": "Test Transaction",
-        "image": demo1,
+        "image": image,
         "handler": function (response){
-            alert(response.razorpay_payment_id);
-            alert("Payment Successful!")
+            alert("Payment Successful!\n"+"Payment id:"+response.razorpay_payment_id);
+            window.location.href="/home";
         },
         "prefill": {
             "name": "Gaurav Kumar",
@@ -136,11 +136,12 @@ for(const key in CartItem){
                 </div>
                 <div className="cartcontent">
                     <table>
-                    <tbody>
                     <colgroup>
                             <col style={{width:"65%"}}/>
                             <col style={{width:"35%"}}/>
                     </colgroup>
+                    <tbody>
+                   
                         <tr>
                             <th style={{fontSize:"20px"}}>{item.name}</th>
                             <th><button className="cartbtn">Remove</button></th>
@@ -149,7 +150,7 @@ for(const key in CartItem){
                             <td>Quantity: 
                                 &nbsp;&nbsp;
                                 <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={()=>decrease(item.id,item.name)}>-</button>
-                                <input style={{width: "40px",height: "40px",fontSize: "16px",textAlign:"center"}} id={item.id} value={item.quantity}  />
+                                <input style={{width: "40px",height: "40px",fontSize: "16px",textAlign:"center"}} id={item.id} defaultValue={item.quantity}  />
                                 <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={()=>increase(item.id,item.name)}>+</button> <br />
                                 Price: Rs. <span id={item.name}>{item.price*item.quantity}</span>
                             </td>
@@ -167,10 +168,11 @@ for(const key in CartItem){
     <button className="cartbtn" id="rzp-button1" onClick={function(e){
         rzp1.open();
         e.preventDefault();
-    }}>Pay Now Rs. <span id="totalp">{FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0)}</span> </button>
+    }}>Pay Now Rs. <span id="totalp">{FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0)} </span> </button>
     </div>
     </div>
 
-    )
+    );
+    
 }
 export default Cart;
