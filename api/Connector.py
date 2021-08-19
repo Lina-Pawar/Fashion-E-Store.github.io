@@ -49,19 +49,19 @@ class Connection:
     def update(self,data):
         if data['fname']!='':
             self.query = 'UPDATE customers SET firstname=%s WHERE username=%s'
-            flag = self.exec((data['fname'],data['username']))
+            self.exec((data['fname'],data['username']))
         if data['lname']!='':
             self.query = 'UPDATE customers SET lastname=%s WHERE username=%s'
-            flag = self.exec((data['lname'],data['username']))
+            self.exec((data['lname'],data['username']))
         if data['email']!='':
             self.query = 'UPDATE customers SET email=%s WHERE username=%s'
-            flag = self.exec((data['email'],data['username']))
+            self.exec((data['email'],data['username']))
         if data['contact']!='':
             self.query = 'UPDATE customers SET contact=%s WHERE username=%s'
-            flag = self.exec((data['contact'],data['username']))
+            self.exec((data['contact'],data['username']))
         if data['newusername']!='':
             self.query = 'UPDATE customers SET username=%s WHERE username=%s'
-            flag = self.exec((data['newusername'],data['username']))
+            self.exec((data['newusername'],data['username']))
         return 1
 
     def resetPassword(self,data):
