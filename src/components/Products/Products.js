@@ -7,6 +7,7 @@ function Products(props) {
   var str=String(window.location.href);
   return (
     <ul className="list-items">
+      {/* eslint-disable-next-line*/}
       {ProdList.map((item,index) => {
         var Filters=item.filters.toLowerCase().split(" ");
         if(((str.match("/home")||str.match("/product")) && index<props.n) || (Filters.indexOf(props.category)>=0 && Filters.indexOf(props.type)>=0)){

@@ -13,13 +13,8 @@ function setuser(){
   let s="Hi, ";
   Service.userinfo(user).then((resp) => {
     if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
-      const values=resp.data.response;
-      const profiledetails=[];
-      const dets=values.map((dets)=>{
-        profiledetails.push(dets['firstname'],dets['lastname']);
-        return dets;
-      });
-      s+=(profiledetails[0]+" "+profiledetails[1]);
+      const profiledetails=resp.data.response;
+      s+=(profiledetails['firstname']+" "+profiledetails['lastname']);
       document.getElementById("fname").innerHTML=s;
     } else {
       alert("Error");

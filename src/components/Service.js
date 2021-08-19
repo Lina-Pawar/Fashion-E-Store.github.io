@@ -14,6 +14,10 @@ const userinfo = async (user) => {
   return axios.post(API_BASE_URL + "UserInfo", { ...user });
 };
 
+const update = async (user) => {
+  return axios.post(API_BASE_URL + "UpdateProfile", { ...user });
+};
+
 const updateUserName = async (user) => {
   return axios.post(API_BASE_URL + "UpdateUserName", { ...user });
 };
@@ -27,4 +31,4 @@ const products = async (user) => {
 };
 
 // eslint-disable-next-line
-export default { login, register, userinfo, updateUserName, resetPassword, products };
+export default { login, register, userinfo, update, updateUserName, resetPassword, products };
