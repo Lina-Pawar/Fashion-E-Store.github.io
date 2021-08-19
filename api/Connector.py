@@ -20,11 +20,9 @@ class Connection:
         self.query = 'SELECT * FROM customers WHERE username= %s'
         flag = self.exec(data['username'])
         val = self.cur.fetchone()
-        li=[]
         if flag == 1 and val is not None:
             info={"firstname":val[1], "lastname":val[2], "contact":val[3], "email":val[4], "gender":val[5], "username":val[6], "password":val[7]}
-            li.append(info)
-            return li
+            return info
         else:
             return flag
 
@@ -47,6 +45,24 @@ class Connection:
                 val = data['username']
                 return val
         return 0
+
+    def update(self,data):
+        if data['fname']!='':
+            self.query = 'UPDATE customers SET firstname=%s WHERE username=%s'
+            flag = self.exec((data['fname'],data['username']))
+        if data['lname']!='':
+            self.query = 'UPDATE customers SET lastname=%s WHERE username=%s'
+            flag = self.exec((data['lname'],data['username']))
+        if data['email']!='':
+            self.query = 'UPDATE customers SET email=%s WHERE username=%s'
+            flag = self.exec((data['email'],data['username']))
+        if data['contact']!='':
+            self.query = 'UPDATE customers SET contact=%s WHERE username=%s'
+            flag = self.exec((data['contact'],data['username']))
+        if data['newusername']!='':
+            self.query = 'UPDATE customers SET username=%s WHERE username=%s'
+            flag = self.exec((data['newusername'],data['username']))
+        return 1
 
     def resetPassword(self,data):
         self.query = 'SELECT * FROM customers where email = %s'

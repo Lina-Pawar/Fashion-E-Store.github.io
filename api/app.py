@@ -28,6 +28,14 @@ def resetpassword():
         response = conn.resetPassword(userData)
     return {"response": response}
 
+@app.route("/UpdateProfile", methods=["GET", "POST"])
+def update():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.update(userData)
+    return {"response": response}
+
 @app.route("/UserInfo", methods=["GET", "POST"])
 def userinfo():
     conn = Connection()
