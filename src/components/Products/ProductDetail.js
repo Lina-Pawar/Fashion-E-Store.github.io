@@ -1,7 +1,6 @@
 import { ProdList } from "./ProdList";
 import Navbar from "../Navbar";
 import Slider from "infinite-react-carousel";
-import img1 from "../../imgs/c1.png"
 import "./ProductDetail.css";
 import Products from "./Products";
 
@@ -29,6 +28,8 @@ function decrease(){
 }
 window.scrollTo(0,0);
 let itemName = index();
+var photo1='data:image/JPEG;base64,'+ProdList[itemName].image1;
+var photo2='data:image/JPEG;base64,'+ProdList[itemName].image2;
   return (
     <div>
       <div
@@ -46,20 +47,8 @@ let itemName = index();
       <div className="detpage">
         <div className="detcar">
           <Slider dots>
-            <div>
-              <img
-                src={img1}
-                className="detimg"
-                alt="offers"
-              />
-            </div>
-            <div>
-              <img
-                src={img1}
-                className="detimg"
-                alt="offers"
-              />
-            </div>
+            <div><img src={photo1} className="detimg" alt="product"/></div>
+            <div><img src={photo2} className="detimg" alt="product"/></div>
           </Slider>
         </div>
 

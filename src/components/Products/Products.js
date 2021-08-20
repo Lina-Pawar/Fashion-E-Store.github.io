@@ -1,7 +1,6 @@
 import "./Products.css";
 import { Link } from "react-router-dom";
 import { ProdList } from "./ProdList";
-import img1 from "../../imgs/c1.png"
 
 function Products(props) {
   var str=String(window.location.href);
@@ -16,9 +15,10 @@ function Products(props) {
           if (productname!==item.name){
             productname+="..";
           }
+          var photo='data:image/JPEG;base64,'+item.image1;
           return (
             <li className="list-item" key={item.name}>
-              <div><img className="itemimg" src={img1} alt="product"/></div>
+              <div><img className="itemimg" src={photo} alt="product"/></div>
               <div>
               <table width="100%">
                 <tbody>
