@@ -22,9 +22,13 @@
     font-size: 16px;
 }
 .itemimg{
-    width: 98%;
-    margin-left: 1%;
-    height: 32vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    max-height: 32vh;
+    width: auto;
+    max-width: 98%;
 }
 .buybutton{
     width: 100px;
@@ -63,6 +67,10 @@
     .itemimg{
         width: 40vw;
         height: 25vh;
+        height: auto;
+        max-height: 25vh;
+        width: auto;
+        max-width: 40vw;
     }
     .buybutton{
         width: 15vw;
