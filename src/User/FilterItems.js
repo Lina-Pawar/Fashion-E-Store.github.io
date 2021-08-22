@@ -99,12 +99,15 @@ function FilterItems(){
     }
     return '';
   });
+  function Cost(){
+    var cost=document.getElementById("slider").value;
+  };
     return(
         <div className="filteritems">
         <h2 style={{textAlign:"center",textDecoration:"none",paddingLeft:"0"}}>Filter <i className="fas fa-filter"></i></h2>
         <h3>Price Range</h3>
         <hr /><br/>
-        <input type="range" min="100" max="3000" defaultValue="100" step="10" id="slider"/>
+        <input type="range" min="100" max="3000" defaultValue="100" step="10" id="slider" onChange={Cost}/>
         <br/><label>Rs. 100</label><label style={{float:"right"}}>max</label>
         <br /><br />
         <h3>Colors&nbsp;<i className={plusminus1} onClick={() => setVisibility1((visible) => !visible)}></i></h3>
