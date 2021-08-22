@@ -7,16 +7,20 @@ const user={ username:username };
 Service.userinfo(user).then((resp) => {
   if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
       const profiledetails=resp.data.response;
-      document.getElementById("fname").value=profiledetails['firstname'];
-      document.getElementById("lname").value=profiledetails['lastname'];
-      document.getElementById("contact").value=profiledetails['contact'];
-      document.getElementById("email").value=profiledetails['email'];
-      document.getElementById("username").value=profiledetails['username'];
-      if(profiledetails['gender']==="Female"){
-        document.getElementById("female").checked=true;
-      }else{
-        document.getElementById("male").checked=true;
-      }
+      try{
+          document.getElementById("fname").value=profiledetails['firstname'];
+          document.getElementById("lname").value=profiledetails['lastname'];
+          document.getElementById("contact").value=profiledetails['contact'];
+          document.getElementById("email").value=profiledetails['email'];
+          document.getElementById("username").value=profiledetails['username'];
+          if(profiledetails['gender']==="Female"){
+            document.getElementById("female").checked=true;
+          }else{
+            document.getElementById("male").checked=true;
+          }
+      }catch(e){
+        console.log(e instanceof TypeError);
+      };
   }
 });
 function Profile() {
@@ -24,7 +28,7 @@ function Profile() {
   const [lname, setlname] = useState("");
   const [contact, setcontact] = useState("");
   const [email, setemail] = useState("");
-  const [newusername, setnewusername] = useState("");
+  const [newusername, setnewusername] = useState(username);
   const handleSubmit = (e) => {
     e.preventDefault();
       var user = {fname:fname,lname:lname,contact:contact,email:email,newusername:newusername,username:username};
@@ -36,14 +40,6 @@ function Profile() {
         }
       });
   };
-  
-  function edit(){
-    document.getElementById("fname").disabled=false;
-    document.getElementById("lname").disabled=false;
-    document.getElementById("contact").disabled=false;
-    document.getElementById("email").disabled=false;
-    document.getElementById("username").disabled=false;
-  }
   return (
     <section className="register">
       <div>
@@ -71,7 +67,7 @@ function Profile() {
             <input className="reginput profileinput2" type="text" id="username" required onChange={(e) => setnewusername(e.target.value)}/>
             <br/>
           <div align="center">
-            <button className="regbutton updatepw" onClick={(e) => { window.location.href="/changepassword";}}>Change Password</button><br></br>
+            <button className="regbutton" onClick={(e) => { window.location.href="/changepassword";}}>Change Password</button>
             <button className="regbutton" type="submit">Update</button>
           </div>
           </form>
