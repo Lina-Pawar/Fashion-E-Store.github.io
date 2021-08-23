@@ -117,3 +117,15 @@ class Connection:
                     li.append(prods)
             return li
         return 0
+
+    def Customers(self):
+        self.query='SELECT * FROM customers'
+        li=[]
+        flag=self.exec()
+        val1=self.cur.fetchall()
+        if flag==1:
+            for row in val1:
+                cust={"id":row[0],"firstname":row[1],"lastname":row[2],"contact":row[3],"email":row[4]}
+                li.append(cust)
+            return li
+        return 0

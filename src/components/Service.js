@@ -30,5 +30,9 @@ const products = async (user) => {
   return axios.post(API_BASE_URL + "Products", { ...user });
 };
 
+const customers = async (user) => {
+  return axios.post(API_BASE_URL + "Customers" , { ...user });
+}
+
 // eslint-disable-next-line
-export default { login, register, userinfo, update, updateUserName, resetPassword, products };
+export default { login, register, userinfo, update, updateUserName, resetPassword, products, customers };

@@ -27,7 +27,7 @@ const App = () => {
         <Admin/>
       </Route>
       <Route path="/customers" exact>
-        <Admin/>
+        <Admin />
       </Route>
       <Route path="/analytics" exact>
         <Admin/>

@@ -39,7 +39,7 @@ function Admin(){
     return(
       <div className="admin">
       <div style={{background:"-webkit-gradient(linear,left top, right top,from(#d4af37),color-stop(30%,#f9f095),color-stop(40%,#d4af37),color-stop(80%,#f9f095),color-stop(90%,#d4af37))",
-      height:"8vh",width:"100%",position:"fixed"}}>
+      height:"8vh",width:"100%",position:"fixed",zIndex:"5"}}>
       <Navbar />
       </div>
       <div className="dashboard" align="center">
@@ -51,10 +51,10 @@ function Admin(){
       <div id="bg">
       <img src={logo} className="logo1" alt="try"/>
       </div>
-      <div id="products" style={{display:"none"}}>
+      <div id="products" style={{display:"none",width:"80%"}}>
         <Productslist/>
       </div>
-      <div id="customers" style={{display:"none"}}>
+      <div id="customers" style={{display:"none",width:"80%"}}>
         <Customers/>
       </div>
       <div id="analytics" style={{display:"none"}}>
