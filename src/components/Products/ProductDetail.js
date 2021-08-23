@@ -7,7 +7,7 @@ import Products from "./Products";
 function ProductDetail() {
   let para = new URLSearchParams(window.location.search);
   function index(){
-  for(var i = 0; i < ProdList.length; i++) {
+  for(var i=0;i<ProdList.length;i++) {
     if(ProdList[i]["name"] === para.get("name")) {
         return i;
     }
