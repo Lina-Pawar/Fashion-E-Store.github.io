@@ -45,14 +45,7 @@
     border:none;
   }
   .cartbtn:hover {
-    background: linear-gradient(
-      to right,
-      #d4af37,
-      #f9f095,
-      #d4af37,
-      #f9f095,
-      #d4af37
-    );
+    background: linear-gradient(to right,#d4af37,#f9f095,#d4af37);
     color: black;
     cursor: pointer;
     font-weight: bold;

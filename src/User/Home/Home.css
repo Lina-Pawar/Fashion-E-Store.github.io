@@ -44,14 +44,7 @@
     cursor: pointer;
 }
 .chatbox:hover{
-    background: linear-gradient(
-      to right,
-      #d4af37,
-      #f9f095,
-      #d4af37,
-      #f9f095,
-      #d4af37
-    );
+    background: linear-gradient(to right,#d4af37,#f9f095,#d4af37);
 }
 .fa-comment-dots{
     color: black;
