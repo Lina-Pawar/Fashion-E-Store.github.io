@@ -52,7 +52,7 @@ const ForgotPass = () => {
     var myFunctions = function(){
         if(captcha === captchatext)
         {
-          element.style.background = "-webkit-gradient(linear,left top, right top,from(#d4af37),color-stop(30%,#f9f095),color-stop(40%,#d4af37),color-stop(80%,#f9f095),color-stop(90%,#d4af37))";
+          element.style.background = "-webkit-gradient(linear,left top, right top,from(#d4af37),color-stop(60%,#f9f095),color-stop(100%,#d4af37))";
           element.style.color ="black"
           element.innerHTML  = "Captcha Verified";
           element.disabled = true;
