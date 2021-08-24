@@ -4,7 +4,6 @@ import { ProdList } from "./ProdList";
 
 function Products(props) {
   var str=String(window.location.href);
-  
   return (
     <ul className="list-items">
       {/* eslint-disable-next-line*/}

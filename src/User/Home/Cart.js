@@ -1,61 +1,17 @@
 import { Link } from "react-router-dom";
-import demo1 from "../../imgs/c1.png";
-import demo2 from "../../imgs/c2.png";
-import demo3 from "../../imgs/c3.png";
-import demo4 from "../../imgs/c4.png";
 import image from "../../imgs/logo.png";
 import Navbar from "../../components/Navbar";
 import "./Cart.css";
+import {Cartitems} from "../../components/Products/ProductDetail";
+
 function Cart(){
-    const CartItem = [
-        {
-            id:0,
-            image:demo1,
-            image2:demo2,
-            name:'Men Shirt',
-            price:500,
-            size: "S M L XL",
-            itemdet: "Loren Epsum sdasd sadas asdasd adasd",
-            quantity:3
-        },
-        {
-            id:1,
-            image:demo2,
-            image2:demo1,
-            name:'Men T-Shirt',
-            price:300,
-            size: "S M L XL",
-            itemdet: "Loren Epsum sdasd sadas asdasd adasd",
-            quantity:1
-        },
-        {
-            id:2,
-            image:demo3,
-            image2:demo2,
-            name:'Men Shoe',
-            price:200,
-            size: "S M L XL",
-            itemdet: "Loren Epsum sdasd sadas asdasd adasd",
-            quantity:2
-        },
-        {
-            id:3,
-            image:demo4,
-            image2:demo2,
-            name:'Women Shoe',
-            price:600,
-            size: "S M L XL",
-            itemdet: "Loren Epsum sdasd sadas asdasd adasd",
-            quantity:2
-        },
-    ]
     const FinalPrice=[]
-for(const key in CartItem){
-  FinalPrice.push({id:CartItem[key].id,price:CartItem[key].price*CartItem[key].quantity})
-}
+    for(const key in Cartitems){
+        FinalPrice.push({id:Cartitems[key].id,price:Cartitems[key].price*Cartitems[key].quantity})
+    }
     function increase(pid,pname){
         var x=document.getElementById(pid);
-        var y=CartItem[pid].price;
+        var y=Cartitems[pid].price;
         if(x.value<10){
           x.value=parseInt(x.value)+1;
           var st= x.value*y;
@@ -67,7 +23,7 @@ for(const key in CartItem){
       }
       function decrease(pid,pname){
         var x=document.getElementById(pid);
-        var y=CartItem[pid].price;
+        var y=Cartitems[pid].price;
         if(x.value>1){
           x.value=parseInt(x.value)-1;
           var st= x.value*y;
@@ -125,25 +81,24 @@ for(const key in CartItem){
             <Navbar />
             </div>
             <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}}>
-                <h2 style={{textAlign:"center"}}>Cart</h2>
-        <ul className="">
-      {CartItem.map((item) => {
-        var linkto = "/product?name="+item.name;
-        return (
+            <ul className="">
+            {Cartitems.map((item) => {
+            var linkto = "/product?name="+item.name;
+            return (
             <li className="cartbox" key={item.name}>
                 <div className="cartimg">
-                    <img src={item.image} alt="cartimage"/>
+                    <img src={item.photo} alt="cartimage"/>
                 </div>
                 <div className="cartcontent">
                     <table>
                     <colgroup>
-                            <col style={{width:"65%"}}/>
-                            <col style={{width:"35%"}}/>
+                            <col style={{width:"6%"}}/>
+                            <col style={{width:"3%"}}/>
                     </colgroup>
                     <tbody>
                    
                         <tr>
-                            <th style={{fontSize:"20px"}}>{item.name}</th>
+                            <th style={{fontSize:"18px"}}>{item.name}</th>
                             <th><button className="cartbtn">Remove</button></th>
                         </tr>
                         <tr>
