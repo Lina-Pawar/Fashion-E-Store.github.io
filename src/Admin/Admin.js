@@ -42,7 +42,7 @@ function Admin(){
       <div className="admin">
       <div style={{background:"-webkit-gradient(linear,left top, right top,from(#d4af37),color-stop(30%,#f9f095),color-stop(40%,#d4af37),color-stop(80%,#f9f095),color-stop(90%,#d4af37))",
       height:"8vh",width:"100%",position:"fixed",zIndex:"5"}} className="navbar">
-      <Link to= "/admin" className="alogo" ><img src={navlogo} alt="Nav Logo" className="logo" /></Link>
+      <Link to= "/admin" className="alogo" ><img src={navlogo} alt="Nav Logo" className="logo" style={{width:"200px"}} /></Link>
       </div>
       <div className="dashboard" align="center">
         <button className="options" onClick={products}>Products</button><hr/>
