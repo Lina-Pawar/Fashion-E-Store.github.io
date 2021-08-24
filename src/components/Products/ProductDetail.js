@@ -3,6 +3,8 @@ import Navbar from "../Navbar";
 import Slider from "infinite-react-carousel";
 import "./ProductDetail.css";
 import Products from "./Products";
+import demo1 from "../../imgs/c1.png";
+import demo2 from "../../imgs/c2.png";
 
 function ProductDetail() {
   let para = new URLSearchParams(window.location.search);
@@ -25,6 +27,10 @@ function decrease(){
   if(x.value>1){
     x.value=parseInt(x.value)-1;
   }
+}
+function addcart(){
+  Cartitems.push({photo:photo1,name:ProdList[itemName].name,price:ProdList[itemName].price,quantity:document.getElementById("quantity").value});
+  alert("Added to cart!");
 }
 window.scrollTo(0,0);
 let itemName = index();
@@ -73,7 +79,7 @@ var photo2='data:image/JPEG;base64,'+ProdList[itemName].image2;
             <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={increase}>+</button>
           </h3>
           <br />
-          <button className="atcbtn">Add to Cart</button>
+          <button className="atcbtn" onClick={addcart}>Add to Cart</button>
         </div>
       </div>
       <hr/><br/>
@@ -87,3 +93,4 @@ var photo2='data:image/JPEG;base64,'+ProdList[itemName].image2;
   );
 }
 export default ProductDetail;
+export const Cartitems=[];
