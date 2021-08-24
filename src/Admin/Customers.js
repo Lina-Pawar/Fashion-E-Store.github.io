@@ -1,19 +1,6 @@
+import {CustList} from "./CustList";
 import "./Customers.css";
-import Service from "../components/Service";
 function Customers() {
-  const CustList=[];
-  Service.customers().then((resp) =>{
-      if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
-          const values=resp.data.response;
-          // eslint-disable-next-line
-          const customersdetails=values.map((customersdetails)=>{
-              CustList.push(customersdetails);             
-              return customersdetails;
-            });
-      } else {
-          alert("Error");
-      }
-  });
   return (
     <div className="custdetails">
       <h1 style={{ textAlign: "center" }}>Customers</h1>
