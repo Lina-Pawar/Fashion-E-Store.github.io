@@ -1,8 +1,9 @@
+import Products from "../components/Products/Products";
 function Productslist(){
     return(
         <div>
             <br/><br/><br/>
-            <h1>Products</h1>
+            <Products n={180}/>
         </div>
     );
 }

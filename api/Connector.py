@@ -122,9 +122,9 @@ class Connection:
         self.query='SELECT * FROM customers'
         li=[]
         flag=self.exec()
-        val1=self.cur.fetchall()
+        val=self.cur.fetchall()
         if flag==1:
-            for row in val1:
+            for row in val:
                 cust={"id":row[0],"firstname":row[1],"lastname":row[2],"contact":row[3],"email":row[4]}
                 li.append(cust)
             return li

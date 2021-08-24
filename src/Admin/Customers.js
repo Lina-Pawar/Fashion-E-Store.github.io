@@ -1,29 +1,19 @@
-//import {CustList} from "./CustList";
 import "./Customers.css";
+import Service from "../components/Service";
 function Customers() {
-  const CustList = [
-    {
-      id: 1,
-      fname: "Amit",
-      lname: "Naik",
-      email: "anaik@gmail.com",
-      contact: "8779624030",
-    },
-    {
-      id: 2,
-      fname: "Lina",
-      lname: "Pawar",
-      email: "lpawar@gmail.com",
-      contact: "8779624030",
-    },
-    {
-      id: 3,
-      fname: "Sid",
-      lname: "Roy",
-      email: "sroy@gmail.com",
-      contact: "8779624030",
-    },
-  ];
+  const CustList=[];
+  Service.customers().then((resp) =>{
+      if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+          const values=resp.data.response;
+          // eslint-disable-next-line
+          const customersdetails=values.map((customersdetails)=>{
+              CustList.push(customersdetails);             
+              return customersdetails;
+            });
+      } else {
+          alert("Error");
+      }
+  });
   return (
     <div className="custdetails">
       <h1 style={{ textAlign: "center" }}>Customers</h1>
@@ -47,12 +37,12 @@ function Customers() {
             <th>DETAILS</th>
           </tr>
 
-          {CustList.map((pers, index) => {
+          {CustList.map((pers) => {
             return (
               <tr>
                 <td style={{ textAlign: "center" }}>{pers.id}</td>
-                <td>{pers.fname}</td>
-                <td>{pers.lname}</td>
+                <td>{pers.firstname}</td>
+                <td>{pers.lastname}</td>
                 <td>{pers.email}</td>
                 <td style={{ textAlign: "center" }}>{pers.contact}</td>
                 <td style={{ textAlign: "center" }}>
