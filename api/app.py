@@ -52,3 +52,12 @@ def products():
     return {"response": response}
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)
+
+@app.route("/Customers", methods=["GET", "POST"])
+def customers():
+    conn = Connection()
+    if request.method == "POST":
+        response = conn.Customers()
+    return {"response": response}
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', threaded=True)

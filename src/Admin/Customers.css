@@ -1,0 +1,48 @@
+.custdetails{
+    margin-top: 8vh;
+}
+.custdetails table{
+    width:95%;
+    margin-left: 5%;
+    border: 2px solid black;
+    background-image: linear-gradient(to right,#d4af37,#f9f095,#d4af37,#f9f095,#d4af37);
+}
+.custdetails table td{
+    padding: 7px;
+    border: 2px solid black;
+    background-color: white;
+    font-size: 18px;
+}
+.custdetails table th{
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.viewbtn{
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  height: 6vh;
+  max-height: 40px;
+  width: 80%;
+  max-width: 200px;
+  border-radius: 10px;
+  margin-left: 5%;
+  background-color: black;
+  color: white;
+  border:none;
+}
+.viewbtn:hover{
+    background: linear-gradient(
+    to right,
+    #d4af37,
+    #f9f095,
+    #d4af37,
+    #f9f095,
+    #d4af37
+  );
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+}
