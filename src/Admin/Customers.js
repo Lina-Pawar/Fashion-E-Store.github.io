@@ -1,7 +1,7 @@
 import "./Customers.css";
 import Service from "../components/Service";
+const CustList=[];
 function Customers() {
-  const CustList=[];
   Service.customers().then((resp) =>{
       if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
           const values=resp.data.response;
