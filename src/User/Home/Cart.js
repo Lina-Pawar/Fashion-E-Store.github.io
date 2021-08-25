@@ -7,36 +7,42 @@ import {Cartitems} from "../../components/Products/ProductDetail";
 function Cart(){
     const FinalPrice=[]
     for(const key in Cartitems){
-        FinalPrice.push({id:Cartitems[key].id,price:Cartitems[key].price*Cartitems[key].quantity})
+        FinalPrice.push({name:Cartitems[key].name,price:Cartitems[key].price*Cartitems[key].quantity})
     }
-    function increase(pid,pname){
-        var x=document.getElementById(pid);
-        var y=Cartitems[pid].price;
-        if(x.value<10){
+    function increase(pname,pphoto){
+        var x=document.getElementById(pname);
+        var y=Cartitems[pname].price;
+        if(x.value>1){
           x.value=parseInt(x.value)+1;
           var st= x.value*y;
-          document.getElementById(pname).innerHTML=st;
-          const index=FinalPrice.findIndex(x=>x.id===pid);
-            FinalPrice[index].price=st;
-            document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          document.getElementById(pphoto).innerHTML=st;
+          const index=FinalPrice.findIndex(x=>x.name===pname);
+          FinalPrice[index].price=st;
+          document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
         }
       }
-      function decrease(pid,pname){
-        var x=document.getElementById(pid);
-        var y=Cartitems[pid].price;
+      function decrease(pname,pphoto){
+        var x=document.getElementById(pname);
+        var y=Cartitems[pname].price;
         if(x.value>1){
           x.value=parseInt(x.value)-1;
           var st= x.value*y;
-          document.getElementById(pname).innerHTML=st;
-          const index=FinalPrice.findIndex(x=>x.id===pid);
+          document.getElementById(pphoto).innerHTML=st;
+          const index=FinalPrice.findIndex(x=>x.name===pname);
           FinalPrice[index].price=st;
           document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
         }
       }
     //   payment
+    
+    //
+      
+    var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+    var gst= (tp*18)/100;
+    var tot = tp + gst;
     var options = {
         "key": "rzp_test_dO928nWzZAVW6J", // Enter the Key ID generated from the Dashboard
-        "amount": FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0)*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "amount": tot*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         "currency": "INR",
         "name": "StyleZone-Fashion Store",
         "description": "Test Transaction",
@@ -67,8 +73,6 @@ function Cart(){
             alert(response.error.metadata.order_id);
             alert(response.error.metadata.payment_id);
     });
-    //
-      
       
     return(
         <div>
@@ -80,7 +84,9 @@ function Cart(){
           zIndex: "10",}}>
             <Navbar />
             </div>
-            <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}}>
+            <div className="cartcontent">
+            <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}} className="cartlists">
+            <h1 style={{textAlign:"center"}}>Cart</h1>
             <ul className="">
             {Cartitems.map((item) => {
             var linkto = "/product?name="+item.name;
@@ -89,7 +95,7 @@ function Cart(){
                 <div className="cartimg">
                     <img src={item.photo} alt="cartimage"/>
                 </div>
-                <div className="cartcontent">
+                <div className="cartboxcontent">
                     <table>
                     <colgroup>
                             <col style={{width:"6%"}}/>
@@ -104,10 +110,10 @@ function Cart(){
                         <tr>
                             <td>Quantity: 
                                 &nbsp;&nbsp;
-                                <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={()=>decrease(item.id,item.name)}>-</button>
-                                <input style={{width: "40px",height: "40px",fontSize: "16px",textAlign:"center"}} id={item.id} defaultValue={item.quantity}  />
-                                <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={()=>increase(item.id,item.name)}>+</button> <br />
-                                Price: Rs. <span id={item.name}>{item.price*item.quantity}</span>
+                                <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={()=>decrease(item.name,item.photo)}>-</button>
+                                <input style={{width: "40px",height: "40px",fontSize: "16px",textAlign:"center"}} id={item.name} defaultValue={item.quantity}  />
+                                <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={()=>increase(item.name,item.photo)}>+</button> <br />
+                                Price: Rs. <span id={item.photo}>{item.price*item.quantity}</span>
                             </td>
                             <td>
                                 <Link to={linkto}><button className="cartbtn">View Details</button></Link>
@@ -120,10 +126,43 @@ function Cart(){
         )
     })}
     </ul>
-    <button className="cartbtn" id="rzp-button1" onClick={function(e){
+    </div>
+    <div className="placeorder">
+    <button className="cartbtn2">Save Changes</button>
+    <br /><br />
+    <hr />
+    <br />
+    <textarea placeholder="Address"></textarea>
+    <br />
+    <input type="number" placeholder="Pincode" min="100000" max="999999"></input>
+    <br /><br />
+    <hr />
+    {/* <h3>Price: Rs. {tp}</h3>
+    <h3>GST(18%): Rs. {gst}</h3>
+    <h3>Total: Rs. {tot}</h3>  */}
+    <br />
+    <table style={{width:"80%",marginLeft:"10%"}}>
+        <tr>
+            <td style={{textAlign:"left"}}><h3>Price:</h3></td>
+            <td style={{textAlign:"right"}}><h3><b>{tp}</b></h3></td>
+        </tr>
+        <tr>
+            <td style={{textAlign:"left",paddingBottom:"8px",borderBottom:"2px solid white",borderStyle:"dotted"}}><h3>GST(18%):</h3></td>
+            <td style={{textAlign:"right",paddingBottom:"8px",borderBottom:"2px solid white",borderStyle:"dotted"}}><h3><b>{gst}</b></h3></td>
+        </tr>
+        <tr>
+            <td style={{textAlign:"left"}}><h3>Total:</h3></td>
+            <td style={{textAlign:"right"}}><h2><b>{tot}</b></h2></td>
+        </tr>
+    </table>
+    <br />
+    <hr />
+    <br />
+    <button className="cartbtn2" id="rzp-button1" onClick={function(e){
         rzp1.open();
         e.preventDefault();
-    }}>Pay Now Rs. <span id="totalp">{FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0)} </span> </button>
+    }}>Pay Now Rs. <span id="totalp">{tot} </span> </button>
+    </div>
     </div>
     </div>
 
