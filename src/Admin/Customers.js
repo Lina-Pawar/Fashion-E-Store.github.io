@@ -3,7 +3,6 @@ import "./Customers.css";
 function Customers() {
   return (
     <div className="custdetails">
-      <h1 style={{ textAlign: "center" }}>Customers</h1>
       <br />
       <table>
         <tbody>
