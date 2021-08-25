@@ -10,37 +10,55 @@ function Cart(){
     for(const key in Cartitems){
         FinalPrice.push({name:Cartitems[key].name,price:Cartitems[key].price*Cartitems[key].quantity})
     }
+    var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+    var gst= (tp*18)/100;
+    var tot=tp + gst;
     function increase(pname,pphoto){
         var x=document.getElementById(pname);
-        var y=Cartitems[pname].price;
-        if(x.value>1){
+        var z=Cartitems.findIndex(x=>x.name===pname);
+        var y=Cartitems[z].price;
+        if(x.value<10){
           x.value=parseInt(x.value)+1;
           var st= x.value*y;
           document.getElementById(pphoto).innerHTML=st;
           const index=FinalPrice.findIndex(x=>x.name===pname);
           FinalPrice[index].price=st;
-          document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          gst= (tp*18)/100;
+          tot = tp + gst;
+          document.getElementById("fp").innerHTML=tp;
+          document.getElementById("gstax").innerHTML=gst;
+          document.getElementById("totalp1").innerHTML=tot;
+          document.getElementById("totalp").innerHTML=tot;
         }
       }
       function decrease(pname,pphoto){
         var x=document.getElementById(pname);
-        var y=Cartitems[pname].price;
+        var z=Cartitems.findIndex(x=>x.name===pname);
+        var y=Cartitems[z].price;
         if(x.value>1){
           x.value=parseInt(x.value)-1;
           var st= x.value*y;
           document.getElementById(pphoto).innerHTML=st;
           const index=FinalPrice.findIndex(x=>x.name===pname);
           FinalPrice[index].price=st;
-          document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          gst= (tp*18)/100;
+          tot = tp + gst;
+          document.getElementById("fp").innerHTML=tp;
+          document.getElementById("gstax").innerHTML=gst;
+          document.getElementById("totalp1").innerHTML=tot;
+          document.getElementById("totalp").innerHTML=tot;
         }
       }
     //   payment
     
     //
       
-    var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
-    var gst= (tp*18)/100;
-    var tot = tp + gst;
+    // var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+    // var gst= (tp*18)/100;
+    // var tot = tp + gst;
+
     var options = {
         "key": "rzp_test_dO928nWzZAVW6J", // Enter the Key ID generated from the Dashboard
         "amount": tot*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
