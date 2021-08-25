@@ -29,7 +29,6 @@ function Cart(){
           document.getElementById("fp").innerHTML=tp;
           document.getElementById("gstax").innerHTML=gst;
           document.getElementById("totalp1").innerHTML=tot;
-          document.getElementById("totalp").innerHTML=tot;
         }
       }
       function decrease(pname,pphoto){
