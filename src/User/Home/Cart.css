@@ -98,12 +98,22 @@ color: black;
         margin-left: 2%;
         height: auto;
     }
-    .cartimg{
-        height: 20vh;
-        margin: 2%;
+    .cartimg img{
+        height: auto;
+        max-height: 40vh;
         width: auto;
+        max-width: 90%;
+        border-radius: 5px;
+    }
+    .cartboxcontent{
+        margin: 2%;
+        width:100%;
+        position: relative;
+        align-self: center;
     }
     .placeorder{
         display: none;
-    }    
+        /*bottom: 0;
+        width: 100%;*/
+    } 
 }
