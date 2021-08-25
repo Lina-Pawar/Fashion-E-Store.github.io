@@ -9,37 +9,55 @@ function Cart(){
     for(const key in Cartitems){
         FinalPrice.push({name:Cartitems[key].name,price:Cartitems[key].price*Cartitems[key].quantity})
     }
+    var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+    var gst= (tp*18)/100;
+    var tot=tp + gst;
     function increase(pname,pphoto){
         var x=document.getElementById(pname);
-        var y=Cartitems[pname].price;
-        if(x.value>1){
+        var z=Cartitems.findIndex(x=>x.name===pname);
+        var y=Cartitems[z].price;
+        if(x.value<10){
           x.value=parseInt(x.value)+1;
           var st= x.value*y;
           document.getElementById(pphoto).innerHTML=st;
           const index=FinalPrice.findIndex(x=>x.name===pname);
           FinalPrice[index].price=st;
-          document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          gst= (tp*18)/100;
+          tot = tp + gst;
+          document.getElementById("fp").innerHTML=tp;
+          document.getElementById("gstax").innerHTML=gst;
+          document.getElementById("totalp1").innerHTML=tot;
+          document.getElementById("totalp").innerHTML=tot;
         }
       }
       function decrease(pname,pphoto){
         var x=document.getElementById(pname);
-        var y=Cartitems[pname].price;
+        var z=Cartitems.findIndex(x=>x.name===pname);
+        var y=Cartitems[z].price;
         if(x.value>1){
           x.value=parseInt(x.value)-1;
           var st= x.value*y;
           document.getElementById(pphoto).innerHTML=st;
           const index=FinalPrice.findIndex(x=>x.name===pname);
           FinalPrice[index].price=st;
-          document.getElementById("totalp").innerHTML=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+          gst= (tp*18)/100;
+          tot = tp + gst;
+          document.getElementById("fp").innerHTML=tp;
+          document.getElementById("gstax").innerHTML=gst;
+          document.getElementById("totalp1").innerHTML=tot;
+          document.getElementById("totalp").innerHTML=tot;
         }
       }
     //   payment
     
     //
       
-    var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
-    var gst= (tp*18)/100;
-    var tot = tp + gst;
+    // var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+    // var gst= (tp*18)/100;
+    // var tot = tp + gst;
+
     var options = {
         "key": "rzp_test_dO928nWzZAVW6J", // Enter the Key ID generated from the Dashboard
         "amount": tot*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -104,7 +122,7 @@ function Cart(){
                     <tbody>
                    
                         <tr>
-                            <th style={{fontSize:"18px"}}>{item.name}</th>
+                            <th style={{fontSize:"18px"}}>{item.name} &nbsp; (Size: L)</th>
                             <th><button className="cartbtn">Remove</button></th>
                         </tr>
                         <tr>
@@ -137,22 +155,19 @@ function Cart(){
     <input type="number" placeholder="Pincode" min="100000" max="999999"></input>
     <br /><br />
     <hr />
-    {/* <h3>Price: Rs. {tp}</h3>
-    <h3>GST(18%): Rs. {gst}</h3>
-    <h3>Total: Rs. {tot}</h3>  */}
     <br />
     <table style={{width:"80%",marginLeft:"10%"}}>
         <tr>
             <td style={{textAlign:"left"}}><h3>Price:</h3></td>
-            <td style={{textAlign:"right"}}><h3><b>{tp}</b></h3></td>
+            <td style={{textAlign:"right"}}><h3 id="fp">{tp}</h3></td>
         </tr>
         <tr>
             <td style={{textAlign:"left",paddingBottom:"8px",borderBottom:"2px solid white",borderStyle:"dotted"}}><h3>GST(18%):</h3></td>
-            <td style={{textAlign:"right",paddingBottom:"8px",borderBottom:"2px solid white",borderStyle:"dotted"}}><h3><b>{gst}</b></h3></td>
+            <td style={{textAlign:"right",paddingBottom:"8px",borderBottom:"2px solid white",borderStyle:"dotted"}}><h3 id="gstax">{gst}</h3></td>
         </tr>
         <tr>
             <td style={{textAlign:"left"}}><h3>Total:</h3></td>
-            <td style={{textAlign:"right"}}><h2><b>{tot}</b></h2></td>
+            <td style={{textAlign:"right"}}><h2 id="totalp1">{tot}</h2></td>
         </tr>
     </table>
     <br />
