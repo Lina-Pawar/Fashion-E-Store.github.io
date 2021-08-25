@@ -7,16 +7,12 @@
 }
 .placeorder{
     width:25%;
-    background-color: black;
+    border: 1px solid grey;
     height: 100vh;
     padding: 10vh 20px 10vh 20px;
     position: fixed;
     margin-left: 75%;
     text-align: center;
-}
-
-.placeorder h3,.placeorder h2{
-    color: white;
 }
 .placeorder textarea,.placeorder input{
     width: 80%;
@@ -30,8 +26,6 @@
 .placeorder input{
     height: 7vh;
 }
-
-
 .cartbox{
     display: flex;
     width:60%;
@@ -43,65 +37,83 @@
     border: none;
     margin-top: 2vh;
 }
-.cartimg{
-    height: 17vh;
-    margin: 2%;
-    width:10vw;
-}
 .cartimg img{
-    height: 100%;
-    width: 100%;
+    height: auto;
+    max-height: 20vh;
+    width: auto;
+    max-width: 90%;
     border-radius: 5px;
 }
 .cartboxcontent{
-    margin-left: 10%;
+    margin: 2%;
     width:80%;
-    margin-top: 3vh;
+    position: relative;
+    align-self: center;
 }
 .cartboxcontent table{
     width:100%;
 }
-.cartboxcontent table th b{
-    font-size: 24px;
-}
 .cartbtn,.cartbtn2 {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    height: 10vh;
+    font-size: 16px;
+    height: 8vh;
     max-height: 40px;
-    width: 35vw;
-    max-width: 200px;
+    width: 30vw;
+    max-width: 120px;
     border-radius: 20px;
     background-color: black;
     color: white;
     border:none;
-  }
-  .cartbtn:hover {
-    background: linear-gradient(to right,#d4af37,#f9f095,#d4af37);
-    color: black;
+    font-weight: bold;
+}
+.cartbtn:hover {
+background: linear-gradient(to right,#d4af37,#f9f095,#d4af37);
+color: black;
+cursor: pointer;
+}
+.cartbtn2 {
+background: linear-gradient(to right,#d4af37,#f9f095,#d4af37);
+color: black;
+}
+.cartbtn2:hover{
     cursor: pointer;
     font-weight: bold;
-  }
-  .cartbtn2 {
-    background: linear-gradient(to right,#d4af37,#f9f095,#d4af37);
-    color: black;
-  }
-  .cartbtn2:hover{
-      cursor: pointer;
-      font-weight: bold;
-  }
+}
+.fa-trash{
+    cursor: pointer;
+}
+.cartquantity{
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+}
 
 @media screen and (max-width:780px) {
+    .cartlists{
+        width: 100%;
+    }
     .cartbox{
         width:96%;
         margin-left: 2%;
-        height: 40vh;
+        height: auto;
     }
-    .cartimg{
-        height: 34vh;
-        margin-top: 3vh;
+    .cartimg img{
+        height: auto;
+        max-height: 40vh;
         width: auto;
+        max-width: 90%;
+        border-radius: 5px;
     }
-    
+    .cartboxcontent{
+        margin: 2%;
+        width:100%;
+        position: relative;
+        align-self: center;
+    }
+    .placeorder{
+        display: none;
+        /*bottom: 0;
+        width: 100%;*/
+    } 
 }

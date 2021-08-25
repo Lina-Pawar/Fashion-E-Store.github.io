@@ -4,6 +4,7 @@ import Slider from "infinite-react-carousel";
 import "./ProductDetail.css";
 import Products from "./Products";
 import {useState} from "react";
+
 function ProductDetail() {
   const [prodSize,setSize]=useState();
   let para = new URLSearchParams(window.location.search);
@@ -95,9 +96,9 @@ var photo2='data:image/JPEG;base64,'+ProdList[itemName].image2;
           <br />
           <h3>Rs. {ProdList[itemName].price}
             &nbsp;&nbsp;&nbsp;&nbsp; Quantity:&nbsp;&nbsp;
-            <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={decrease}>-</button>
-            <input style={{width: "40px",height: "40px",paddingLeft: "8px",fontSize: "16px",textAlign:"center"}} id="quantity" value="1"/>
-            <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={increase}>+</button>
+            <button style={{ width: "35px", height: "35px", fontSize: "16px" }} onClick={decrease}>-</button>
+            <input style={{width: "35px",height: "35px",fontSize: "16px",textAlign:"center"}} id="quantity" value="1"/>
+            <button style={{ width: "35px", height: "35px", fontSize: "16px" }} onClick={increase}>+</button>
           </h3>
           <br />
           <button className="atcbtn" onClick={addcart}>Add to Cart</button>

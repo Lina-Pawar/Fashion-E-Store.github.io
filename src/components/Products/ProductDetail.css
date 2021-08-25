@@ -80,3 +80,37 @@
   cursor: pointer;
   font-weight: bold;
 }
+@media screen and (max-width:780px) {
+  .detpage{
+    display: block;
+    background-color: white;
+    padding-top: 10vh;
+    padding-bottom: 2vh;
+    display: flex;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .detimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    max-height: 40vh;
+    width: auto;
+    max-width: 98%;
+}
+.detcar{
+    margin-top: 2vh;
+    margin-left: 2%;
+    width:100%;
+    height: 40vh;
+}
+.detcontent{
+    margin-top: 1vh;
+    padding-top: 3vh;
+    margin-left: 4%;
+    margin-right: 2%;
+    font-size: 14px;
+}
+}
