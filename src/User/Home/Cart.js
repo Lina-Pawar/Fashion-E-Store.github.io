@@ -122,7 +122,7 @@ function Cart(){
                     <tbody>
                    
                         <tr>
-                            <th style={{fontSize:"18px"}}>{item.name} &nbsp; (Size: L)</th>
+                            <th style={{fontSize:"18px"}}>{item.name} &nbsp; (Size: {item.size})</th>
                             <th><button className="cartbtn">Remove</button></th>
                         </tr>
                         <tr>
