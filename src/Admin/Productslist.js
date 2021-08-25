@@ -1,8 +1,7 @@
 import Products from "../components/Products/Products";
 function Productslist(){
     return(
-        <div style={{marginTop:"9vh"}}>
-            <h1 style={{textAlign:"center"}}>Products</h1>
+        <div style={{marginTop:"10vh"}}>
             <Products n={180}/>
         </div>
     );

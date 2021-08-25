@@ -117,7 +117,7 @@ function Cart(){
                             <td rowspan="4" width="40%" className="cartimg"><img src={item.photo} alt="cartimage"/></td>
                         </tr>                   
                         <tr>
-                            <th style={{fontSize:"18px"}} colspan="3">{item.name}</th>
+                            <th style={{fontSize:"18px"}} colspan="3">{item.name} &nbsp; (Size: {item.size})</th>
                         </tr>
                         <tr>
                             <td colspan="3">Quantity: 
@@ -146,15 +146,15 @@ function Cart(){
     <table style={{width:"80%",marginLeft:"10%"}}>
         <tr>
             <td style={{textAlign:"left"}}>Price:</td>
-            <td style={{textAlign:"right"}}>{tp}</td>
+            <td style={{textAlign:"right"}} id="fp">{tp}</td>
         </tr>
         <tr>
             <td style={{textAlign:"left"}}>GST(18%):</td>
-            <td style={{textAlign:"right"}}>{gst}</td>
+            <td style={{textAlign:"right"}} id="gstax">{gst}</td>
         </tr>
         <tr>
             <td style={{textAlign:"left"}}>Total:</td>
-            <td style={{textAlign:"right"}}><b>Rs. {tot}</b></td>
+            <td style={{textAlign:"right"}} id="totalp1"><b>Rs. {tot}</b></td>
         </tr>
     </table>
     <br/>
