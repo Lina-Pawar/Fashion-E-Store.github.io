@@ -5,6 +5,7 @@ import "./Cart.css";
 import {Cartitems} from "../../components/Products/ProductDetail";
 
 function Cart(){
+    window.scroll(0,0);
     const FinalPrice=[]
     for(const key in Cartitems){
         FinalPrice.push({name:Cartitems[key].name,price:Cartitems[key].price*Cartitems[key].quantity})
@@ -82,42 +83,36 @@ function Cart(){
           width: "100%",
           position: "fixed",
           zIndex: "10",}}>
-            <Navbar />
+            <Navbar/>
             </div>
             <div className="cartcontent">
             <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}} className="cartlists">
-            <h1 style={{textAlign:"center"}}>Cart</h1>
             <ul className="">
             {Cartitems.map((item) => {
             var linkto = "/product?name="+item.name;
             return (
             <li className="cartbox" key={item.name}>
-                <div className="cartimg">
-                    <img src={item.photo} alt="cartimage"/>
-                </div>
                 <div className="cartboxcontent">
-                    <table>
-                    <colgroup>
-                            <col style={{width:"6%"}}/>
-                            <col style={{width:"3%"}}/>
-                    </colgroup>
+                    <table width="100%">
                     <tbody>
-                   
                         <tr>
-                            <th style={{fontSize:"18px"}}>{item.name}</th>
-                            <th><button className="cartbtn">Remove</button></th>
+                            <td rowspan="4" width="40%" className="cartimg"><img src={item.photo} alt="cartimage"/></td>
+                        </tr>                   
+                        <tr>
+                            <th style={{fontSize:"18px"}} colspan="3">{item.name}</th>
                         </tr>
                         <tr>
-                            <td>Quantity: 
+                            <td colspan="3">Quantity: 
                                 &nbsp;&nbsp;
-                                <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={()=>decrease(item.name,item.photo)}>-</button>
-                                <input style={{width: "40px",height: "40px",fontSize: "16px",textAlign:"center"}} id={item.name} defaultValue={item.quantity}  />
-                                <button style={{ width: "40px", height: "40px", fontSize: "16px" }} onClick={()=>increase(item.name,item.photo)}>+</button> <br />
-                                Price: Rs. <span id={item.photo}>{item.price*item.quantity}</span>
+                                <button className="cartquantity" onClick={()=>decrease(item.name,item.photo)}>-</button>
+                                <input style={{textAlign:"center"}} className="cartquantity" id={item.name} defaultValue={item.quantity} />
+                                <button className="cartquantity" onClick={()=>increase(item.name,item.photo)}>+</button>
                             </td>
-                            <td>
-                                <Link to={linkto}><button className="cartbtn">View Details</button></Link>
-                            </td>
+                        </tr>
+                        <tr>
+                            <td width="60%">Price: Rs. <span id={item.photo}>{item.price*item.quantity}</span></td>
+                            <td style={{fontSize:"18px"}} width="10%"><span className="fas fa-trash">&nbsp;&nbsp;</span></td>
+                            <td width="10%"><Link to={linkto}><button className="cartbtn">View Details</button></Link></td>
                         </tr>
                         </tbody>
                     </table>
@@ -128,40 +123,36 @@ function Cart(){
     </ul>
     </div>
     <div className="placeorder">
-    <button className="cartbtn2">Save Changes</button>
-    <br /><br />
-    <hr />
-    <br />
-    <textarea placeholder="Address"></textarea>
-    <br />
-    <input type="number" placeholder="Pincode" min="100000" max="999999"></input>
-    <br /><br />
-    <hr />
-    {/* <h3>Price: Rs. {tp}</h3>
-    <h3>GST(18%): Rs. {gst}</h3>
-    <h3>Total: Rs. {tot}</h3>  */}
-    <br />
+    <hr/>
+    <br/>
     <table style={{width:"80%",marginLeft:"10%"}}>
         <tr>
-            <td style={{textAlign:"left"}}><h3>Price:</h3></td>
-            <td style={{textAlign:"right"}}><h3><b>{tp}</b></h3></td>
+            <td style={{textAlign:"left"}}>Price:</td>
+            <td style={{textAlign:"right"}}>{tp}</td>
         </tr>
         <tr>
-            <td style={{textAlign:"left",paddingBottom:"8px",borderBottom:"2px solid white",borderStyle:"dotted"}}><h3>GST(18%):</h3></td>
-            <td style={{textAlign:"right",paddingBottom:"8px",borderBottom:"2px solid white",borderStyle:"dotted"}}><h3><b>{gst}</b></h3></td>
+            <td style={{textAlign:"left"}}>GST(18%):</td>
+            <td style={{textAlign:"right"}}>{gst}</td>
         </tr>
         <tr>
-            <td style={{textAlign:"left"}}><h3>Total:</h3></td>
-            <td style={{textAlign:"right"}}><h2><b>{tot}</b></h2></td>
+            <td style={{textAlign:"left"}}>Total:</td>
+            <td style={{textAlign:"right"}}><b>Rs. {tot}</b></td>
         </tr>
     </table>
-    <br />
-    <hr />
-    <br />
-    <button className="cartbtn2" id="rzp-button1" onClick={function(e){
+    <br/>
+    <hr/>
+    <br/>
+    <form onSubmit={function(e){
         rzp1.open();
         e.preventDefault();
-    }}>Pay Now Rs. <span id="totalp">{tot} </span> </button>
+    }}>
+    <textarea placeholder="Address" minlength="15" required></textarea>
+    <br/>
+    <input name="pincode" type="text" pattern="[0-9]*" minlength="6" maxlength="6" placeholder="6-digit Pincode" required/>
+    <br/><br/>
+    <button className="cartbtn2" id="rzp-button1" type="submit">Pay Now</button></form>
+    <br/>
+    <hr/>
     </div>
     </div>
     </div>
