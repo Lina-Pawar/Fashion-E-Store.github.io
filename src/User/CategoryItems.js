@@ -4,9 +4,8 @@ import "./CategoryItems.css";
 function CategoryItems() {
   return (
     <div className="catitems">
-      <br />
       <h2 style={{textAlign:"center",textDecoration:"none",paddingLeft:0}}>Categories</h2>
-      <h2>Clothing&nbsp;<i className="fas fa-tshirt"></i></h2>
+      <h3>Clothing&nbsp;<i className="fas fa-tshirt"></i></h3>
       <hr />
         <Link to="/category?category=men&type=clothing">
           <div className="catimg" id="one">
@@ -23,7 +22,7 @@ function CategoryItems() {
             <h3><b>Kids Clothing</b></h3>
           </div>
         </Link> 
-      <h2>Accessories&nbsp;<i className="fab fa-redhat"></i></h2>
+      <h3>Accessories&nbsp;<i className="fab fa-redhat"></i></h3>
       <hr />
       <Link to="/category?category=men&type=accessories">
           <div className="catimg" id="four">
@@ -40,7 +39,7 @@ function CategoryItems() {
             <h3><b>Kids Accessories</b></h3>
           </div>
         </Link> 
-      <h2>Footwear&nbsp;<i className="fas fa-shoe-prints"></i></h2>
+      <h3>Footwear&nbsp;<i className="fas fa-shoe-prints"></i></h3>
       <hr />
       <Link to="/category?category=men&type=footwear">
           <div className="catimg" id="seven">
