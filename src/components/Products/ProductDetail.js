@@ -87,7 +87,6 @@ var photo2='data:image/JPEG;base64,'+ProdList[itemName].image2;
           <br/>
           <p>{ProdList[itemName].details}</p>
           <br/>
-          <br/>
           <h3>Choose a size:</h3>
             <label><input type="radio" name="select" /><span className="size" id="s1" onClick={astcart1}>{Sizes[0]}</span></label>
             <label><input type="radio" name="select" /><span className="size" id="s2" onClick={astcart2}>{Sizes[1]}</span></label>
