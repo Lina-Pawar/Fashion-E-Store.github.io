@@ -8,18 +8,29 @@
   }
   .size{
     border: 1px solid black;
-    border-radius: 20px;
-    width: 40px;
-    height: 40px;
-    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    border-radius: 100%;
+    font-size: 18px;
     font-weight: bold;
-    font-size: 16px;
+    left: 0;
+    text-align: center;
+    padding-top: 2px;
   }
   .size:hover{
     background: linear-gradient(to bottom,#d4af37,#f9f095,#d4af37);
     color: black;
   }
-  .size:focus{
+  label
+  {
+    position:relative;
+    padding-left: 40px;
+  }
+  label input {
+    display: none;
+  }
+  input:checked+span {
     background: linear-gradient(to bottom,#d4af37,#f9f095,#d4af37);
     color: black;
   }

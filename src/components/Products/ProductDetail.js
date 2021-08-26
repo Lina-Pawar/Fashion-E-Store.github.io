@@ -5,8 +5,9 @@ import "./ProductDetail.css";
 import Products from "./Products";
 import {useState} from "react";
 
+var Sizes=["XS","S","M","L","XL"];
 function ProductDetail() {
-  const [prodSize,setSize]=useState();
+  const [prodSize,setSize]=useState('');
   let para = new URLSearchParams(window.location.search);
   function index(){
   for(var i=0;i<ProdList.length;i++) {
@@ -28,8 +29,6 @@ function decrease(){
     x.value=parseInt(x.value)-1;
   }
 }
-
-
 function astcart1(){
   var size1=document.getElementById("s1").innerHTML;
   setSize(size1)  
@@ -51,8 +50,12 @@ function astcart5(){
   setSize(size5)  
 }
 function addcart(){
-  Cartitems.push({photo:photo1,name:ProdList[itemName].name,size:prodSize,price:ProdList[itemName].price,quantity:document.getElementById("quantity").value});
-  alert("Added to cart!");
+  if(prodSize===''){
+    alert("Choose a size!");
+  }else{
+    Cartitems.push({photo:photo1,name:ProdList[itemName].name,size:prodSize,price:ProdList[itemName].price,quantity:document.getElementById("quantity").value});
+    alert("Added to cart!");
+  }  
 }
 window.scrollTo(0,0);
 let itemName = index();
@@ -68,9 +71,8 @@ var photo2='data:image/JPEG;base64,'+ProdList[itemName].image2;
           width: "100%",
           position: "fixed",
           zIndex: "10",
-        }}
-      >
-        <Navbar />
+        }}>
+        <Navbar/>
       </div>
       <div className="detpage">
         <div className="detcar">
@@ -82,25 +84,24 @@ var photo2='data:image/JPEG;base64,'+ProdList[itemName].image2;
 
         <div className="detcontent">
           <h2>{ProdList[itemName].name}</h2>
-          <br />
+          <br/>
           <p>{ProdList[itemName].details}</p>
-          <br />
-          <br />
-          <h3>Choose a size: 
-            <button className="size" id="s1" onClick={astcart1}  >XS</button>
-            <button className="size" id="s2" onClick={astcart2}  >S</button>
-            <button className="size" id="s3" onClick={astcart3}  >M</button>
-            <button className="size" id="s4" onClick={astcart4}  >L</button>
-            <button className="size" id="s5" onClick={astcart5}  >XL</button>
-            </h3>
-          <br />
+          <br/>
+          <br/>
+          <h3>Choose a size:</h3>
+            <label><input type="radio" name="select" /><span className="size" id="s1" onClick={astcart1}>{Sizes[0]}</span></label>
+            <label><input type="radio" name="select" /><span className="size" id="s2" onClick={astcart2}>{Sizes[1]}</span></label>
+            <label><input type="radio" name="select" /><span className="size" id="s3" onClick={astcart3}>{Sizes[2]}</span></label>
+            <label><input type="radio" name="select" /><span className="size" id="s4" onClick={astcart4}>{Sizes[3]}</span></label>
+            <label><input type="radio" name="select" /><span className="size" id="s5" onClick={astcart5}>{Sizes[4]}</span></label>
+          <br/><br/>
           <h3>Rs. {ProdList[itemName].price}
             &nbsp;&nbsp;&nbsp;&nbsp; Quantity:&nbsp;&nbsp;
             <button style={{ width: "35px", height: "35px", fontSize: "16px" }} onClick={decrease}>-</button>
-            <input style={{width: "35px",height: "35px",fontSize: "16px",textAlign:"center"}} id="quantity" value="1"/>
+            <input style={{width: "35px",height: "35px",fontSize: "16px",textAlign:"center"}} id="quantity" defaultValue="1"/>
             <button style={{ width: "35px", height: "35px", fontSize: "16px" }} onClick={increase}>+</button>
           </h3>
-          <br />
+          <br/>
           <button className="atcbtn" onClick={addcart}>Add to Cart</button>
         </div>
       </div>
