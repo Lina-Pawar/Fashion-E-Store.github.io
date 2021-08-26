@@ -101,6 +101,16 @@ function FilterItems(){
   });
   function Cost(){
     var cost=document.getElementById("slider").value;
+    var prices=document.getElementsByClassName("productprice");
+    var items=document.getElementsByClassName("list-item");
+    for(var i=0;i<prices.length;i++){
+      var c=parseInt(prices[i].innerHTML.slice(4,));
+      if(c>cost){
+        items[i].style.display="none";
+      }else{
+        items[i].style.display="block";
+      }
+    }
   };
     return(
         <div className="filteritems">
