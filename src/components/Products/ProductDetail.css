@@ -17,6 +17,7 @@
     left: 0;
     text-align: center;
     padding-top: 2px;
+    margin-top: 4px;
   }
   .size:hover{
     background: linear-gradient(to bottom,#d4af37,#f9f095,#d4af37);
