@@ -26,7 +26,7 @@ function Products(props) {
                   <td colSpan="2" height="45px"><b>{productname}</b></td>
                 </tr>
                 <tr style={{verticalAlign:"bottom"}}>
-                  <td className="productprice">Rs. {item.price}</td>
+                  <td className="productprice">Rs. {Number.parseFloat(item.price).toFixed(2)}</td>
                   <td align="right"><Link to={str.match("/admin")?"/editproduct":linkto} className="buy"><button className="buybutton">{str.match("/admin")?"Edit":"Buy"}</button></Link></td>
                 </tr>
                 </tbody>

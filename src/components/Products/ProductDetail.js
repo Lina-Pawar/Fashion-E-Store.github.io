@@ -94,7 +94,7 @@ var photo2='data:image/JPEG;base64,'+ProdList[itemName].image2;
             <label><input type="radio" name="select" /><span className="size" id="s4" onClick={astcart4}>{Sizes[3]}</span></label>
             <label><input type="radio" name="select" /><span className="size" id="s5" onClick={astcart5}>{Sizes[4]}</span></label>
           <br/><br/>
-          <h3>Rs. {ProdList[itemName].price}
+          <h3>Rs. {Number.parseFloat(ProdList[itemName].price).toFixed(2)}
             &nbsp;&nbsp;&nbsp;&nbsp; Quantity:&nbsp;&nbsp;
             <button style={{ width: "35px", height: "35px", fontSize: "16px" }} onClick={decrease}>-</button>
             <input style={{width: "35px",height: "35px",fontSize: "16px",textAlign:"center"}} id="quantity" defaultValue="1"/>
