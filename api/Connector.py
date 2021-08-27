@@ -129,3 +129,47 @@ class Connection:
                 li.append(cust)
             return li
         return 0
+    
+    def getcart(self,data):
+        def write_file(data, filename):
+            with open(filename, 'wb') as file:
+                file.write(data)
+        li=[]
+        self.query='SELECT * FROM cart WHERE username=%s'
+        self.exec(data['uname'])
+        val=self.cur.fetchall()
+        for row in val:
+            self.query='SELECT * FROM images WHERE name=%s'
+            self.exec(row[1])
+            val2=self.cur.fetchone()
+            write_file(val2[1],"cartimg.png")
+            img = Image.open("cartimg.png")
+            rgb_im = img.convert('RGB')
+            data = io.BytesIO()
+            rgb_im.save(data, "JPEG")
+            photo = base64.b64encode(data.getvalue())
+            photo1=photo.decode('utf-8')
+            li.append({"name":row[1],"size":row[2],"quantity":row[3],"price":row[4],"photo":photo1})
+        return li
+
+    def addCart(self,data):
+        self.query='SELECT * FROM cart WHERE product=%s AND size=%s AND username=%s'
+        self.exec((data['product'],data['size'],data['username']))
+        val=self.cur.fetchone()
+        if(val is not None):
+            self.query='UPDATE cart SET quantity=%s WHERE product=%s AND username=%s'
+            flag=self.exec((val[3]+int(data['quantity']),data['product'],data['username']))
+        else:
+            self.query='INSERT INTO cart SET username=%s,product=%s,size=%s,quantity=%s,price=%s'
+            flag=self.exec((data['username'],data['product'],data['size'],data['quantity'],data['price']))
+        return flag
+
+    def deletecart(self,data):
+        self.query='DELETE FROM cart WHERE product=%s AND username=%s'
+        flag=self.exec((data['product'],data['uname']))
+        return flag
+
+    def updateQty(self,data):
+        self.query='UPDATE cart SET quantity=%s WHERE product=%s AND username=%s'
+        flag=self.exec((data['quantity'],data['product'],data['username']))
+        return flag

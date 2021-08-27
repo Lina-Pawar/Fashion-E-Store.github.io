@@ -62,10 +62,7 @@ const Register = ({ setToken }) => {
               resp.data.response !== undefined &&
               resp.data.response !== null
             ) {
-              window.localStorage.setItem(
-                "fashion-e-store-user",
-                user.username
-              );
+              window.localStorage.setItem("fashion-e-store-user",user.username);
               setToken(resp.data.response);
               alert("Registration successful!")
               window.location.href="/home";

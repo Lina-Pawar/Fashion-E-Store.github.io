@@ -2,11 +2,26 @@ import { Link } from "react-router-dom";
 import image from "../../imgs/logo.png";
 import Navbar from "../../components/Navbar";
 import "./Cart.css";
-import {Cartitems} from "../../components/Products/ProductDetail";
+import Service from "../../components/Service";
 
+var Cartitems=[];
 function Cart(){
     window.scroll(0,0);
-    const FinalPrice=[]
+    const data={uname:window.localStorage.getItem("fashion-e-store-user")};
+    Service.getCart(data).then((resp) =>{
+        Cartitems=[];
+        if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+            const values=resp.data.response;
+            // eslint-disable-next-line
+            const cartitems=values.map((cartitems)=>{
+                Cartitems.push({photo:cartitems['photo'],name:cartitems['name'],size:cartitems['size'],quantity:cartitems['quantity'],price:cartitems['price']});
+                return cartitems;
+            });
+        }else{
+            alert("Error");
+        }
+    });  
+    const FinalPrice=[];
     for(const key in Cartitems){
         FinalPrice.push({name:Cartitems[key].name,price:Cartitems[key].price*Cartitems[key].quantity})
     }
@@ -16,58 +31,44 @@ function Cart(){
     tp=Number.parseFloat(tp).toFixed(2);
     gst=Number.parseFloat(gst).toFixed(2);
     tot=Number.parseFloat(tot).toFixed(2);
-    function increase(pname,pphoto){
+    function qty(change,pname,pphoto){
         var x=document.getElementById(pname);
         var z=Cartitems.findIndex(x=>x.name===pname);
         var y=Cartitems[z].price;
-        if(x.value<10){
+        if(x.value<10 && change==='+'){
           x.value=parseInt(x.value)+1;
-          var st= x.value*y;
-          document.getElementById(pphoto).innerHTML=Number.parseFloat(st).toFixed(2);
-          const index=FinalPrice.findIndex(x=>x.name===pname);
-          FinalPrice[index].price=st;
-          tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
-          gst= (tp*18)/100;
-          tot = tp + gst;
-          tp=Number.parseFloat(tp).toFixed(2);
-          gst=Number.parseFloat(gst).toFixed(2);
-          tot=Number.parseFloat(tot).toFixed(2);
-          document.getElementById("fp").innerHTML=tp;
-          document.getElementById("gstax").innerHTML=gst;
-          document.getElementById("totalp1").style.fontWeight="bold";
-          document.getElementById("totalp1").innerHTML=tot;
         }
-      }
-      function decrease(pname,pphoto){
-        var x=document.getElementById(pname);
-        var z=Cartitems.findIndex(x=>x.name===pname);
-        var y=Cartitems[z].price;
-        if(x.value>1){
+        else if(x.value>1 && change==='-'){
           x.value=parseInt(x.value)-1;
-          var st= x.value*y;
-          document.getElementById(pphoto).innerHTML=Number.parseFloat(st).toFixed(2);
-          const index=FinalPrice.findIndex(x=>x.name===pname);
-          FinalPrice[index].price=st;
-          tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
-          gst= (tp*18)/100;
-          tot = tp + gst;
-          tp=Number.parseFloat(tp).toFixed(2);
-          gst=Number.parseFloat(gst).toFixed(2);
-          tot=Number.parseFloat(tot).toFixed(2);
-          document.getElementById("fp").innerHTML=tp;
-          document.getElementById("gstax").innerHTML=gst;
-          document.getElementById("totalp1").style.fontWeight="bold";
-          document.getElementById("totalp1").innerHTML=tot;
         }
+        var st= x.value*y;
+        document.getElementById(pphoto).innerHTML=Number.parseFloat(st).toFixed(2);
+        const index=FinalPrice.findIndex(x=>x.name===pname);
+        FinalPrice[index].price=st;
+        tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+        gst= (tp*18)/100;
+        tot = tp + gst;
+        tp=Number.parseFloat(tp).toFixed(2);
+        gst=Number.parseFloat(gst).toFixed(2);
+        tot=Number.parseFloat(tot).toFixed(2);
+        document.getElementById("fp").innerHTML=tp;
+        document.getElementById("gstax").innerHTML=gst;
+        document.getElementById("totalp1").style.fontWeight="bold";
+        document.getElementById("totalp1").innerHTML=tot;
+        const data={username:window.localStorage.getItem("fashion-e-store-user"),product:pname,quantity:x.value};
+        Service.updateQty(data).then((resp) =>{
+            if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+            }
+            });
       }
-    //   payment
-    
-    //
-      
-    // var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
-    // var gst= (tp*18)/100;
-    // var tot = tp + gst;
-
+    function deletecart(pname){
+        const data={uname:window.localStorage.getItem("fashion-e-store-user"),product:pname};
+        Service.DeleteCart(data).then((resp) =>{
+            if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+                alert("Item removed!");
+            }
+        });
+    }
     var options = {
         "key": "rzp_test_dO928nWzZAVW6J", // Enter the Key ID generated from the Dashboard
         "amount": tot*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -118,13 +119,14 @@ function Cart(){
             <ul className="">
             {Cartitems.map((item) => {
             var linkto = "/product?name="+item.name;
+            var cartimg='data:image/JPEG;base64,'+item.photo;
             return (
             <li className="cartbox" key={item.name}>
                 <div className="cartboxcontent">
                     <table width="100%">
                     <tbody>
                         <tr>
-                            <td rowspan="4" width="40%" className="cartimg"><img src={item.photo} alt="cartimage"/></td>
+                            <td rowspan="4" width="40%" className="cartimg"><img src={cartimg} alt="cartimage"/></td>
                         </tr>                   
                         <tr>
                             <th style={{fontSize:"18px"}} colspan="3">{item.name} &nbsp; (Size: {item.size})</th>
@@ -132,14 +134,14 @@ function Cart(){
                         <tr>
                             <td colspan="3">Quantity: 
                                 &nbsp;&nbsp;
-                                <button className="cartquantity" onClick={()=>decrease(item.name,item.photo)}>-</button>
-                                <input style={{textAlign:"center"}} className="cartquantity" id={item.name} defaultValue={item.quantity} />
-                                <button className="cartquantity" onClick={()=>increase(item.name,item.photo)}>+</button>
+                                <button className="cartquantity" onClick={()=>qty('-',item.name,cartimg)}>-</button>
+                                <input style={{textAlign:"center",backgroundColor:"white",color:"black"}} className="cartquantity" id={item.name} defaultValue={item.quantity} disabled/>
+                                <button className="cartquantity" onClick={()=>qty('+',item.name,cartimg)}>+</button>
                             </td>
                         </tr>
                         <tr>
-                            <td width="60%">Price: Rs. <span id={item.photo}>{Number.parseFloat(item.price*item.quantity).toFixed(2)}</span></td>
-                            <td style={{fontSize:"18px"}} width="10%"><span className="fas fa-trash">&nbsp;&nbsp;</span></td>
+                            <td width="60%">Price: Rs. <span id={cartimg}>{Number.parseFloat(item.price*item.quantity).toFixed(2)}</span></td>
+                            <td style={{fontSize:"18px"}} width="10%"><span className="fas fa-trash" onClick={()=>deletecart(item.name)}>&nbsp;&nbsp;</span></td>
                             <td width="10%"><Link to={linkto}><button className="cartbtn">View Details</button></Link></td>
                         </tr>
                         </tbody>
