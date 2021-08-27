@@ -129,3 +129,30 @@ class Connection:
                 li.append(cust)
             return li
         return 0
+    
+    def getcart(self):
+        def write_file(data, filename):
+            with open(filename, 'wb') as file:
+                file.write(data)
+        li=[]
+        self.query='SELECT * FROM cart'
+        flag=self.exec()
+        val=self.cur.fetchall()
+        for row in val:
+            self.query='SELECT * FROM images WHERE name=%s'
+            self.exec(row[1])
+            val2=self.cur.fetchone()
+            write_file(val2[1],"cartimg.png")
+            img = Image.open("cartimg.png")
+            rgb_im = img.convert('RGB')
+            data = io.BytesIO()
+            rgb_im.save(data, "JPEG")
+            photo = base64.b64encode(data.getvalue())
+            photo1=photo.decode('utf-8')
+            li.append({"name":row[1],"size":row[2],"quantity":row[3],"price":row[4],"photo":photo1})
+        return li
+
+    def addCart(self,data):
+        self.query='INSERT INTO cart SET username=%s,product=%s,size=%s,quantity=%s,price=%s'
+        flag=self.exec((data['username'],data['name'],data['size'],data['quantity'],data['price']))
+        return flag

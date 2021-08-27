@@ -57,5 +57,21 @@ def customers():
     if request.method == "POST":
         response = conn.Customers()
     return {"response": response}
+
+@app.route("/GetCart", methods=["GET", "POST"])
+def getCart():
+    conn = Connection()
+    if request.method == "POST":
+        response = conn.getcart()
+    return {"response": response}
+
+@app.route("/AddCart", methods=["GET", "POST"])
+def AddCart():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.addCart(userData)
+    return {"response": response}
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)

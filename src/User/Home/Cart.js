@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import image from "../../imgs/logo.png";
 import Navbar from "../../components/Navbar";
+import { Cartitems } from "./Cartitems";
 import "./Cart.css";
-import {Cartitems} from "../../components/Products/ProductDetail";
 
 function Cart(){
     window.scroll(0,0);
@@ -118,13 +118,14 @@ function Cart(){
             <ul className="">
             {Cartitems.map((item) => {
             var linkto = "/product?name="+item.name;
+            var cartimg='data:image/JPEG;base64,'+item.photo;
             return (
             <li className="cartbox" key={item.name}>
                 <div className="cartboxcontent">
                     <table width="100%">
                     <tbody>
                         <tr>
-                            <td rowspan="4" width="40%" className="cartimg"><img src={item.photo} alt="cartimage"/></td>
+                            <td rowspan="4" width="40%" className="cartimg"><img src={cartimg} alt="cartimage"/></td>
                         </tr>                   
                         <tr>
                             <th style={{fontSize:"18px"}} colspan="3">{item.name} &nbsp; (Size: {item.size})</th>
@@ -132,13 +133,13 @@ function Cart(){
                         <tr>
                             <td colspan="3">Quantity: 
                                 &nbsp;&nbsp;
-                                <button className="cartquantity" onClick={()=>decrease(item.name,item.photo)}>-</button>
+                                <button className="cartquantity" onClick={()=>decrease(item.name,cartimg)}>-</button>
                                 <input style={{textAlign:"center"}} className="cartquantity" id={item.name} defaultValue={item.quantity} />
-                                <button className="cartquantity" onClick={()=>increase(item.name,item.photo)}>+</button>
+                                <button className="cartquantity" onClick={()=>increase(item.name,cartimg)}>+</button>
                             </td>
                         </tr>
                         <tr>
-                            <td width="60%">Price: Rs. <span id={item.photo}>{Number.parseFloat(item.price*item.quantity).toFixed(2)}</span></td>
+                            <td width="60%">Price: Rs. <span id={cartimg}>{Number.parseFloat(item.price*item.quantity).toFixed(2)}</span></td>
                             <td style={{fontSize:"18px"}} width="10%"><span className="fas fa-trash">&nbsp;&nbsp;</span></td>
                             <td width="10%"><Link to={linkto}><button className="cartbtn">View Details</button></Link></td>
                         </tr>
