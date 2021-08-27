@@ -13,6 +13,9 @@ function Cart(){
     var tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
     var gst= (tp*18)/100;
     var tot=tp + gst;
+    tp=Number.parseFloat(tp).toFixed(2);
+    gst=Number.parseFloat(gst).toFixed(2);
+    tot=Number.parseFloat(tot).toFixed(2);
     function increase(pname,pphoto){
         var x=document.getElementById(pname);
         var z=Cartitems.findIndex(x=>x.name===pname);
@@ -20,14 +23,18 @@ function Cart(){
         if(x.value<10){
           x.value=parseInt(x.value)+1;
           var st= x.value*y;
-          document.getElementById(pphoto).innerHTML=st;
+          document.getElementById(pphoto).innerHTML=Number.parseFloat(st).toFixed(2);
           const index=FinalPrice.findIndex(x=>x.name===pname);
           FinalPrice[index].price=st;
           tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
           gst= (tp*18)/100;
           tot = tp + gst;
+          tp=Number.parseFloat(tp).toFixed(2);
+          gst=Number.parseFloat(gst).toFixed(2);
+          tot=Number.parseFloat(tot).toFixed(2);
           document.getElementById("fp").innerHTML=tp;
           document.getElementById("gstax").innerHTML=gst;
+          document.getElementById("totalp1").style.fontWeight="bold";
           document.getElementById("totalp1").innerHTML=tot;
         }
       }
@@ -38,14 +45,18 @@ function Cart(){
         if(x.value>1){
           x.value=parseInt(x.value)-1;
           var st= x.value*y;
-          document.getElementById(pphoto).innerHTML=st;
+          document.getElementById(pphoto).innerHTML=Number.parseFloat(st).toFixed(2);
           const index=FinalPrice.findIndex(x=>x.name===pname);
           FinalPrice[index].price=st;
           tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
           gst= (tp*18)/100;
           tot = tp + gst;
+          tp=Number.parseFloat(tp).toFixed(2);
+          gst=Number.parseFloat(gst).toFixed(2);
+          tot=Number.parseFloat(tot).toFixed(2);
           document.getElementById("fp").innerHTML=tp;
           document.getElementById("gstax").innerHTML=gst;
+          document.getElementById("totalp1").style.fontWeight="bold";
           document.getElementById("totalp1").innerHTML=tot;
         }
       }
@@ -126,7 +137,7 @@ function Cart(){
                             </td>
                         </tr>
                         <tr>
-                            <td width="60%">Price: Rs. <span id={item.photo}>{item.price*item.quantity}</span></td>
+                            <td width="60%">Price: Rs. <span id={item.photo}>{Number.parseFloat(item.price*item.quantity).toFixed(2)}</span></td>
                             <td style={{fontSize:"18px"}} width="10%"><span className="fas fa-trash">&nbsp;&nbsp;</span></td>
                             <td width="10%"><Link to={linkto}><button className="cartbtn">View Details</button></Link></td>
                         </tr>
