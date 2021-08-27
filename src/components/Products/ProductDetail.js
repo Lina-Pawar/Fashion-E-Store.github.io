@@ -62,7 +62,7 @@ function addcart(){
     alert("Choose a size!");
   }
   else{
-    const data={username:window.localStorage.getItem("fashion-e-store-user"),name:ProdList[itemName].name,size:prodSize,quantity:document.getElementById("quantity").value,price:ProdList[itemName].price};
+    const data={username:window.localStorage.getItem("fashion-e-store-user"),product:ProdList[itemName].name,size:prodSize,quantity:document.getElementById("quantity").value,price:ProdList[itemName].price};
     Service.AddCart(data).then((resp) =>{
       if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
         alert("Added to cart!");

@@ -153,8 +153,15 @@ class Connection:
         return li
 
     def addCart(self,data):
-        self.query='INSERT INTO cart SET username=%s,product=%s,size=%s,quantity=%s,price=%s'
-        flag=self.exec((data['username'],data['name'],data['size'],data['quantity'],data['price']))
+        self.query='SELECT * FROM cart WHERE product=%s AND size=%s AND username=%s'
+        self.exec((data['product'],data['size'],data['username']))
+        val=self.cur.fetchone()
+        if(val is not None):
+            self.query='UPDATE cart SET quantity=%s WHERE product=%s AND username=%s'
+            flag=self.exec((val[3]+int(data['quantity']),data['product'],data['username']))
+        else:
+            self.query='INSERT INTO cart SET username=%s,product=%s,size=%s,quantity=%s,price=%s'
+            flag=self.exec((data['username'],data['product'],data['size'],data['quantity'],data['price']))
         return flag
 
     def deletecart(self,data):
