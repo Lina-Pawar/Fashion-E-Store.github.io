@@ -37,9 +37,17 @@ const customers = async (user) => {
 const getCart = async (user) => {
   return axios.post(API_BASE_URL + "GetCart" , { ...user });
 }
+
 const AddCart = async (user) => {
   return axios.post(API_BASE_URL + "AddCart" , { ...user });
 }
 
+const DeleteCart = async (user) => {
+  return axios.post(API_BASE_URL + "DeleteCart" , { ...user });
+}
+
+const updateQty = async (user) => {
+  return axios.post(API_BASE_URL + "Quantity" , { ...user });
+}
 // eslint-disable-next-line
-export default { login, register, userinfo, update, updateUserName, resetPassword, products, customers, getCart, AddCart };
+export default { login, register, userinfo, update, updateUserName, resetPassword, products, customers, getCart, AddCart, DeleteCart, updateQty };

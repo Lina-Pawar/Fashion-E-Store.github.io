@@ -62,7 +62,8 @@ def customers():
 def getCart():
     conn = Connection()
     if request.method == "POST":
-        response = conn.getcart()
+        userData = request.json
+        response = conn.getcart(userData)
     return {"response": response}
 
 @app.route("/AddCart", methods=["GET", "POST"])
@@ -71,6 +72,23 @@ def AddCart():
     if request.method == "POST":
         userData = request.json
         response = conn.addCart(userData)
+    return {"response": response}
+
+@app.route("/DeleteCart", methods=["GET", "POST"])
+def DeleteCart():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.deletecart(userData)
+    return {"response": response}
+
+
+@app.route("/Quantity", methods=["GET", "POST"])
+def updateqty():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.updateQty(userData)
     return {"response": response}
 
 if __name__ == "__main__":

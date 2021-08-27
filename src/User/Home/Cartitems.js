@@ -1,6 +1,6 @@
 import Service from "../../components/Service";
-
-Service.getCart().then((resp) =>{
+const data={uname:window.localStorage.getItem("fashion-e-store-user")};
+Service.getCart(data).then((resp) =>{
       if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
         const values=resp.data.response;
         // eslint-disable-next-line
@@ -12,4 +12,4 @@ Service.getCart().then((resp) =>{
         alert("Error");
       }
   });  
-export const Cartitems=[]
+export const Cartitems=[];

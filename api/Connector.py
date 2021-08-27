@@ -130,13 +130,13 @@ class Connection:
             return li
         return 0
     
-    def getcart(self):
+    def getcart(self,data):
         def write_file(data, filename):
             with open(filename, 'wb') as file:
                 file.write(data)
         li=[]
-        self.query='SELECT * FROM cart'
-        flag=self.exec()
+        self.query='SELECT * FROM cart WHERE username=%s'
+        self.exec(data['uname'])
         val=self.cur.fetchall()
         for row in val:
             self.query='SELECT * FROM images WHERE name=%s'
@@ -155,4 +155,14 @@ class Connection:
     def addCart(self,data):
         self.query='INSERT INTO cart SET username=%s,product=%s,size=%s,quantity=%s,price=%s'
         flag=self.exec((data['username'],data['name'],data['size'],data['quantity'],data['price']))
+        return flag
+
+    def deletecart(self,data):
+        self.query='DELETE FROM cart WHERE product=%s AND username=%s'
+        flag=self.exec((data['product'],data['uname']))
+        return flag
+
+    def updateQty(self,data):
+        self.query='UPDATE cart SET quantity=%s WHERE product=%s AND username=%s'
+        flag=self.exec((data['quantity'],data['product'],data['username']))
         return flag
