@@ -76,6 +76,7 @@ function Cart(){
         "description": "Test Transaction",
         "image": image,
         "handler": function (response){
+            // eslint-disable-next-line
             alert("Payment Successful!\n"+"Payment id:"+response.razorpay_payment_id);
             window.location.href="/home";
         },

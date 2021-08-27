@@ -101,14 +101,30 @@ function FilterItems(){
   });
   function Cost(){
     var cost=document.getElementById("slider").value;
+    var prices=document.getElementsByClassName("productprice");
+    var items=document.getElementsByClassName("list-item");
+    // eslint-disable-next-line
+    if(cost==3000){
+      document.getElementById("pricefilter").innerHTML="max";
+    }else{
+      document.getElementById("pricefilter").innerHTML=cost;
+    }
+    for(var i=0;i<prices.length;i++){
+      var c=parseInt(prices[i].innerHTML.slice(4,));
+      if(c>cost){
+        items[i].style.display="none";
+      }else{
+        items[i].style.display="block";
+      }
+    }
   };
     return(
         <div className="filteritems">
         <h2 style={{textAlign:"center",textDecoration:"none",paddingLeft:"0"}}>Filter <i className="fas fa-filter"></i></h2>
         <h3>Price Range</h3>
         <hr /><br/>
-        <input type="range" min="100" max="3000" defaultValue="100" step="10" id="slider" onChange={Cost}/>
-        <br/><label>Rs. 100</label><label style={{float:"right"}}>max</label>
+        <input type="range" min="100" max="3000" defaultValue="3000" step="10" id="slider" onChange={Cost}/>
+        <br/><label>Rs. 100</label><label style={{float:"right"}} id="pricefilter">max</label>
         <br /><br />
         <h3>Colors&nbsp;<i className={plusminus1} onClick={() => setVisibility1((visible) => !visible)}></i></h3>
         <hr/>
