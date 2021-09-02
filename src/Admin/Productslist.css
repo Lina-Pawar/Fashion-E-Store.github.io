@@ -8,16 +8,14 @@
     border-bottom: 2px solid #d4af37;
 }
 .showAPBox{
-
- position: fixed;
- width: 60%;
- height:55vh;
- background-color: white;
- box-shadow:0 2px 8px 0 rgba(0, 0, 0, 0.5) ;
- top:25vh;
- left :25% ;
- z-index: 10;
-
+    position: fixed;
+    width: 60%;
+    height:65vh;
+    background-color: white;
+    box-shadow:0 2px 8px 0 rgba(0, 0, 0, 0.5) ;
+    top:15vh;
+    left :25% ;
+    z-index: 10;
 }
 .aptitle{
     position: absolute;

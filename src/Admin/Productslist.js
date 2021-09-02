@@ -2,47 +2,40 @@ import Products from "../components/Products/Products";
 import "./Productslist.css";
 import Service from "../components/Service";
 import {useState} from "react";
-//
-import image1 from "../imgs/category/kids.JPG";
-import image2 from "../imgs/category/menacc.JPG";
-//
-import PropTypes from "prop-types";
-function Productslist({ setToken }){
+
+function Productslist(){
     const [isVisible, setVisibility] = useState(false);
     const displayAPBox = isVisible ? "showAPBox" : "hideAPBox";
-    //
     const [prodname, setprodname] = useState("");
-  const [proddet, setproddet] = useState("");
-  const [prodfilter, setprodfilter] = useState("");
-  const [prodprice, setprodprice] = useState("");
-  const [prodqty, setprodqty] = useState("");
+    const [proddet, setproddet] = useState("");
+    const [prodfilter, setprodfilter] = useState("");
+    const [prodprice, setprodprice] = useState("");
+    const [prodqty, setprodqty] = useState("");
+    function displayimg(){
+        var x=document.getElementById("image1").value;
+        if(x!==''){
+        document.getElementById("img1").innerHTML="<img id='img2' alt='pic1' src="+x+">";
+        }
+        alert(document.getElementById("img1").innerHTML);
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
-          var product = {prodname:prodname,proddet:proddet,prodfilter:prodfilter,prodprice:prodprice,prodqty:prodqty};
-    
+          var product = {prodname:prodname,proddet:proddet,prodfilter:prodfilter,prodprice:prodprice,prodqty:prodqty,pic1:document.getElementById("image1").value,pic2:document.getElementById("image2").value};
           Service.addproduct(product).then((resp) => {
-           
-             
-                if (
-                  resp.data.response !== 0 &&
-                  resp.data.response !== undefined &&
-                  resp.data.response !== null
-                ) {
-                  window.localStorage.setItem("fashion-e-store-user",product.prodname);
-                  setToken(resp.data.response);
-                  alert("Product Added successfully!")
-                } else {
-                  alert("Some Error Occurred!!");
-                };
-        
+            if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+              alert("Product Added successfully!");
+            } else {
+              alert("Some Error Occurred!!");
+            };
           });
       };
-    //
     return(
         <div style={{marginTop:"8vh"}}>
             <div className="adminprodhead">
                 <div style={{width:"70%"}}><h2 style={{textAlign:"center"}}>PRODUCTS</h2></div>
-                <div style={{width:"30%"}}><button className="viewbtn" onClick={() => setVisibility((visible) => !visible)}>Add New Product</button></div>
+                <div style={{width:"30%"}}>
+                <button className="viewbtn fas fa-plus" onClick={() => setVisibility((visible) => !visible)} style={{width:"150px"}}> Add product</button>
+                </div>
             </div>
             <div style={{paddingTop:"6vh"}}>
             <Products n={180}/>
@@ -53,19 +46,19 @@ function Productslist({ setToken }){
                 <form onSubmit={handleSubmit}>
                     <div className="apForm">
                         <div className="apFormImg">
-                            <img src={image1} alt="pic1" /><br />
-                            <button>Add Image 1</button>
+                            <div id="img1"></div><br/>
+                            <input type="text" id="image1" placeholder="Paste the location of you image file" required onChange={displayimg}/>
                         </div>
                         <div className="apFormImg">
-                            <img src={image2} alt="pic2" /><br />
-                            <button>Add Image 2</button>
+                            <img id="img2" alt="pic2"/><br/>
+                            <input type="text" id="image2" placeholder="Paste the location of you image file" onChange={displayimg}/>
                         </div>
                         <div className="apFormInput">
-                            <input placeholder="Enter Product name" id="prodname" onChange={(e) => setprodname(e.target.value)}></input><br /><br />
-                            <textarea placeholder="Enter Product details" id="proddet" onChange={(e) => setproddet(e.target.value)}></textarea><br /><br />
-                            <input placeholder="Enter Filter Options" id="prodfilter" onChange={(e) => setprodfilter(e.target.value)}></input><br /><br />
-                            <input placeholder="Enter Price" id="prodprice" onChange={(e) => setprodprice(e.target.value)} style={{width:"45%"}}></input>&nbsp;&nbsp;&nbsp;
-                            <input placeholder="Enter Quantity" id="prodqty" onChange={(e) => setprodqty(e.target.value)} style={{width:"44%"}}></input><br /><br />
+                            <input placeholder="Enter Product name" id="prodname" onChange={(e) => setprodname(e.target.value)} required/><br/><br/>
+                            <textarea placeholder="Enter Product details" id="proddet" onChange={(e) => setproddet(e.target.value)} required></textarea><br/><br/>
+                            <input placeholder="Enter Filter Options" id="prodfilter" onChange={(e) => setprodfilter(e.target.value)} required/><br/><br/>
+                            <input placeholder="Enter Price" id="prodprice" onChange={(e) => setprodprice(e.target.value)} style={{width:"45%"}} required/>&nbsp;&nbsp;&nbsp;
+                            <input type="number" min="1" max="100" placeholder="Enter Quantity" id="prodqty" onChange={(e) => setprodqty(e.target.value)} style={{width:"44%"}} required/><br/><br/>
                             <button type="submit">Add Product</button>
                         </div>
                     </div>        
@@ -76,7 +69,4 @@ function Productslist({ setToken }){
         </div>
     );
 }
-Productslist.propTypes = {
-    setToken: PropTypes.func.isRequired,
-  };
 export default Productslist;
