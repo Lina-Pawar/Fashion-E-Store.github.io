@@ -24,6 +24,14 @@ function Productslist(){
           Service.addproduct(product).then((resp) => {
             if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
               alert("Product Added successfully!");
+              setVisibility((visible) => !visible);
+              document.getElementById("prodname").value='';
+              document.getElementById("proddet").value='';
+              document.getElementById("prodfilter").value='';
+              document.getElementById("prodprice").value='';
+              document.getElementById("prodqty").value='';
+              document.getElementById("image1").value='';
+              document.getElementById("image2").value='';
             } else {
               alert("Some Error Occurred!!");
             };
@@ -38,7 +46,7 @@ function Productslist(){
                 </div>
             </div>
             <div style={{paddingTop:"6vh"}}>
-            <Products n={180}/>
+            <Products n={185}/>
             </div>
             <div className={displayAPBox}>
                 <span className="aptitle"><p>ADD PRODUCT</p></span>
