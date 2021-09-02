@@ -91,5 +91,13 @@ def updateqty():
         response = conn.updateQty(userData)
     return {"response": response}
 
+@app.route("/AddProduct", methods=["GET", "POST"])
+def addproduct():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.addProduct(userData)
+    return {"response": response}
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)
