@@ -1,0 +1,99 @@
+.adminprodhead{
+    width: 100%;
+    height: 7vh;
+    padding: 1vh 0 1vh 0;
+    display: flex;
+    position: fixed;
+    background-color: white;
+    border-bottom: 2px solid #d4af37;
+}
+.showAPBox{
+
+ position: fixed;
+ width: 60%;
+ height:55vh;
+ background-color: white;
+ box-shadow:0 2px 8px 0 rgba(0, 0, 0, 0.5) ;
+ top:25vh;
+ left :25% ;
+ z-index: 10;
+
+}
+.aptitle{
+    position: absolute;
+    width: 90%;
+    text-align: center;
+}
+.aptitle p{
+    font-size: 20px;
+    color: black;
+    margin-top: 20px;
+}
+.hideAPBox{
+    display:none;
+}
+.closeAP{
+    float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+    font-size: 24px;
+}
+.apForm{
+    display: flex;
+    width:90%;
+    margin-left:5%;
+    margin-bottom: 5vh;
+    margin-top: 10vh;
+}
+.apFormImg{
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    margin-top: 2vh;
+}
+.apFormImg img{
+    height: 30vh;
+    width: 80%;
+    border: 2px solid black;
+}
+.apFormInput{
+    width: 50%;
+    height: 100%;
+}
+.apFormInput input,.apFormInput textarea{
+    margin-left: 20px;
+    height: 40px;
+    font-size: 16px;
+    padding-left: 10px;
+    width: 95%;
+}
+.apFormInput textarea{
+    height: 100px;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-top: 10px;
+}
+
+.apFormImg button,.apFormInput button{
+    color: white;
+  text-decoration: none;
+  font-size: 16px;
+  height: 10vh;
+  max-height: 40px;
+  width: 35vw;
+  max-width: 200px;
+  border-radius: 20px;
+  margin: 5px;
+  background-color: black;
+  color: white;
+  border:none;
+}
+.apFormInput button{
+    margin-left: 30%;
+    width: 40%;
+}
+.apFormImg button:hover,.apFormInput button:hover{
+  background: linear-gradient(to right,#d4af37,#f9f095,#d4af37);
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+}

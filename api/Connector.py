@@ -35,6 +35,11 @@ class Connection:
         flag = self.exec((data['fname'],data['lname'],data['contact'],data['email'],data['gender'],data['username'],converted))
         return flag
 
+    def addProduct(self, data):
+        self.query = 'INSERT INTO `products`(`name`, `price`, `quantity`, `filters`, `details`) VALUES (%s, %s, %s, %s, %s)'
+        flag = self.exec(data['prodname'],data['proddet'],data['prodfilter'],data['prodprice'],data['prodqty'])
+        return flag
+
     def verifyUser(self, data):
         self.query = 'SELECT count(*) from customers where username = %s'
         flag = self.exec(data['username'])
