@@ -35,11 +35,6 @@ class Connection:
         flag = self.exec((data['fname'],data['lname'],data['contact'],data['email'],data['gender'],data['username'],converted))
         return flag
 
-    def addProduct(self, data):
-        self.query = 'INSERT INTO `products`(`name`, `price`, `quantity`, `filters`, `details`) VALUES (%s, %s, %s, %s, %s)'
-        flag = self.exec(data['prodname'],data['proddet'],data['prodfilter'],data['prodprice'],data['prodqty'])
-        return flag
-
     def verifyUser(self, data):
         self.query = 'SELECT count(*) from customers where username = %s'
         flag = self.exec(data['username'])
@@ -101,16 +96,16 @@ class Connection:
                 flag2=self.exec(row[0])
                 val2=self.cur.fetchall()
                 if flag2==1 and val2 is not None:
-                    write_file(val2[0][1],"img.png")
-                    img = Image.open("img.png")
+                    write_file(val2[0][1],"prodimg.png")
+                    img = Image.open("prodimg.png")
                     rgb_im = img.convert('RGB')
                     data = io.BytesIO()
                     rgb_im.save(data, "JPEG")
                     photo = base64.b64encode(data.getvalue())
                     photo1=photo.decode('utf-8')
                     if len(val2)>1:
-                        write_file(val2[1][1],"img.png")
-                        img = Image.open("img.png")
+                        write_file(val2[1][1],"prodimg.png")
+                        img = Image.open("prodimg.png")
                         rgb_im = img.convert('RGB')
                         data = io.BytesIO()
                         rgb_im.save(data, "JPEG")
@@ -122,6 +117,22 @@ class Connection:
                     li.append(prods)
             return li
         return 0
+
+    def addProduct(self, data):
+        def convertToBinaryData(filename):
+            with open(filename, 'rb') as file:
+                binaryData = file.read()
+            return binaryData
+        self.query = 'INSERT INTO `products`(`name`, `price`, `quantity`, `filters`, `details`) VALUES (%s, %s, %s, %s, %s)'
+        self.exec((data['prodname'],data['prodprice'],data['prodqty'],data['prodfilter'],data['proddet']))
+        self.query = 'INSERT INTO images(name, image) VALUES (%s,%s)'
+        pic1 = convertToBinaryData(data['pic1'])
+        flag=self.exec((data['prodname'],pic1))
+        if data['pic2']!='':
+            self.query = 'INSERT INTO images(name, image) VALUES (%s,%s)'
+            pic2 = convertToBinaryData(data['pic2'])
+            flag=self.exec((data['prodname'],pic2))
+        return flag
 
     def Customers(self):
         self.query='SELECT * FROM customers'

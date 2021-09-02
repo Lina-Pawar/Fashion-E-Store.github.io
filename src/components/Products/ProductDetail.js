@@ -8,6 +8,23 @@ import Service from "../Service";
 
 var Sizes=[];
 function ProductDetail() {
+  var x=setInterval(() => {
+    if((document.getElementById("s5")!==null)&&(Sizes[0]==="Onesize")){
+      document.getElementById("s1").style.width="70px";
+      document.getElementById("s2").style.display="none";
+      document.getElementById("s3").style.display="none";
+      document.getElementById("s4").style.display="none";
+      document.getElementById("s5").style.display="none";    
+    }else{
+      document.getElementById("s1").style.width="35px";
+      document.getElementById("s2").style.display="block";
+      document.getElementById("s3").style.display="block";
+      document.getElementById("s4").style.display="block";
+      document.getElementById("s5").style.display="block";   
+    }
+  clearInterval(x);
+  }, 1);
+  
   const [prodSize,setSize]=useState('');
   let para = new URLSearchParams(window.location.search);
   function index(){
@@ -71,13 +88,6 @@ function addcart(){
       }
   });  
 }}
-function prodsizes(){
-  document.getElementById("s1").style.width="70px";
-  document.getElementById("s2").style.display="none";
-  document.getElementById("s3").style.display="none";
-  document.getElementById("s4").style.display="none";
-  document.getElementById("s5").style.display="none";
-}
 window.scrollTo(0,0);
 let itemName = index();
 var photo1='data:image/JPEG;base64,'+ProdList[itemName].image1;
