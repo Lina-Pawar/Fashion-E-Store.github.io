@@ -23,7 +23,7 @@ function Products(props) {
               <table width="100%">
                 <tbody>
                 <tr>
-                  <td colSpan="2" height="45px"><b>{productname}</b></td>
+                  <td colSpan="2" height="45px" className="productname"><b>{productname}</b></td>
                 </tr>
                 <tr style={{verticalAlign:"bottom"}}>
                   <td className="productprice">Rs. {Number.parseFloat(item.price).toFixed(2)}</td>
