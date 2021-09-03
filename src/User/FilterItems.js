@@ -14,13 +14,13 @@ function FilterItems(){
   let para = new URLSearchParams(window.location.search);
   let category=para.get("category");
   let type=para.get("type");
+  var items=document.getElementsByClassName("list-item");
+  var names=document.getElementsByClassName("productname");
   var Colorsavailable="";
   var Subcategories="";
   var myArr1=[];
   var myArr2=[];
   var userFilters=[];
-  var items=document.getElementsByClassName("list-item");
-  var names=document.getElementsByClassName("productname");
   function filters(val){
     if(userFilters.indexOf(val)<0){
       userFilters.push(val);
@@ -143,7 +143,6 @@ function FilterItems(){
   function Cost(){
     var cost=document.getElementById("slider").value;
     var prices=document.getElementsByClassName("productprice");
-    var items=document.getElementsByClassName("list-item");
     // eslint-disable-next-line
     if(cost==3000){
       document.getElementById("pricefilter").innerHTML="max";
