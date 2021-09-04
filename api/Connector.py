@@ -66,6 +66,21 @@ class Connection:
             self.exec((data['newusername'],data['username']))
         return 1
 
+    def updateProd(self,data):
+        if data['pdet']!='':
+            self.query = 'UPDATE products SET details=%s WHERE name=%s'
+            self.exec((data['pdet'],data['pname']))
+        if data['pfilters']!='':
+            self.query = 'UPDATE products SET filters=%s WHERE name=%s'
+            self.exec((data['pfilters'],data['pname']))
+        if data['pprice']!='':
+            self.query = 'UPDATE products SET price=%s WHERE name=%s'
+            self.exec((data['pprice'],data['pname']))
+        if data['pqty']!='':
+            self.query = 'UPDATE products SET quantity=%s WHERE name=%s'
+            self.exec((data['pqty'],data['pname']))
+        return 1
+
     def resetPassword(self,data):
         self.query = 'SELECT * FROM customers where email = %s'
         flag = self.exec(data['email'])

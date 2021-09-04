@@ -42,7 +42,9 @@
   border: none;
   }
   .epta{
-      height: 18vh;
+      height: 30vh;
+      max-height: 80px;
+      padding:10px;
   }
   .epinp2{
       width: 45%;

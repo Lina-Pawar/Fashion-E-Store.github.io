@@ -99,5 +99,13 @@ def addproduct():
         response = conn.addProduct(userData)
     return {"response": response}
 
+@app.route("/EditProduct", methods=["GET", "POST"])
+def updateProd():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.update(userData)
+    return {"response": response}
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)
