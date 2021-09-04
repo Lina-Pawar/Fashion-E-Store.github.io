@@ -11,6 +11,7 @@ function Products(props) {
         var Filters=item.filters.toLowerCase().split(" ");
         if(((str.match("/home")||str.match("/product")||str.match("/admin")) && index<props.n) || (Filters.indexOf(props.category)>=0 && Filters.indexOf(props.type)>=0)){
           var linkto = "/product?name="+item.name;
+          var editlink = "/editproduct?name="+item.name;
           var productname=item.name && item.name.length > 50 ? item.name.slice(0,50).split(' ').slice(0, -1).join(' ') : item.name;
           if (productname!==item.name){
             productname+="..";
@@ -27,7 +28,7 @@ function Products(props) {
                 </tr>
                 <tr style={{verticalAlign:"bottom"}}>
                   <td className="productprice">Rs. {Number.parseFloat(item.price).toFixed(2)}</td>
-                  <td align="right"><Link to={str.match("/admin")?"/editproduct":linkto} className="buy"><button className="buybutton">{str.match("/admin")?"Edit":"Buy"}</button></Link></td>
+                  <td align="right"><Link to={str.match("/admin")?editlink:linkto} className="buy"><button className="buybutton">{str.match("/admin")?"Edit":"Buy"}</button></Link></td>
                 </tr>
                 </tbody>
               </table>

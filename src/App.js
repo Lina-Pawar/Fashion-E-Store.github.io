@@ -9,6 +9,7 @@ import Profile from "./User/Home/Profile";
 import Admin from "./Admin/Admin";
 import Cart from "./User/Home/Cart";
 import Category from "./User/Category";
+import EditProduct from "./Admin/EditProduct";
 
 const App = () => {
   const { setToken } = useToken("$$$NULL$$$");
@@ -49,6 +50,9 @@ const App = () => {
       </Route>
       <Route path="/category">
         <Category/>
+      </Route>
+      <Route path="/editproduct">
+          <EditProduct />
       </Route>
     </Switch>
   );
