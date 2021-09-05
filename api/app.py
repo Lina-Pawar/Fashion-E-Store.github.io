@@ -104,7 +104,15 @@ def updateProd():
     conn = Connection()
     if request.method == "POST":
         userData = request.json
-        response = conn.update(userData)
+        response = conn.updateProd(userData)
+    return {"response": response}
+
+@app.route("/DeleteProduct", methods=["GET", "POST"])
+def deleteProd():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.deleteProd(userData)
     return {"response": response}
 
 if __name__ == "__main__":
