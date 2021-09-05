@@ -58,5 +58,8 @@ const updateProd = async (product) => {
   return axios.post(API_BASE_URL + "EditProduct", { ...product });
 };
 
+const deleteProd = async (product) => {
+  return axios.post(API_BASE_URL + "DeleteProduct", { ...product });
+};
 // eslint-disable-next-line
-export default { login, register, userinfo, update, updateUserName, resetPassword, products, customers, getCart, AddCart, DeleteCart, updateQty, addproduct, updateProd};
+export default { login, register, userinfo, update, updateUserName, resetPassword, products, customers, getCart, AddCart, DeleteCart, updateQty, addproduct, updateProd, deleteProd};
