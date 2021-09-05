@@ -84,8 +84,10 @@ class Connection:
     def deleteProd(self,data):
         if data['pname']!='':
             self.query= 'DELETE FROM products WHERE name=%s'
-            self.exec((data['pname']))
-        return 1
+            flag=self.exec((data['pname']))
+            self.query= 'DELETE FROM images WHERE name=%s'
+            flag=self.exec((data['pname']))
+        return flag
 
     def resetPassword(self,data):
         self.query = 'SELECT * FROM customers where email = %s'
