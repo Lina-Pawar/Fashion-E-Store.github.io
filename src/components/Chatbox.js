@@ -61,7 +61,7 @@ function Chatbox(){
         if (input==="Hello") {
             return "Hello there!";
         } else if (input==="I have a complain") {
-            return "You can mail us at stylezone@gmail.com , and we guaruntee of taking necessory steps in 48hrs";
+            return "You can mail us at Stylezone@gmail.com , and we guarantee of taking necessary steps in 48hrs.";
         } else {
             return "Try asking something else!";
         }
