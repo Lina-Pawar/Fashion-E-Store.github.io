@@ -66,29 +66,6 @@ class Connection:
             self.exec((data['newusername'],data['username']))
         return 1
 
-    def updateProd(self,data):
-        if data['pdet']!='':
-            self.query = 'UPDATE products SET details=%s WHERE name=%s'
-            self.exec((data['pdet'],data['pname']))
-        if data['pfilters']!='':
-            self.query = 'UPDATE products SET filters=%s WHERE name=%s'
-            self.exec((data['pfilters'],data['pname']))
-        if data['pprice']!='':
-            self.query = 'UPDATE products SET price=%s WHERE name=%s'
-            self.exec((data['pprice'],data['pname']))
-        if data['pqty']!='':
-            self.query = 'UPDATE products SET quantity=%s WHERE name=%s'
-            self.exec((data['pqty'],data['pname']))
-        return 1
-
-    def deleteProd(self,data):
-        if data['pname']!='':
-            self.query= 'DELETE FROM products WHERE name=%s'
-            flag=self.exec((data['pname']))
-            self.query= 'DELETE FROM images WHERE name=%s'
-            flag=self.exec((data['pname']))
-        return flag
-
     def resetPassword(self,data):
         self.query = 'SELECT * FROM customers where email = %s'
         flag = self.exec(data['email'])
@@ -157,6 +134,29 @@ class Connection:
             flag=self.exec((data['prodname'],pic2))
         return flag
 
+    def updateProd(self,data):
+        if data['pdet']!='':
+            self.query = 'UPDATE products SET details=%s WHERE name=%s'
+            self.exec((data['pdet'],data['pname']))
+        if data['pfilters']!='':
+            self.query = 'UPDATE products SET filters=%s WHERE name=%s'
+            self.exec((data['pfilters'],data['pname']))
+        if data['pprice']!='':
+            self.query = 'UPDATE products SET price=%s WHERE name=%s'
+            self.exec((data['pprice'],data['pname']))
+        if data['pqty']!='':
+            self.query = 'UPDATE products SET quantity=%s WHERE name=%s'
+            self.exec((data['pqty'],data['pname']))
+        return 1
+
+    def deleteProd(self,data):
+        if data['pname']!='':
+            self.query= 'DELETE FROM products WHERE name=%s'
+            flag=self.exec((data['pname']))
+            self.query= 'DELETE FROM images WHERE name=%s'
+            flag=self.exec((data['pname']))
+        return flag
+
     def Customers(self):
         self.query='SELECT * FROM customers'
         li=[]
@@ -211,4 +211,24 @@ class Connection:
     def updateQty(self,data):
         self.query='UPDATE cart SET quantity=%s WHERE product=%s AND username=%s'
         flag=self.exec((data['quantity'],data['product'],data['username']))
+        return flag
+    
+    def order(self,data):
+        orderid=1000
+        self.query='SELECT * FROM orders ORDER BY order_id DESC'
+        self.exec()
+        id=self.cur.fetchone()
+        if(id is not None):
+            orderid=id[0]+1
+        self.query='SELECT * FROM cart WHERE username=%s'
+        self.exec(data['username'])
+        rows=self.cur.fetchall()
+        flag=0
+        for val in rows:
+            self.query='INSERT INTO orders (`order_id`, `username`, `product`, `size`, `quantity`, `price`, `address`, `pincode`) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)'
+            flag=self.exec((orderid,data['username'],val[1],val[2],val[3],val[4],data['address'],data['pincode']))
+            self.query='UPDATE products SET quantity=quantity-%s, sales=sales+%s WHERE name=%s'
+            flag=self.exec((val[3],val[3],val[1]))
+        self.query='DELETE FROM cart WHERE username=%s'
+        self.exec(data['username'])
         return flag
