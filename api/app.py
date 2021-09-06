@@ -82,6 +82,13 @@ def DeleteCart():
         response = conn.deletecart(userData)
     return {"response": response}
 
+@app.route("/Order", methods=["GET", "POST"])
+def order():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.order(userData)
+    return {"response": response}
 
 @app.route("/Quantity", methods=["GET", "POST"])
 def updateqty():

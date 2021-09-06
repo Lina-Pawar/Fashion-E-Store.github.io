@@ -78,8 +78,16 @@ function Cart(){
         "image": image,
         "handler": function (response){
             // eslint-disable-next-line
-            alert("Payment Successful!\n"+"Payment id:"+response.razorpay_payment_id);
-            window.location.href="/home";
+            const data={username:window.localStorage.getItem("fashion-e-store-user"),address:document.getElementById("address").value,pincode:document.getElementById("pincode").value};
+            Service.Order(data).then((resp) =>{
+                if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+                    alert("Payment Successful!\n"+"Payment id:"+response.razorpay_payment_id);
+                    window.location.href="/home";
+                }else{
+                    alert("Retry!");
+                }
+            });
+           
         },
         "prefill": {
             "name": "Gaurav Kumar",
@@ -176,9 +184,9 @@ function Cart(){
         rzp1.open();
         e.preventDefault();
     }}>
-    <textarea placeholder="Address" minlength="15" required></textarea>
+    <textarea placeholder="Address" minlength="15" required id="address"></textarea>
     <br/>
-    <input name="pincode" type="text" pattern="[0-9]*" minlength="6" maxlength="6" placeholder="6-digit Pincode" required/>
+    <input id="pincode" type="text" pattern="[0-9]*" minlength="6" maxlength="6" placeholder="6-digit Pincode" required/>
     <br/><br/>
     <button className="cartbtn2" id="rzp-button1" type="submit">Pay Now</button></form>
     <br/>
