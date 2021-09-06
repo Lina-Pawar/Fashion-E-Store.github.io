@@ -4,17 +4,10 @@ import Carousel from "./Carousel";
 import CategoryItems from "../CategoryItems";
 import Products from "../../components/Products/Products";
 import Footer from "../Home/Footer";
+import Chatbox from "../../components/Chatbox";
+
 import "./Home.css";
 function Home() {
-function show() {
-  var x=document.getElementById("chatwindow");
-  if (x.style.display==="none"){
-    x.style.display="block";
-  }
-  else{
-    x.style.display="none";
-  }
-  }
   const [isCatVisible, setCatVisibility] = useState(false);
   const CategorySlide = isCatVisible ? "showcategory" : "hidecategory";
   const slidearrow = isCatVisible ? "fas fa-chevron-circle-left" : "fas fa-chevron-circle-right" ;
@@ -40,12 +33,8 @@ function show() {
           <h2 style={{textAlign:"center"}}><b>TRENDING PRODUCTS</b></h2>
           <div className="cont2">
             <Products n={12}/>
-          <div className="chatbox" style={{textAlign:"center"}} onClick={show}>
-            <i className="fas fa-comment-dots"><span className="chatlabel">&nbsp;Chatbox</span></i>
           </div>
-          </div>
-          <div id="chatwindow">
-          </div>
+          <Chatbox/>
         </div>
       </div>
       <div className="homefooter" id="#contactus">
