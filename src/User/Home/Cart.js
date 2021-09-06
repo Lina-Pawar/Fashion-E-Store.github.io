@@ -55,6 +55,7 @@ function Cart(){
         document.getElementById("gstax").innerHTML=gst;
         document.getElementById("totalp1").style.fontWeight="bold";
         document.getElementById("totalp1").innerHTML=tot;
+        options['amount']=tot*100;
         const data={username:window.localStorage.getItem("fashion-e-store-user"),product:pname,quantity:x.value};
         Service.updateQty(data).then((resp) =>{
             if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
@@ -100,18 +101,7 @@ function Cart(){
         "theme": {
             "color": "#3399cc"
         }
-    };
-    var rzp1 = new window.Razorpay(options);
-    rzp1.on('payment.failed', function (response){
-            alert(response.error.code);
-            alert(response.error.description);
-            alert(response.error.source);
-            alert(response.error.step);
-            alert(response.error.reason);
-            alert(response.error.metadata.order_id);
-            alert(response.error.metadata.payment_id);
-    });
-      
+    };      
     return(
         <div>
             <div style={{background:
@@ -181,6 +171,16 @@ function Cart(){
     <hr/>
     <br/>
     <form onSubmit={function(e){
+        var rzp1 = new window.Razorpay(options);
+        rzp1.on('payment.failed', function (response){
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+        });
         rzp1.open();
         e.preventDefault();
     }}>

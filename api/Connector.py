@@ -227,6 +227,8 @@ class Connection:
         for val in rows:
             self.query='INSERT INTO orders (`order_id`, `username`, `product`, `size`, `quantity`, `price`, `address`, `pincode`) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)'
             flag=self.exec((orderid,data['username'],val[1],val[2],val[3],val[4],data['address'],data['pincode']))
+            self.query='UPDATE products SET quantity=quantity-%s, sales=sales+%s WHERE name=%s'
+            flag=self.exec((val[3],val[3],val[1]))
         self.query='DELETE FROM cart WHERE username=%s'
         self.exec(data['username'])
         return flag
