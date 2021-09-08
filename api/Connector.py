@@ -232,3 +232,15 @@ class Connection:
         self.query='DELETE FROM cart WHERE username=%s'
         self.exec(data['username'])
         return flag
+
+    def analytics(self):
+        self.query='SELECT name,sales FROM products ORDER BY sales DESC'
+        self.exec()
+        values=self.cur.fetchall()
+        li=[]
+        for val in values:
+            if len(li)<5:
+                li.append(val)
+            else:
+                break
+        return li

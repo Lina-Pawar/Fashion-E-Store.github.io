@@ -122,5 +122,12 @@ def deleteProd():
         response = conn.deleteProd(userData)
     return {"response": response}
 
+@app.route("/Analytics", methods=["GET", "POST"])
+def analytics():
+    conn = Connection()
+    if request.method == "POST":
+        response = conn.analytics()
+    return {"response": response}
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)
