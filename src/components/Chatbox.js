@@ -33,7 +33,7 @@ function Chatbox(){
             let firstMessage = "How's it going?"
             document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
             let time = getTime();
-            document.getElementById("chat-timestamp").innerHTML+=(time);
+            document.getElementById("chat-timestamp").innerHTML=(time);
             document.getElementById("userInput").scrollIntoView(false);
             clearInterval(x);
         }
@@ -101,7 +101,7 @@ function Chatbox(){
                     <div class="outer-container">
                         <div class="chat-container">
                             <div id="chatbox">
-                                <h5 id="chat-timestamp"></h5>
+                                <h5 id="chat-timestamp" style={{color:"white"}}> </h5>
                                 <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
                             </div>
                             <div class="chat-bar-input-block">
