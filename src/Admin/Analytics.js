@@ -18,7 +18,7 @@ function Analytics(){
     return(
         <div>
             <br/><br/><br/>
-            <Chart chartType="ColumnChart" rows={data} columns={[{type: "string",label: "Element"},{type: "number",label: "Quantity"}]} width="400px" height="400px" options={options} legendToggle/>
+            <Chart chartType="ColumnChart" rows={data} columns={[{type: "string",label: "Product"},{type: "number",label: "Quantity"}]} width="400px" height="400px" options={options} legendToggle/>
         </div>
     );
 }
