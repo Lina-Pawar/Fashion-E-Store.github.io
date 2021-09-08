@@ -47,7 +47,7 @@ function Chatbox(){
     function getResponse() {
         let userText = document.getElementById("textInput").value;
         if (userText==="") {
-            userText = "I love style zone :)";
+            userText = "I Love StyleZone";
         }
         let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
         document.getElementById("textInput").value="";
@@ -60,6 +60,8 @@ function Chatbox(){
     function getBotResponse(input) {
         if (input==="Hello") {
             return "Hello there!";
+        } else if (input==="I Love StyleZone") {
+            return "Thank you :)";
         } else if (input==="I have a complain") {
             return "You can mail us at Stylezone@gmail.com , and we guarantee of taking necessary steps in 48hrs.";
         } else {
@@ -81,7 +83,7 @@ function Chatbox(){
     }
 
     function heartButton() {
-        buttonSendText("Thank you!!")
+        buttonSendText("Thank you!")
     }
     function typing(e) {
         if (e.which===13) {
