@@ -29,9 +29,9 @@ function Analytics(){
     return(
         <div>
             <br/><br/><br/>
-            <Chart chartType="ColumnChart" rows={top5} columns={[{type: "string",label: "Product"},{type: "number",label: "Quantity"}]} width="400px" height="400px" options={options} legendToggle/>
+            <Chart chartType="ColumnChart" rows={top5} columns={[{type: "string",label: "Product"},{type: "number",label: "Quantity"}]} width="600px" height="400px" options={options} legendToggle/>
             <br/>
-            <Chart chartType="PieChart" data={pie}/>
+            <Chart chartType="PieChart" data={pie} width="400px" height="400px" options={{title:'Category-vise Analysis',}}/>
         </div>
     );
 }
