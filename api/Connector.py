@@ -233,7 +233,7 @@ class Connection:
         self.exec(data['username'])
         return flag
 
-    def analytics(self):
+    def topProducts(self):
         self.query='SELECT name,sales FROM products ORDER BY sales DESC'
         self.exec()
         values=self.cur.fetchall()
@@ -243,4 +243,33 @@ class Connection:
                 li.append(val)
             else:
                 break
+        return li
+
+    def Pie(self):
+        self.query='SELECT name,filters,sales FROM products'
+        self.exec()
+        values=self.cur.fetchall()
+        a=b=c=d=e=f=g=h=i=0
+        for val in values:
+            if val[1].find('Women')>-1 and val[1].find('Clothing')>-1:
+                a+=val[2]
+            elif val[1].find('Women')>-1 and val[1].find('Accessories')>-1:
+                b+=val[2]
+            elif val[1].find('Women')>-1 and val[1].find('Footwear')>-1:
+                c+=val[2]
+            elif val[1].find('Men')>-1 and val[1].find('Clothing')>-1:
+                d+=val[2]
+            elif val[1].find('Men')>-1 and val[1].find('Accessories')>-1:
+                e+=val[2]
+            elif val[1].find('Men')>-1 and val[1].find('Footwear')>-1:
+                f+=val[2]
+            elif val[1].find('Kids')>-1 and val[1].find('Clothing')>-1:
+                g+=val[2]
+            elif val[1].find('Kids')>-1 and val[1].find('Accessories')>-1:
+                h+=val[2]
+            elif val[1].find('Kids')>-1 and val[1].find('Footwear')>-1:
+                i+=val[2]
+        li=[['Women Clothing',a],['Women Accessories',b],['Women Footwear',c],
+        ['Men Clothing',d],['Men Accessories',e],['Men Footwear',f],
+        ['Kids Clothing',g],['Kids Accessories',h],['Kids Footwear',i]]
         return li
