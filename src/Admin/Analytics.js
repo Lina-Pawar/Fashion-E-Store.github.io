@@ -3,7 +3,6 @@ import Service from "../components/Service";
 
 
 function Analytics(){
-    const options ={ title:"Top 5 products",legend:'none',hAxis:{direction:-1,slantedText:true,slantedTextAngle:30} };
     const top5=[];
     const pie=[['Category', 'Percent']];
     Service.topProducts().then((resp) =>{
@@ -29,7 +28,8 @@ function Analytics(){
     return(
         <div>
             <br/><br/><br/>
-            <Chart chartType="ColumnChart" rows={top5} columns={[{type: "string",label: "Product"},{type: "number",label: "Quantity"}]} options={options} legendToggle/>
+            <Chart chartType="ColumnChart" rows={top5} columns={[{type: "string",label: "Product"},{type: "number",label: "Quantity"}]} 
+            options={{title:"Top 5 products",legend:'none',hAxis:{direction:-1,slantedText:true,slantedTextAngle:30}}} legendToggle/>
             <br/>
             <Chart chartType="PieChart" data={pie} options={{title:'Category-vise Analysis',}}/>
         </div>
