@@ -122,11 +122,18 @@ def deleteProd():
         response = conn.deleteProd(userData)
     return {"response": response}
 
-@app.route("/Analytics", methods=["GET", "POST"])
-def analytics():
+@app.route("/TopProducts", methods=["GET", "POST"])
+def topProducts():
     conn = Connection()
     if request.method == "POST":
-        response = conn.analytics()
+        response = conn.topProducts()
+    return {"response": response}
+
+@app.route("/Pie", methods=["GET", "POST"])
+def pie():
+    conn = Connection()
+    if request.method == "POST":
+        response = conn.Pie()
     return {"response": response}
 
 if __name__ == "__main__":
