@@ -54,11 +54,9 @@ function Productslist(){
                 <form onSubmit={handleSubmit}>
                     <div className="apForm">
                         <div className="apFormImg">
-                            <div id="img1"></div><br/>
                             <input type="text" id="image1" placeholder="Paste the location of you image file" required onChange={displayimg}/>
                         </div>
                         <div className="apFormImg">
-                            <img id="img2" alt="pic2"/><br/>
                             <input type="text" id="image2" placeholder="Paste the location of you image file" onChange={displayimg}/>
                         </div>
                         <div className="apFormInput">
