@@ -55,9 +55,12 @@ const topProducts = async (data) => {
 const pie = async (data) => {
   return axios.post(API_BASE_URL + "Pie", { ...data });
 };
+const linegraph = async (data) => {
+  return axios.post(API_BASE_URL + "LineGraph", { ...data });
+};
 // eslint-disable-next-line
 export default {
   login, register, userinfo, update, updateUserName, resetPassword, products, customers, 
   getCart, AddCart, DeleteCart, Order, updateQty, addproduct, updateProd, deleteProd, topProducts,
-  pie
+  pie, linegraph
 };

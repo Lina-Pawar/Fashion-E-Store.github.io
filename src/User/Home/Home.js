@@ -5,8 +5,8 @@ import CategoryItems from "../CategoryItems";
 import Products from "../../components/Products/Products";
 import Footer from "../Home/Footer";
 import Chatbox from "../../components/Chatbox";
-
 import "./Home.css";
+
 function Home() {
   const [isCatVisible, setCatVisibility] = useState(false);
   const CategorySlide = isCatVisible ? "showcategory" : "hidecategory";

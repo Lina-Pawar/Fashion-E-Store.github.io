@@ -136,5 +136,12 @@ def pie():
         response = conn.Pie()
     return {"response": response}
 
+@app.route("/LineGraph", methods=["GET", "POST"])
+def linegraph():
+    conn = Connection()
+    if request.method == "POST":
+        response = conn.lineGraph()
+    return {"response": response}
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)
