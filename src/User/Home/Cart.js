@@ -1,12 +1,58 @@
 import { Link } from "react-router-dom";
 import image from "../../imgs/logo.png";
 import Navbar from "../../components/Navbar";
-import "./Cart.css";
 import Service from "../../components/Service";
+import ReactDOM from 'react-dom';
+import "./Cart.css";
 
 var Cartitems=[];
 function Cart(){
     window.scroll(0,0);
+    var x=setInterval(function(){
+    if(Cartitems.length>0){
+        clearInterval(x);
+        const CartItem=()=>{
+        return(
+            <ul>
+            {Cartitems.map((item) => {
+            var linkto = "/product?name="+item.name;
+            var cartimg='data:image/JPEG;base64,'+item.photo;
+            return (
+            <li className="cartbox" key={item.name}>
+                <div className="cartboxcontent">
+                    <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td rowspan="4" width="40%" className="cartimg"><img src={cartimg} alt="cartimage"/></td>
+                        </tr>                   
+                        <tr>
+                            <th style={{fontSize:"18px"}} colspan="3">{item.name} &nbsp; (Size: {item.size})</th>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Quantity: 
+                                &nbsp;&nbsp;
+                                <button className="cartquantity" onClick={()=>qty('-',item.name,cartimg)}>-</button>
+                                <input style={{textAlign:"center",backgroundColor:"white",color:"black"}} className="cartquantity" id={item.name} defaultValue={item.quantity} disabled/>
+                                <button className="cartquantity" onClick={()=>qty('+',item.name,cartimg)}>+</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="60%">Price: Rs. <span id={cartimg}>{Number.parseFloat(item.price*item.quantity).toFixed(2)}</span></td>
+                            <td style={{fontSize:"18px"}} width="10%"><span className="fas fa-trash" onClick={()=>deletecart(item.name)}>&nbsp;&nbsp;</span></td>
+                            <td width="10%"><button className="cartbtn" onClick={()=>window.location.href=linkto}>View Details</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        )
+        })}
+        </ul>
+        );
+    };
+    ReactDOM.render(<CartItem/>, document.getElementById("cart-items"));
+  }
+  },500);
     const data={uname:window.localStorage.getItem("fashion-e-store-user")};
     Service.getCart(data).then((resp) =>{
         Cartitems=[];
@@ -113,43 +159,9 @@ function Cart(){
             <Navbar/>
             </div>
             <div className="cartcontent">
-            <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}} className="cartlists">
-            <ul className="">
-            {Cartitems.map((item) => {
-            var linkto = "/product?name="+item.name;
-            var cartimg='data:image/JPEG;base64,'+item.photo;
-            return (
-            <li className="cartbox" key={item.name}>
-                <div className="cartboxcontent">
-                    <table width="100%">
-                    <tbody>
-                        <tr>
-                            <td rowspan="4" width="40%" className="cartimg"><img src={cartimg} alt="cartimage"/></td>
-                        </tr>                   
-                        <tr>
-                            <th style={{fontSize:"18px"}} colspan="3">{item.name} &nbsp; (Size: {item.size})</th>
-                        </tr>
-                        <tr>
-                            <td colspan="3">Quantity: 
-                                &nbsp;&nbsp;
-                                <button className="cartquantity" onClick={()=>qty('-',item.name,cartimg)}>-</button>
-                                <input style={{textAlign:"center",backgroundColor:"white",color:"black"}} className="cartquantity" id={item.name} defaultValue={item.quantity} disabled/>
-                                <button className="cartquantity" onClick={()=>qty('+',item.name,cartimg)}>+</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="60%">Price: Rs. <span id={cartimg}>{Number.parseFloat(item.price*item.quantity).toFixed(2)}</span></td>
-                            <td style={{fontSize:"18px"}} width="10%"><span className="fas fa-trash" onClick={()=>deletecart(item.name)}>&nbsp;&nbsp;</span></td>
-                            <td width="10%"><Link to={linkto}><button className="cartbtn">View Details</button></Link></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </li>
-        )
-    })}
-    </ul>
-    </div>
+            <div style={{paddingTop:"9vh",backgroundColor:"white",height:"auto",paddingBottom:"3vh"}} className="cartlists" id="cart-items">
+                <div className="spinner"></div>
+            </div>
     <div className="placeorder">
     <hr/>
     <br/>

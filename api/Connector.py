@@ -273,3 +273,12 @@ class Connection:
         ['Men Clothing',d],['Men Accessories',e],['Men Footwear',f],
         ['Kids Clothing',g],['Kids Accessories',h],['Kids Footwear',i]]
         return li
+
+    def lineGraph(self):
+        self.query='SELECT date,quantity FROM orders'
+        self.exec()
+        values=self.cur.fetchall()
+        li=[]
+        for row in values:
+            date=str(row[0])
+        return li

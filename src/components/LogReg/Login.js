@@ -49,36 +49,16 @@ const Login = ({ setToken }) => {
               <br/>
               <img src={logo} className="img1" alt="try" />
               <br/><br/>
-              <input
-                className="loginput"
-                placeholder="Username"
-                required
-                onChange={(e) => setusername(e.target.value)}
-              />
+              <input className="loginput" placeholder="Username" required onChange={(e) => setusername(e.target.value)}/>
               <br />
               <div align="left">
-              <input
-                className="loginput"
-                id="pw"
-                type={PWInputType}
-                placeholder="Password"
-                required
-                onChange={(e) => setpassword(e.target.value)}
-              />
-              <span
-                className={Icon}
-                onClick={() => setVisibility((visibility) => !visibility)}
-              /></div>
-            <Link to="/changepassword">
-              <label className="pwlabel">Forgot password?</label>
-            </Link>
+              <input className="loginput" id="pw" type={PWInputType} placeholder="Password" required onChange={(e) => setpassword(e.target.value)}/>
+              <span className={Icon} onClick={() => setVisibility((visibility) => !visibility)}/>
+              </div>
+            <Link to="/changepassword"><label className="pwlabel">Forgot password?</label></Link>
             <br />
-            <button className="logbutton" type="submit">
-                Login
-            </button>
-            <button className="logbutton" onClick={handleClick}>
-                Register
-            </button>
+            <button className="logbutton" type="submit">Login</button>
+            <button className="logbutton" onClick={handleClick}>Register</button>
             </form>
           </div>
         </div>
