@@ -41,7 +41,7 @@ function Analytics(){
             <Chart chartType="ColumnChart" rows={top5} columns={[{type: "string",label: "Product"},{type: "number",label: "Quantity"}]} 
             options={{title:"Top 5 products",legend:'none',hAxis:{direction:-1,slantedText:true,slantedTextAngle:30}}} legendToggle/><br/>
             <Chart chartType="PieChart" data={pie} options={{title:'Category-vise Analysis',}}/><br/>
-            <Chart chartType="LineChart" data={graph} options={{title:'Category-vise Analysis',}}/>
+            <Chart chartType="LineChart" data={graph} options={{title:'Monthly Analysis',}}/>
         </div>
     );
 }

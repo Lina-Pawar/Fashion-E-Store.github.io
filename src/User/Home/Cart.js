@@ -113,6 +113,7 @@ function Cart(){
         Service.DeleteCart(data).then((resp) =>{
             if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
                 alert("Item removed!");
+                window.location.reload();
             }
         });
     }
