@@ -69,7 +69,9 @@ function Cart(){
     },500);
     setTimeout(function(){
         clearInterval(x);
-        document.getElementById("cart-items").innerHTML="<h2 align='center'>Cart is empty.<h2>";
+        if(document.getElementsByClassName("cartbox")[0]===undefined){
+            document.getElementById("cart-items").innerHTML="<h2 align='center'>Cart is empty.<h2>";
+        }
     }, 4000);
     const data={uname:window.localStorage.getItem("fashion-e-store-user")};
     Service.getCart(data).then((resp) =>{
