@@ -49,24 +49,28 @@ function Cart(){
         })}
         </ul>
         );
-    };
-    ReactDOM.render(<CartItem/>, document.getElementById("cart-items"));
-    for(const key in Cartitems){
-        FinalPrice.push({name:Cartitems[key].name,price:Cartitems[key].price*Cartitems[key].quantity})
+        };
+        ReactDOM.render(<CartItem/>, document.getElementById("cart-items"));
+        for(const key in Cartitems){
+            FinalPrice.push({name:Cartitems[key].name,price:Cartitems[key].price*Cartitems[key].quantity})
+        }
+        tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
+        gst= (tp*18)/100;
+        tot=tp + gst;
+        tp=Number.parseFloat(tp).toFixed(2);
+        gst=Number.parseFloat(gst).toFixed(2);
+        tot=Number.parseFloat(tot).toFixed(2);
+        document.getElementById("fp").innerHTML=tp;
+        document.getElementById("gstax").innerHTML=gst;
+        document.getElementById("totalp1").style.fontWeight="bold";
+        document.getElementById("totalp1").innerHTML=tot;
+        options['amount']=tot*100;
     }
-    tp=FinalPrice.reduce((cnt,o)=>{ return cnt + o.price; }, 0);
-    gst= (tp*18)/100;
-    tot=tp + gst;
-    tp=Number.parseFloat(tp).toFixed(2);
-    gst=Number.parseFloat(gst).toFixed(2);
-    tot=Number.parseFloat(tot).toFixed(2);
-    document.getElementById("fp").innerHTML=tp;
-    document.getElementById("gstax").innerHTML=gst;
-    document.getElementById("totalp1").style.fontWeight="bold";
-    document.getElementById("totalp1").innerHTML=tot;
-    options['amount']=tot*100;
-  }
-  },500);
+    },500);
+    setTimeout(function(){
+        clearInterval(x);
+        document.getElementById("cart-items").innerHTML="<h2 align='center'>Cart is empty.<h2>";
+    }, 4000);
     const data={uname:window.localStorage.getItem("fashion-e-store-user")};
     Service.getCart(data).then((resp) =>{
         Cartitems=[];
