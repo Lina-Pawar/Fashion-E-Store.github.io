@@ -11,13 +11,6 @@ function Productslist(){
     const [prodfilter, setprodfilter] = useState("");
     const [prodprice, setprodprice] = useState("");
     const [prodqty, setprodqty] = useState("");
-    function displayimg(){
-        var x=document.getElementById("image1").value;
-        if(x!==''){
-        document.getElementById("img1").innerHTML="<img id='img2' alt='pic1' src="+x+">";
-        }
-        alert(document.getElementById("img1").innerHTML);
-    }
     const handleSubmit = (e) => {
         e.preventDefault();
           var product = {prodname:prodname,proddet:proddet,prodfilter:prodfilter,prodprice:prodprice,prodqty:prodqty,pic1:document.getElementById("image1").value,pic2:document.getElementById("image2").value};
@@ -54,10 +47,10 @@ function Productslist(){
                 <form onSubmit={handleSubmit}>
                     <div className="apForm">
                         <div className="apFormImg">
-                            <input type="text" id="image1" placeholder="Paste the location of you image file" required onChange={displayimg}/>
+                            <input type="text" id="image1" placeholder="Paste the location of you image file" required/>
                         </div>
                         <div className="apFormImg">
-                            <input type="text" id="image2" placeholder="Paste the location of you image file" onChange={displayimg}/>
+                            <input type="text" id="image2" placeholder="Paste the location of you image file"/>
                         </div>
                         <div className="apFormInput">
                             <input placeholder="Enter Product name" id="prodname" onChange={(e) => setprodname(e.target.value)} required/><br/><br/>

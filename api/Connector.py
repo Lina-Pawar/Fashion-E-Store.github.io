@@ -129,8 +129,8 @@ class Connection:
         pic1 = convertToBinaryData(data['pic1'])
         flag=self.exec((data['prodname'],pic1))
         if data['pic2']!='':
-            self.query = 'INSERT INTO images(name, image) VALUES (%s,%s)'
             pic2 = convertToBinaryData(data['pic2'])
+            self.query = 'INSERT INTO images(name, image) VALUES (%s,%s)'
             flag=self.exec((data['prodname'],pic2))
         return flag
 
@@ -279,6 +279,15 @@ class Connection:
         self.exec()
         values=self.cur.fetchall()
         li=[]
+        months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+        q=0
+        m=''
         for row in values:
-            date=str(row[0])
+            date=str(row[0])[5:7]
+            q+=row[1]
+            if m!=months[int(date)+1]:
+                li.append([m,q])
+                m=months[int(date)+1]
+                q=row[1]
+        li.append([m,q])
         return li
