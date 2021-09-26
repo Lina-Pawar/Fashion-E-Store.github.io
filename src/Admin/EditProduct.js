@@ -1,12 +1,35 @@
 import { ProdList } from "../components/Products/ProdList";
 import React,{useState} from "react";
-import "./EditProduct.css";
+import ReactDOM from 'react-dom';
 import navlogo from "../imgs/nav-logo.png";
 import {Link } from "react-router-dom";
 import Service from "../components/Service";
+import "./EditProduct.css";
 
 function EditProduct(){
   let para = new URLSearchParams(window.location.search);
+  var y=setInterval(function(){
+    if(ProdList.length>0){
+      clearInterval(y);
+      var itemName = index();
+
+    const EditP=()=>{
+      return(
+        <form className="epform" onSubmit={handleSubmit}>
+          <input className="epinput" defaultValue={ProdList[itemName].name} id="pname" placeholder="Enter Product name" required onChange={(e) => setpname(e.target.value)}/><br/>
+          <textarea className="epinput epta" defaultValue={ProdList[itemName].details} id="pdet" placeholder="Enter Product Details" required onChange={(e) => setpdet(e.target.value)}/><br/>
+          <input className="epinput" defaultValue={ProdList[itemName].filters} id="pfilters" placeholder="Enter Product Filters" required onChange={(e) => setpfilters(e.target.value)}/><br/>
+          <input className="epinput epinp2" defaultValue={ProdList[itemName].price} id="pprice" placeholder="Enter Product Price" required onChange={(e) => setpprice(e.target.value)}/>&nbsp;
+          <input className="epinput epinp2" defaultValue={ProdList[itemName].quantity}  id="pqty" placeholder="Enter Product Quantity" required onChange={(e) => setpqty(e.target.value)}/>
+          <br/>
+          <button onClick={()=>deleteHandler(ProdList[itemName].name)} className="epbtn">Delete</button><br/>
+          <button type="submit" className="epbtn">Update</button>
+        </form>
+      );
+    };
+    ReactDOM.render(<EditP/>, document.getElementById("editprod"));
+    }
+  },500);
   function index(){
       for(var i=0;i<ProdList.length;i++) {
         if(ProdList[i]["name"] === para.get("name")) {
@@ -15,7 +38,7 @@ function EditProduct(){
       }
       return 0;
     }
-  let itemName = index();
+  
   const [pname, setpname] = useState(para.get("name"));
   const [pdet,setpdet]= useState("");
   const [pfilters,setpfilters]= useState("");
@@ -47,17 +70,8 @@ function EditProduct(){
       height:"8vh",width:"100%",position:"fixed",zIndex:"5"}} className="navbar">
       <Link to= "/admin" className="alogo" ><img src={navlogo} alt="Nav Logo" className="logo" style={{width:"200px"}}/></Link>
       </div>
-      <div className="ep">
-        <form className="epform" onSubmit={handleSubmit}>
-        <input className="epinput" defaultValue={ProdList[itemName].name} id="pname" placeholder="Enter Product name" required onChange={(e) => setpname(e.target.value)}/><br/>
-        <textarea className="epinput epta" defaultValue={ProdList[itemName].details} id="pdet" placeholder="Enter Product Details" required onChange={(e) => setpdet(e.target.value)}/><br/>
-         <input className="epinput" defaultValue={ProdList[itemName].filters} id="pfilters" placeholder="Enter Product Filters" required onChange={(e) => setpfilters(e.target.value)}/><br/>
-         <input className="epinput epinp2" defaultValue={ProdList[itemName].price} id="pprice" placeholder="Enter Product Price" required onChange={(e) => setpprice(e.target.value)}/>&nbsp;
-         <input className="epinput epinp2" defaultValue={ProdList[itemName].quantity}  id="pqty" placeholder="Enter Product Quantity" required onChange={(e) => setpqty(e.target.value)}/>
-         <br/>
-         <button onClick={()=>deleteHandler(ProdList[itemName].name)} className="epbtn">Delete</button><br/>
-         <button type="submit" className="epbtn">Update</button>
-        </form>
+      <div className="ep" id="editprod">
+        <div className="spinner" style={{position:'relative',left:"45%"}}></div>
       </div>
       </div>
     )
