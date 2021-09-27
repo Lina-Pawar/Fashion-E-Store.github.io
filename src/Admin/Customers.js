@@ -16,9 +16,6 @@ function Customers() {
                 <td>{pers.lastname}</td>
                 <td>{pers.email}</td>
                 <td style={{ textAlign: "center" }}>{pers.contact}</td>
-                <td style={{ textAlign: "center" }}>
-                  <button className="viewbtn">View</button>
-                </td>
               </tr>
             );
           })
