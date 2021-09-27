@@ -106,7 +106,7 @@ function Chatbox(){
                             </div>
                             <div class="chat-bar-input-block">
                                 <div id="userInput">
-                                    <input id="textInput" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message" onKeyPress={(e) => typing(e)}/>
+                                    <input id="textInput" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message" autocomplete="off" onKeyPress={(e) => typing(e)}/>
                                     <p></p>
                                 </div>
     
