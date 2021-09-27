@@ -85,97 +85,36 @@ const Register = ({ setToken }) => {
           <form className="regform" onSubmit={handleSubmit}>
             <label className="reglabel">Name:</label>
             <br/>
-            <input
-              type="text"
-              className="reginput1"
-              id="fname"
-              required
-              onChange={(e) => setfname(e.target.value)}
-              placeholder="First Name"
-            />
-            <input
-              className="reginput2"
-              type="text"
-              id="lname"
-              required
-              onChange={(e) => setlname(e.target.value)}
-              placeholder="Last Name"
-            />
+            <input type="text" className="reginput1" id="fname" required onChange={(e) => setfname(e.target.value)} autocomplete="off" placeholder="First Name"/>
+            <input className="reginput2" type="text" id="lname" required onChange={(e) => setlname(e.target.value)} autocomplete="off" placeholder="Last Name"/>
             <br/>
             <label className="reglabel">Contact:</label>
             <br/>
             <input className="ip3" value="+91" disabled />
-            <input
-              className="ip4"
-              type="text"
-              id="contact"
-              required
-              onChange={(e) => setcontact(e.target.value)}
-            />
+            <input className="ip4" type="text" id="contact" required autocomplete="off" onChange={(e) => setcontact(e.target.value)}/>
             <br/>
             <label className="reglabel">Email:</label>
             <br/>
-            <input
-              className="reginput"
-              type="text"
-              id="email"
-              required
-              onChange={(e) => setemail(e.target.value)}
-            />
+            <input className="reginput" type="text" id="email" autocomplete="off" required onChange={(e) => setemail(e.target.value)}/>
             <br/>
             <label className="reglabel">Gender:</label>
             <br/>
-            <input
-              className="regradio"
-              type="radio"
-              id="female"
-              name="gender"
-              value="Female"
-              required
-              onChange={(e) => setgender(e.target.value)}
-            />
+            <input className="regradio" type="radio" id="female" name="gender" value="Female" required onChange={(e) => setgender(e.target.value)}/>
             <label className="reglabel">Female</label>
-            <input
-              className="regradio"
-              type="radio"
-              id="male"
-              name="gender"
-              value="Male"
-              required
-              onChange={(e) => setgender(e.target.value)}
-            />
+            <input className="regradio" type="radio" id="male" name="gender" value="Male" required onChange={(e) => setgender(e.target.value)}/>
             <label className="reglabel">Male</label>
             <br/>
             <label className="reglabel">Username:</label>
             <br/>
-            <input
-              className="reginput"
-              type="text"
-              id="username"
-              required
-              onChange={(e) => setusername(e.target.value)}
-            />
+            <input className="reginput" type="text" id="username" autocomplete="off" required onChange={(e) => setusername(e.target.value)} />
             <br/>
             <label className="reglabel">Password:</label>
             <br/>
-            <input
-              className="reginput"
-              type="password"
-              id="password"
-              required
-              onChange={(e) => setpassword(e.target.value)}
-              placeholder="Atleast 8 characters"
-            />
+            <input className="reginput" type="password" id="password" autocomplete="off" required onChange={(e) => setpassword(e.target.value)} placeholder="Atleast 8 characters"/>
             <br/>
             <label className="reglabel">Confirm Password:</label>
             <br/>
-            <input
-              className="reginput"
-              type="password"
-              id="confirmpassword"
-              required
-              onChange={(e) => setconfirmpassword(e.target.value)}
-              placeholder="Re-enter password"
+            <input className="reginput" type="password" id="confirmpassword" autocomplete="off" required onChange={(e) => setconfirmpassword(e.target.value)} placeholder="Re-enter password"
             />
           <br/>
           <div align="center">

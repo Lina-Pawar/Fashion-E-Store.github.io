@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to= "/home" className="alogo"><img src={navlogo} alt="Nav Logo" className="logo"/></Link>
-      <input className="search" type="text" id="search" placeholder="Search" onChange={searchresult}/>
+      <input className="search" type="text" id="search" placeholder="Search" autocomplete="off" onChange={searchresult}/>
       <span className="fas fa-search"></span>
       <ul className={isMobile ? "nav-links-mobile" : "nav-links"} onClick={() => setIsMobile(false)}>
         <li className="profile" onClick={() => setVisibility1((visible) => !visible)}>

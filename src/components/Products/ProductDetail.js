@@ -35,11 +35,11 @@ function ProductDetail() {
       document.getElementById("s4").innerHTML=Sizes[3];
       document.getElementById("s5").innerHTML=Sizes[4];
       if(Sizes[0]==="Onesize"){
-        document.getElementById("s1").style.width="35px";
-        document.getElementById("s2").style.display="block";
-        document.getElementById("s3").style.display="block";
-        document.getElementById("s4").style.display="block";
-        document.getElementById("s5").style.display="block";   
+        document.getElementById("s1").style.width="70px";
+        document.getElementById("s2").style.display="none";
+        document.getElementById("s3").style.display="none";
+        document.getElementById("s4").style.display="none";
+        document.getElementById("s5").style.display="none";   
       }
       document.getElementById("item-name").innerHTML=ProdList[itemName]["name"];
       document.getElementById("item-details").innerHTML=ProdList[itemName]["details"];
