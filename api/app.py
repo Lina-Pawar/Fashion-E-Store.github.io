@@ -73,6 +73,14 @@ def getCart():
         response = conn.getcart(userData)
     return {"response": response}
 
+@app.route("/GetMyOrders", methods=["GET", "POST"])
+def getMyOrders():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.getmyorders(userData)
+    return {"response": response}
+
 @app.route("/AddCart", methods=["GET", "POST"])
 def AddCart():
     conn = Connection()
