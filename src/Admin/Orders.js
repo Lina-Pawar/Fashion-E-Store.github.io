@@ -8,7 +8,19 @@ function Orders() {
     if(OrderList.length>0){
       const Prod = () => {
         return(
-        OrderList.map((pers) => {
+          <>
+          <tr>
+            <th>Order Id</th>
+            <th>Username</th>
+            <th>Product</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Date</th>
+            <th>Address</th>
+            <th>Pincode</th>
+          </tr>
+        {OrderList.map((pers) => {
             return (
               <tr>
                 <td style={{ textAlign: "center" }}>{pers.order_id}</td>
@@ -22,7 +34,8 @@ function Orders() {
                 <td>{pers.pincode}</td>
               </tr>
             );
-          })
+          })}
+          </>
         );
     }
     clearInterval(x);

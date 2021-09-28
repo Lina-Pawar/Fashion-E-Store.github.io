@@ -8,7 +8,13 @@ function Customers() {
     if(CustList.length>0){
       const Prod = () => {
         return(
-        CustList.map((pers) => {
+          <>
+          <th>No.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Contact</th>
+        {CustList.map((pers) => {
             return (
               <tr>
                 <td style={{ textAlign: "center" }}>{pers.id}</td>
@@ -18,7 +24,8 @@ function Customers() {
                 <td style={{ textAlign: "center" }}>{pers.contact}</td>
               </tr>
             );
-          })
+          })}
+          </>
         );
     }
     clearInterval(x);
