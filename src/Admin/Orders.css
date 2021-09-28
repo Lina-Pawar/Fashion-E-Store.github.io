@@ -1,0 +1,21 @@
+.orderdetails{
+    margin-top: 8vh;
+}
+.orderdetails table{
+    width:95%;
+    margin-left: 5%;
+    border: 2px solid black;
+    background-image: linear-gradient(to right,#d4af37,#f9f095,#d4af37,#f9f095,#d4af37);
+}
+.orderdetails table td{
+    padding: 7px;
+    border: 2px solid black;
+    background-color: white;
+    font-size: 18px;
+}
+.orderdetails table th{
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 20px;
+}

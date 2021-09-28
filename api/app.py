@@ -58,6 +58,13 @@ def customers():
         response = conn.Customers()
     return {"response": response}
 
+@app.route("/OrderDetails", methods=["GET", "POST"])
+def orderdetails():
+    conn = Connection()
+    if request.method == "POST":
+        response = conn.OrderDetails()
+    return {"response": response}
+
 @app.route("/GetCart", methods=["GET", "POST"])
 def getCart():
     conn = Connection()
