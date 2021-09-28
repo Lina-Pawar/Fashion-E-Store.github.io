@@ -178,6 +178,7 @@ class Connection:
             for row in val:
                 prod={"order_id":row[0],"username":row[1],"product":row[2],"size":row[3],"quantity":row[4],"price":row[5],"date":row[6],"address":row[7],"pincode":row[8]}
                 li.append(prod)
+            li.reverse()
             return li
         return 0
     
