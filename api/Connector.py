@@ -187,8 +187,17 @@ class Connection:
         self.query='SELECT * FROM orders WHERE username=%s'
         self.exec(data['uname'])
         val=self.cur.fetchall()
+        li2=[]
+        id=1
         for row in val:
-            li.append({"o_id":row[0],"pname":row[2],"size":row[3],"quantity":row[3],"price":row[4],"date":row[6]})
+            if(id!=row[0]):
+                id=row[0]
+                if(li2!=[]):
+                    li.append(li2)
+                li2=[]
+            li2.append({"o_id":row[0],"pname":row[2],"size":row[3],"quantity":row[4],"price":row[5],"date":row[6]})
+        li.append(li2)
+        print(li)
         return li
 
     def getcart(self,data):
