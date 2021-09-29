@@ -1,0 +1,23 @@
+.ordergroup{
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width:50%;
+    margin-left:25%;
+    margin-top: 4vh;
+    list-style: none;
+    padding: 30px;
+}
+#myorders{
+    padding-top: 8vh;
+}
+#rightqp{
+    float: right;
+    margin-right: 20px;
+
+}
+#rightqp label{
+    border: 1px solid black;
+    padding: 3px;
+}
