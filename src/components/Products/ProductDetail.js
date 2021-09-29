@@ -113,7 +113,7 @@ function addcart(){
           </Slider>
         </div>
         <div className="detcontent">
-          <h2 id="item-name"></h2>
+          <h2 id="item-name"> </h2>
           <br/>
           <p id="item-details"></p>
           <br/>

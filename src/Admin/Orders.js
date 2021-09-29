@@ -2,8 +2,23 @@ import {OrderList} from "./OrderList";
 import ReactDOM from 'react-dom';
 import "./Orders.css";
 import "../components/Loader.css";
+import Service from "../components/Service";
 
 function Orders() {
+  function deliver(val){
+    var r=window.confirm("Do you want to update Order id "+val+" as delivered?");
+    if (r===true) {
+      Service.deliver({id:val}).then((resp) =>{
+        if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+          alert("Updated!");
+          window.location.reload();
+        }
+        else{
+            alert("Error");
+        }
+    }); 
+    }
+  }
   var x=setInterval(function(){
     if(OrderList.length>0){
       const Prod = () => {
@@ -19,19 +34,21 @@ function Orders() {
             <th>Date</th>
             <th>Address</th>
             <th>Pincode</th>
+            <th>Delivery</th>
           </tr>
-        {OrderList.map((pers) => {
+        {OrderList.map((item) => {
             return (
-              <tr>
-                <td style={{ textAlign: "center" }}>{pers.order_id}</td>
-                <td>{pers.username}</td>
-                <td>{pers.product}</td>
-                <td>{pers.size}</td>
-                <td>{pers.price}</td>
-                <td>{pers.quantity}</td>
-                <td>{pers.date}</td>
-                <td>{pers.address}</td>
-                <td>{pers.pincode}</td>
+              <tr onClick={()=>deliver(item.order_id)}>
+                <td style={{ textAlign: "center" }}>{item.order_id}</td>
+                <td>{item.username}</td>
+                <td>{item.product}</td>
+                <td>{item.size}</td>
+                <td>{item.price}</td>
+                <td>{item.quantity}</td>
+                <td>{item.date}</td>
+                <td>{item.address}</td>
+                <td>{item.pincode}</td>
+                <td>{item.status}</td>
               </tr>
             );
           })}

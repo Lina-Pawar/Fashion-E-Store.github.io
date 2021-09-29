@@ -158,5 +158,12 @@ def linegraph():
         response = conn.lineGraph()
     return {"response": response}
 
+@app.route("/Deliver", methods=["GET", "POST"])
+def deliver():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.Deliver(userData)
+    return {"response": response}
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)

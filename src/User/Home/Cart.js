@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import image from "../../imgs/logo.png";
 import Navbar from "../../components/Navbar";
 import Service from "../../components/Service";
@@ -23,13 +22,13 @@ function Cart(){
                     <table width="100%">
                     <tbody>
                         <tr>
-                            <td rowspan="4" width="40%" className="cartimg"><img src={cartimg} alt="cartimage"/></td>
+                            <td rowSpan="4" width="40%" className="cartimg"><img src={cartimg} alt="cartimage"/></td>
                         </tr>                   
                         <tr>
-                            <th style={{fontSize:"18px"}} colspan="3">{item.name} &nbsp; (Size: {item.size})</th>
+                            <th style={{fontSize:"18px"}} colSpan="3">{item.name} &nbsp; (Size: {item.size})</th>
                         </tr>
                         <tr>
-                            <td colspan="3">Quantity: 
+                            <td colSpan="3">Quantity: 
                                 &nbsp;&nbsp;
                                 <button className="cartquantity" onClick={()=>qty('-',item.name,cartimg)}>-</button>
                                 <input style={{textAlign:"center",backgroundColor:"white",color:"black"}} className="cartquantity" id={item.name} defaultValue={item.quantity} disabled/>
@@ -210,9 +209,9 @@ function Cart(){
         rzp1.open();
         e.preventDefault();
     }}>
-    <textarea placeholder="Address" minlength="15" required id="address"></textarea>
+    <textarea placeholder="Address" minLength="15" required id="address"></textarea>
     <br/>
-    <input id="pincode" type="text" pattern="[0-9]*" minlength="6" maxlength="6" placeholder="6-digit Pincode" required/>
+    <input id="pincode" type="text" pattern="[0-9]*" minLength="6" maxLength="6" placeholder="6-digit Pincode" required/>
     <br/><br/>
     <button className="cartbtn2" id="rzp-button1" type="submit">Pay Now</button></form>
     <br/>
