@@ -5,7 +5,8 @@ Service.getMyOrders(data).then((resp) =>{
         const values=resp.data.response;
         // eslint-disable-next-line
         const myorderitems=values.map((myorderitems)=>{
-            MyOrdersList.push({id:myorderitems['o_id'],name:myorderitems['name'],size:myorderitems['size'],quantity:myorderitems['quantity'],price:myorderitems['price']});
+            MyOrdersList.push({id:myorderitems['o_id'],name:myorderitems['pname'],size:myorderitems['size'],
+            quantity:myorderitems['quantity'],price:myorderitems['price'],date:myorderitems['date']});
             return myorderitems;
           });
       }else{
