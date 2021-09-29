@@ -11,58 +11,47 @@ import Chatbox from "./Chatbox";
 import Orders from "./Orders";
 
 function Admin(){
-    function products(){
-        document.getElementById("bg").style.display="none";
-        document.getElementById("products").style.display="block";
-        document.getElementById("customers").style.display="none";
-        document.getElementById("analytics").style.display="none";
-        document.getElementById("chatbox").style.display="none";
-        document.getElementById("orders").style.display="none";
+    var items=document.getElementsByClassName("list-item");
+    var names=document.getElementsByClassName("productname");
+    function searchresult(){
+      var search=document.getElementById("adminsearch").value;
+      for(var i=0;i<names.length;i++){
+        if(names[i].innerHTML.toLowerCase().match(search.toLowerCase())){
+          items[i].style.display="block";
+        }else{
+          items[i].style.display="none";
+        }
+      }
     }
-    function customers(){
-        document.getElementById("bg").style.display="none";
-        document.getElementById("products").style.display="none";
-        document.getElementById("customers").style.display="block";
-        document.getElementById("analytics").style.display="none";
-        document.getElementById("chatbox").style.display="none";
-        document.getElementById("orders").style.display="none";
-    }
-    function orders(){
-      document.getElementById("bg").style.display="none";
-      document.getElementById("products").style.display="none";
-      document.getElementById("orders").style.display="block";
-      document.getElementById("customers").style.display="none";
-      document.getElementById("analytics").style.display="none";
-      document.getElementById("chatbox").style.display="none";
-  }
-    function analytics(){
-        document.getElementById("bg").style.display="none";
-        document.getElementById("products").style.display="none";
-        document.getElementById("customers").style.display="none";
-        document.getElementById("analytics").style.display="block";
-        document.getElementById("chatbox").style.display="none";
-        document.getElementById("orders").style.display="none";
-    }
-    function chatbox(){
-        document.getElementById("bg").style.display="none";
-        document.getElementById("products").style.display="none";
-        document.getElementById("customers").style.display="none";
-        document.getElementById("analytics").style.display="none";
-        document.getElementById("chatbox").style.display="block";
-        document.getElementById("orders").style.display="none";
+    function admintabs(n){
+        var vals=["products","customers","orders","analytics","chatbox"];
+        if(n===0){
+          document.getElementById("adminsearch").style.display="block";
+        }else{
+          document.getElementById("adminsearch").style.display="none";
+        }
+        for(var i=0;i<vals.length;i++){
+          document.getElementById("bg").style.display="none";
+          if(i!==n){
+            document.getElementById(vals[i]).style.display="none";
+          }else{
+            document.getElementById(vals[i]).style.display="block";
+          }
+        }
     }
     return(
       <div className="admin">
       <div style={{background:"-webkit-gradient(linear,left top, right top,from(#d4af37),color-stop(30%,#f9f095),color-stop(40%,#d4af37),color-stop(80%,#f9f095),color-stop(90%,#d4af37))",
       height:"8vh",width:"100%",position:"fixed",zIndex:"5"}} className="navbar">
       <Link to= "/admin" className="alogo" ><img src={navlogo} alt="Nav Logo" className="logo" style={{width:"200px"}} /></Link>
+      <input className="search" type="text" id="adminsearch" placeholder="Search" autoComplete="off" onChange={searchresult} style={{width:"400px",display:"none"}}/>
       </div>
       <div className="dashboard" align="center">
-        <button className="options" onClick={products}>Products</button><hr/>
-        <button className="options" onClick={customers}>Customers</button><hr/>
-        <button className="options" onClick={orders}>Orders</button><hr/>
-        <button className="options" onClick={analytics}>Analytics</button><hr/>
-        <button className="options" onClick={chatbox}>Chatbox</button><hr/>
+        <button className="options" onClick={()=>admintabs(0)}>Products</button><hr/>
+        <button className="options" onClick={()=>admintabs(1)}>Customers</button><hr/>
+        <button className="options" onClick={()=>admintabs(2)}>Orders</button><hr/>
+        <button className="options" onClick={()=>admintabs(3)}>Analytics</button><hr/>
+        <button className="options" onClick={()=>admintabs(4)}>Chatbox</button><hr/>
         <button className="options" ><Link to="/" className="adlo">Logout</Link></button><hr />
       </div>
       <div id="bg">
