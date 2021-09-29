@@ -91,29 +91,29 @@ function Chatbox(){
         }
     }
     return(
-        <div class="chat-bar-collapsible">
-            <button id="chat-button" type="button" class="collapsible" onClick={show}>Chat with us!
-                <i id="chat-icon" style={{color: "#fff"}} class="fa fa-fw fa-comments-o"></i>
+        <div className="chat-bar-collapsible">
+            <button id="chat-button" type="button" className="collapsible" onClick={show}>Chat with us!
+                <i id="chat-icon" style={{color: "#fff"}} className="fa fa-fw fa-comments-o"></i>
             </button>
     
-            <div class="chatcontent">
-                <div class="full-chat-block">
-                    <div class="outer-container">
-                        <div class="chat-container">
+            <div className="chatcontent">
+                <div className="full-chat-block">
+                    <div className="outer-container">
+                        <div className="chat-container">
                             <div id="chatbox">
                                 <h5 id="chat-timestamp" style={{color:"white"}}> </h5>
-                                <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                                <p id="botStarterMessage" className="botText"><span>Loading...</span></p>
                             </div>
-                            <div class="chat-bar-input-block">
+                            <div className="chat-bar-input-block">
                                 <div id="userInput">
-                                    <input id="textInput" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message" autocomplete="off" onKeyPress={(e) => typing(e)}/>
+                                    <input id="textInput" className="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message" autoComplete="off" onKeyPress={(e) => typing(e)}/>
                                     <p></p>
                                 </div>
     
-                                <div class="chat-bar-icons">
-                                    <i id="chat-icon" style={{color: "crimson"}} class="fa fa-fw fa-heart"
+                                <div className="chat-bar-icons">
+                                    <i id="chat-icon" style={{color: "crimson"}} className="fa fa-fw fa-heart"
                                         onClick={heartButton}></i>
-                                    <i id="chat-icon" style={{color: "#333"}} class="fa fa-fw fa-send"
+                                    <i id="chat-icon" style={{color: "#333"}} className="fa fa-fw fa-send"
                                         onClick={sendButton}></i>
                                 </div>
                             </div>

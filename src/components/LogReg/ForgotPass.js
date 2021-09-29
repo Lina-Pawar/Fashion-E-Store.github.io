@@ -89,48 +89,20 @@ const ForgotPass = () => {
         <form className="fpform" onSubmit={onSubmit}>
           <label className="fplabel">Enter email address:</label>
           <br />
-          <input
-            className="fpinput"
-            type="mailadd"
-            id="email"
-            required
-            onChange={(e) => setemail(e.target.value)}
-            placeholder="Email address"
-          />
+          <input className="fpinput" type="mailadd" id="email" required onChange={(e) => setemail(e.target.value)} autoComplete="off" placeholder="Email address"/>
           <br />
           <label className="fplabel">Enter new password:</label>
           <br />
-          <input
-            className="fpinput"
-            type="newpassword"
-            id="newpassword"
-            required
-            onChange={(e) => setpassword(e.target.value)}
-            placeholder="New password"
-          />
+          <input className="fpinput" type="newpassword" id="newpassword" required onChange={(e) => setpassword(e.target.value)} autoComplete="off" placeholder="New password"/>
           <br />
           <label className="fplabel">Re-enter new password:</label>
           <br />
-          <input
-            className="fpinput"
-            id="renewpassword"required
-            onChange={(e) => setconfirmpassword(e.target.value)}
-            placeholder="Confirm new password"
-          />
+          <input className="fpinput" id="renewpassword"required onChange={(e) => setconfirmpassword(e.target.value)} autoComplete="off" placeholder="Confirm new password"/>
           <br />
           <div className="captcha">
             <h2 id="captcha">{captcha}</h2><span onClick={generateString} className="fas fa-sync-alt"></span>
           </div>
-          <input
-            type="text"
-            id="inputType"
-            className="fpinput"
-            placeholder="Enter Captcha"
-            name="captcha"
-            autoComplete="off"
-            required
-            onChange={(e) => setcaptchatext(e.target.value)}
-          />
+          <input type="text" id="inputType" className="fpinput" placeholder="Enter Captcha" name="captcha" autoComplete="off" required onChange={(e) => setcaptchatext(e.target.value)}/>
           <div align="center">
           <button className="fpbutton" id="succesBTN" onClick={verify}>
             Verify

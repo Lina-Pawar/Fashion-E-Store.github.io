@@ -176,7 +176,8 @@ class Connection:
         val=self.cur.fetchall()
         if flag==1:
             for row in val:
-                prod={"order_id":row[0],"username":row[1],"product":row[2],"size":row[3],"quantity":row[4],"price":row[5],"date":row[6],"address":row[7],"pincode":row[8]}
+                prod={"order_id":row[0],"username":row[1],"product":row[2],"size":row[3],"quantity":row[4],
+                "price":row[5],"date":row[6],"address":row[7],"pincode":row[8],"status":row[9]}
                 li.append(prod)
             li.reverse()
             return li
@@ -195,9 +196,9 @@ class Connection:
                 if(li2!=[]):
                     li.append(li2)
                 li2=[]
-            li2.append({"o_id":row[0],"pname":row[2],"size":row[3],"quantity":row[4],"price":row[5],"date":row[6]})
+            li2.append({"o_id":row[0],"pname":row[2],"size":row[3],"quantity":row[4],"price":row[5],"date":row[6],"status":row[9]})
         li.append(li2)
-        print(li)
+        li.reverse()
         return li
 
     def getcart(self,data):
@@ -322,3 +323,8 @@ class Connection:
                 q=row[1]
         li.append([m,q])
         return li
+
+    def Deliver(self,data):
+        self.query="UPDATE orders SET delivered='Yes' WHERE order_id=%s"
+        flag=self.exec(data['id'])
+        return flag

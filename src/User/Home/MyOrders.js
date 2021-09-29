@@ -11,19 +11,21 @@ function MyOrders(){
         const MOItem=()=>{
             return(
                 <ul>
-                {MyOrdersList.map((order,index) => {
+                {MyOrdersList.map((order) => {
                 return (
-                    <ul className="ordergroup">
-                    <h3>Order No.: {index+1}</h3> <br />
+                <ul className="ordergroup">
+                <h3>Order id: {order[0].o_id}</h3>
+                <i style={{color:"rgb(13, 199, 13)"}}>{order[0].status==="Yes"?"Delivered":""}</i>
+                <i style={{color:"blue"}}>{order[0].status==="Yes"?"":"In process"}</i>
+                <span style={{float:"right",color:"gray"}}>{order[0].date}</span> <br/> <hr/><br/>
                 {order.map((item) => {
                     return (
                         <div>
                         <li key={item.pname}>
                             <p>{item.pname} &nbsp;(Size:{item.size})  
-                            <span id="rightqp"><label>X {item.quantity}</label>&nbsp;&nbsp;Rs. {item.quantity*item.price}</span>
+                            <span id="rightqp"><label>x {item.quantity}</label>&nbsp;&nbsp;Rs. {item.quantity*item.price}</span>
                             </p>
                         </li>
-                        <br />
                         </div>
                     );
                     })}
