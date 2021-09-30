@@ -100,7 +100,7 @@ const ForgotPass = () => {
           <input className="fpinput" id="renewpassword"required onChange={(e) => setconfirmpassword(e.target.value)} autoComplete="off" placeholder="Confirm new password"/>
           <br />
           <div className="captcha">
-            <h2 id="captcha">{captcha}</h2><span onClick={generateString} className="fas fa-sync-alt"></span>
+            <h2 id="captcha">{captcha}</h2>
           </div>
           <input type="text" id="inputType" className="fpinput" placeholder="Enter Captcha" name="captcha" autoComplete="off" required onChange={(e) => setcaptchatext(e.target.value)}/>
           <div align="center">

@@ -44,6 +44,14 @@ def userinfo():
         response = conn.getUserInfo(userData)
     return {"response": response}
 
+@app.route("/Trending", methods=["GET", "POST"])
+def trending():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.Trending(userData)
+    return {"response": response}
+    
 @app.route("/Products", methods=["GET", "POST"])
 def products():
     conn = Connection()

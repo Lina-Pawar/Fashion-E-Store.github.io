@@ -37,11 +37,11 @@ function Analytics(){
     });
     return(
             <><br /><br /><br />
-            <div style={{ display: 'flex' }}>
-            <Chart chartType="ColumnChart" rows={top5} columns={[{ type: "string", label: "Product" }, { type: "number", label: "Quantity" }]}
-                options={{ title: "Top 5 products", legend: 'none', hAxis: { direction: -1, slantedText: true, slantedTextAngle: 30 } }} legendToggle /><br />
-            <Chart chartType="PieChart" data={pie} options={{ title: 'Category-vise Analysis', }} /><br />
-            <Chart chartType="LineChart" data={graph} options={{ title: 'Monthly Analysis',hAxis: {title: 'Month',},vAxis: {title: 'Sales',},}} />
+            <div style={{ display: 'grid',gridTemplateColumns:"repeat(3,auto)" }}>
+            <Chart width="400px" height="350px" chartType="ColumnChart" rows={top5} columns={[{ type: "string", label: "Product" }, { type: "number", label: "Quantity" }]}
+                options={{ title: "Top 5 products", legend: 'none', hAxis: { direction: -1, slantedText: true, slantedTextAngle: 30 } }} legendToggle />
+            <Chart width="400px" height="400px" chartType="PieChart" data={pie} options={{ title: 'Category-vise Analysis', }} />
+            <Chart width="400px" height="350px" chartType="LineChart" data={graph} options={{ title: 'Monthly Analysis',hAxis: {title: 'Month',},vAxis: {title: 'Sales',},}} />
             </div></>
     );
 }

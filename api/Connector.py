@@ -67,7 +67,7 @@ class Connection:
         return 1
 
     def resetPassword(self,data):
-        self.query = 'SELECT * FROM customers where email = %s'
+        self.query = 'SELECT * FROM customers WHERE email = %s'
         flag = self.exec(data['email'])
         val=self.cur.fetchone()[7]
         if val is not None and flag == 1:
@@ -80,6 +80,53 @@ class Connection:
                     return 1
             else:
                 return 2
+        return 0
+
+    def Trending(self,data):
+        self.query='SELECT gender FROM customers WHERE username=%s'
+        self.exec(data['uname'])
+        val=self.cur.fetchone()
+        li=[]
+        if val[0]=="Female":
+            gender="Women"
+        else:
+            gender="Men"
+        def write_file(data, filename):
+            with open(filename, 'wb') as file:
+                file.write(data)
+        self.query='SELECT * FROM products WHERE filters LIKE %s AND sales>0 ORDER BY sales DESC'
+        x=gender+'%'
+        flag=self.exec(x)
+        val1=self.cur.fetchall()
+        if flag==1:
+            for row in val1:
+                self.query='SELECT * FROM images WHERE name=%s'
+                flag2=self.exec(row[0])
+                val2=self.cur.fetchall()
+                if flag2==1 and val2 is not None:
+                    write_file(val2[0][1],"tprodimg.png")
+                    img = Image.open("tprodimg.png")
+                    rgb_im = img.convert('RGB')
+                    data = io.BytesIO()
+                    rgb_im.save(data, "JPEG")
+                    photo = base64.b64encode(data.getvalue())
+                    photo1=photo.decode('utf-8')
+                    if len(val2)>1:
+                        write_file(val2[1][1],"tprodimg.png")
+                        img = Image.open("tprodimg.png")
+                        rgb_im = img.convert('RGB')
+                        data = io.BytesIO()
+                        rgb_im.save(data, "JPEG")
+                        photo = base64.b64encode(data.getvalue())
+                        photo2=photo.decode('utf-8')
+                    else:
+                        photo2=''
+                    prods={"name":row[0],"price":row[1],"quantity":row[2],"filters":row[3],"details":row[4],"image1":photo1,"image2":photo2}
+                    if(len(li)<12):
+                        li.append(prods)
+                    else:
+                        break
+            return li
         return 0
 
     def Products(self):
