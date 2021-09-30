@@ -3,12 +3,12 @@ import  "../components/Navbar.css";
 import logo from "../imgs/logo.jpg";
 import navlogo from "../imgs/nav-logo.png";
 import {Link } from "react-router-dom";
-import "./Admin.css";
 import Productslist from "./Productslist";
 import Customers from "./Customers";
 import Analytics from "./Analytics";
 import Chatbox from "./Chatbox";
 import Orders from "./Orders";
+import "./Admin.css";
 
 function Admin(){
     var items=document.getElementsByClassName("list-item");

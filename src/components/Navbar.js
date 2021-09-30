@@ -64,13 +64,13 @@ const Navbar = () => {
           &nbsp;&nbsp;<i className={arrow2}></i>
         </li>
         <div className={DropDown2}>
-            <div><Link to="/women" className="notlink">
+            <div><Link to="/category?category=women&type=clothing" className="notlink">
               <p style={{color:"white"}}><img src={off} alt="off"/>&nbsp;&nbsp;50% off on women tops today!</p></Link>
             </div>
-            <div><Link to="/men" className="notlink">
+            <div><Link to="/category?category=men&type=clothing" className="notlink">
               <p style={{color:"white"}}><img src={oneOnone} alt="1on1"/>&nbsp;&nbsp;Buy 1 get 1 free on Men t-shirts.</p></Link>
             </div>
-            <div><Link to="/kids" className="notlink">
+            <div><Link to="/category?category=kids&type=clothing" className="notlink">
               <p style={{color:"white"}}><img src={free} alt="free" style={{width:90}}/>&nbsp;&nbsp;Free shipping on all kids wear!</p></Link>
             </div>  
         </div> 

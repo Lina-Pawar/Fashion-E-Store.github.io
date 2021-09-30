@@ -141,6 +141,7 @@ function Cart(){
             const data={username:window.localStorage.getItem("fashion-e-store-user"),address:document.getElementById("address").value,pincode:document.getElementById("pincode").value};
             Service.Order(data).then((resp) =>{
                 if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+                    // eslint-disable-next-line
                     alert("Order placed successfully!\n"+"Payment id:"+response.razorpay_payment_id);
                     window.location.href="/home";
                 }else{

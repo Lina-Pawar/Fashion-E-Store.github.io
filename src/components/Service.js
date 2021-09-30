@@ -19,6 +19,9 @@ const updateUserName = async (user) => {
 const resetPassword = async (user) => {
   return axios.post(API_BASE_URL + "ResetPassword", { ...user });
 };
+const trending = async (user) => {
+  return axios.post(API_BASE_URL + "Trending", { ...user });
+};
 const products = async (user) => {
   return axios.post(API_BASE_URL + "Products", { ...user });
 };
@@ -69,7 +72,6 @@ const deliver = async (data) => {
 };
 // eslint-disable-next-line
 export default {
-  login, register, userinfo, update, updateUserName, resetPassword, products, customers, orderDetails, getMyOrders,
-  getCart, AddCart, DeleteCart, Order, updateQty, addproduct, updateProd, deleteProd, topProducts,
-  pie, linegraph, deliver
+  login, register, userinfo, update, updateUserName, resetPassword, trending, products, customers, orderDetails, getMyOrders,
+  getCart, AddCart, DeleteCart, Order, updateQty, addproduct, updateProd, deleteProd, topProducts, pie, linegraph, deliver
 };
