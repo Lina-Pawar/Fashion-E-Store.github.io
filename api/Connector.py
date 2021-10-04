@@ -375,3 +375,33 @@ class Connection:
         self.query="UPDATE orders SET delivered='Yes' WHERE order_id=%s"
         flag=self.exec(data['id'])
         return flag
+
+    def sendChat(self,data):
+        no=1
+        self.query='SELECT sr_no FROM chatbox ORDER BY sr_no DESC'
+        self.exec()
+        num=self.cur.fetchone()
+        if(num is not None):
+            no=num[0]+1
+        self.query="INSERT INTO chatbox (`sr_no`, `username`, `admin_msg`, `customer_msg`) VALUES (%s,%s,%s,%s)"
+        flag=self.exec((no,data['uname'],data['a_msg'],data['c_msg']))
+        return flag
+
+    def getChat(self,data):
+        self.query="SELECT * FROM chatbox WHERE username=%s"
+        self.exec(data['username'])
+        li=[]
+        vals=self.cur.fetchall()
+        for row in vals:
+            li.append([row[2],row[3]])
+        return li
+
+    def AdminChats(self,data):
+        self.query="SELECT username FROM chatbox"
+        self.exec()
+        li=[]
+        val=self.cur.fetchall()
+        for row in val:
+            if(row[0] not in li):
+                li.append(row[0])
+        return li

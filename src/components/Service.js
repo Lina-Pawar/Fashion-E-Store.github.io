@@ -70,8 +70,17 @@ const linegraph = async (data) => {
 const deliver = async (data) => {
   return axios.post(API_BASE_URL + "Deliver", { ...data });
 };
+const sendChat = async (data) => {
+  return axios.post(API_BASE_URL + "SendChat", { ...data });
+};
+const getChat = async (data) => {
+  return axios.post(API_BASE_URL + "GetChat", { ...data });
+};
+const AdminChats = async (data) => {
+  return axios.post(API_BASE_URL + "AdminChats", { ...data });
+};
 // eslint-disable-next-line
 export default {
-  login, register, userinfo, update, updateUserName, resetPassword, trending, products, customers, orderDetails, getMyOrders,
-  getCart, AddCart, DeleteCart, Order, updateQty, addproduct, updateProd, deleteProd, topProducts, pie, linegraph, deliver
+  login, register, userinfo, update, updateUserName, resetPassword, trending, products, customers, orderDetails, getMyOrders, getCart,
+  AddCart, DeleteCart, Order, updateQty, addproduct, updateProd, deleteProd, topProducts, pie, linegraph, deliver, sendChat, getChat, AdminChats
 };

@@ -1,4 +1,5 @@
 import "./Chatbox.css";
+import Service from "./Service";
 
 function Chatbox(){
     function show() {
@@ -37,12 +38,32 @@ function Chatbox(){
             document.getElementById("userInput").scrollIntoView(false);
             clearInterval(x);
         }
+        Service.getChat({username:window.localStorage.getItem("fashion-e-store-user")}).then((resp) =>{
+            if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+                const values=resp.data.response;
+                document.getElementById("chatbox").innerHTML='<br/>';
+                // eslint-disable-next-line
+                const msgs=values.map((msgs)=>{
+                    if(msgs[0]!==''){
+                        let botHtml = '<p class="botText"><span>' + msgs[0] + '</span></p><br/>';
+                        document.getElementById("chatbox").innerHTML+=(botHtml);
+                    }
+                    if(msgs[1]!==''){
+                        let userHtml = '<p class="userText"><span>'+msgs[1]+'</span></p>';
+                        document.getElementById("chatbox").innerHTML+=(userHtml);
+                    }
+                    return msgs;
+                  });
+            }
+        });
       }, 1);
     function getHardResponse(userText) {
         let botResponse = getBotResponse(userText);
-        let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
-        document.getElementById("chatbox").innerHTML+=(botHtml);
-        document.getElementById("chat-bar-bottom").scrollIntoView(true);
+        if(botResponse!==''){
+            let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
+            document.getElementById("chatbox").innerHTML+=(botHtml);
+            document.getElementById("chat-bar-bottom").scrollIntoView(true);
+        }
     }
     function getResponse() {
         let userText = document.getElementById("textInput").value;
@@ -65,7 +86,11 @@ function Chatbox(){
         } else if (input==="I have a complain") {
             return "You can mail us at Stylezone@gmail.com , and we guarantee of taking necessary steps in 48hrs.";
         } else {
-            return "Try asking something else!";
+            Service.sendChat({uname:window.localStorage.getItem("fashion-e-store-user"),a_msg:'',c_msg:input}).then((resp) =>{
+                if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+                }
+            });
+            return "";
         }
     }
     function buttonSendText(sampleText) {
