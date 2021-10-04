@@ -54,7 +54,7 @@ function Chatbox(){
                     }
                     return msgs;
                   });
-            }
+                }
         });
       }, 1);
     function getHardResponse(userText) {
