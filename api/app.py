@@ -173,5 +173,30 @@ def deliver():
         userData = request.json
         response = conn.Deliver(userData)
     return {"response": response}
+
+@app.route("/SendChat", methods=["GET", "POST"])
+def sendchat():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.sendChat(userData)
+    return {"response": response}
+
+@app.route("/GetChat", methods=["GET", "POST"])
+def getchat():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.getChat(userData)
+    return {"response": response}
+
+@app.route("/AdminChats", methods=["GET", "POST"])
+def adminchats():
+    conn = Connection()
+    if request.method == "POST":
+        userData = request.json
+        response = conn.AdminChats(userData)
+    return {"response": response}
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', threaded=True)

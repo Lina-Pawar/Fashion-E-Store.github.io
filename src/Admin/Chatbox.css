@@ -1,0 +1,18 @@
+.admin-chatbox{
+    position: absolute;
+    margin-left:18%;
+    margin-top:10vh;
+}
+#chat-table{
+    width:30vw;
+}
+#admin-chat-window{
+    position: absolute;
+    margin-left:50vw;
+    float: right;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    text-align: center;
+    width:25vw;
+    padding:10px;
+}
