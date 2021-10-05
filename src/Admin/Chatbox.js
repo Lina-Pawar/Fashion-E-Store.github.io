@@ -56,10 +56,7 @@ function Chatbox(){
           const List = () => {
             return(
               <>
-                <tr>
-                    <th>Sr no.</th>
-                    <th>User</th>
-                </tr>
+               
                 {AdminChats.map((name,index) => {
                     return (
                     <tr onClick={()=>showchats(name)}>
@@ -78,9 +75,14 @@ function Chatbox(){
       
     return(
         <div className="admin-chatbox">
-            <table id="chat-table">
+            <div className="chattable">
+                <p>Chats</p>
+                <br />
+            <table id="chat-table" align="center">
                 <div className="spinner"></div>
             </table>
+            </div>
+            <hr class="cbvline" />
             <div id="admin-chat-window">
                 <div id="user-chats"></div>
                 <input id="admin-input" className="input-box" placeholder="Enter message" onKeyPress={(e) => typing(e)}/>
