@@ -22,7 +22,7 @@ function Products(props) {
             }
             var photo='data:image/JPEG;base64,'+item.image1;
             return (
-              <li className="list-item" key={item.name}>
+              <li className="list-item" key={item.name} style={str.match("/admin") && item.quantity===0?{backgroundColor:"red"}:str.match("/admin") && item.quantity<=10?{backgroundColor:"yellow"}:{backgroundColor:"none"}}>
                 <div><img className="itemimg" src={photo} alt="product"/></div>
                 <div>
                 <table width="100%">

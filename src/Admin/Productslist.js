@@ -39,7 +39,13 @@ function Productslist(){
                 </div>
             </div>
             <div style={{paddingTop:"6vh"}}>
-            <Products n={185}/>
+                <div style={{display:"flex"}}>
+                <span style={{display:"block",backgroundColor:"yellow",width:"20px",height:"20px",margin:"15px"}}></span>
+                <span style={{margin:"15px 0"}}>Low stock</span>
+                <span style={{display:"block",backgroundColor:"red",width:"20px",height:"20px",margin:"15px"}}></span>
+                <span style={{margin:"15px 0"}}>Out of stock</span>
+                </div>
+                <Products n={185}/>
             </div>
             <div className={displayAPBox}>
                 <span className="aptitle"><p>ADD PRODUCT</p></span>
