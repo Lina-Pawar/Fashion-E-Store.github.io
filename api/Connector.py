@@ -364,9 +364,9 @@ class Connection:
         for row in values:
             date=str(row[0])[5:7]
             q+=row[1]
-            if m!=months[int(date)+1]:
+            if m!=months[int(date)-1]:
                 li.append([m,q])
-                m=months[int(date)+1]
+                m=months[int(date)-1]
                 q=row[1]
         li.append([m,q])
         return li

@@ -8,6 +8,7 @@ import "../Loader.css";
 
 var Sizes=[];
 function ProductDetail() {
+  var itemName;
   window.scrollTo(0,0);
   let para = new URLSearchParams(window.location.search);
   function index(){
@@ -28,7 +29,7 @@ function ProductDetail() {
   var y=setInterval(function(){
     if(ProdList.length>0){
       clearInterval(y);
-      var itemName = index();
+      itemName = index();
       document.getElementById("s1").innerHTML=Sizes[0];
       document.getElementById("s2").innerHTML=Sizes[1];
       document.getElementById("s3").innerHTML=Sizes[2];
@@ -88,8 +89,12 @@ function decrease(){
 function addcart(){
   if(prodSize===''){
     alert("Choose a size!");
-  } else{
-    var item_price=Number.parseFloat(document.getElementById("item-price").innerHTML.slice(3,)).toFixed(2)}
+  } else if(ProdList[itemName]["quantity"]===0){
+    alert("Out of stock");
+  }else if(document.getElementById("quantity").value>ProdList[itemName]["quantity"]){
+    alert("Low stock");
+  }else{
+    var item_price=Number.parseFloat(document.getElementById("item-price").innerHTML.slice(3,)).toFixed(2);
     const data={username:window.localStorage.getItem("fashion-e-store-user"),product:document.getElementById("item-name").innerHTML,
     size:prodSize,quantity:document.getElementById("quantity").value,price:item_price};
     Service.AddCart(data).then((resp) =>{
@@ -99,6 +104,7 @@ function addcart(){
         alert("Error");
       }
   });  
+}
 }
 
   return (
