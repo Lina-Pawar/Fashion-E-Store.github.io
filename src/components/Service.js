@@ -37,6 +37,9 @@ const getCart = async (user) => {
 const getMyOrders = async (user) => {
   return axios.post(API_BASE_URL + "GetMyOrders" , { ...user });
 }
+const checkOrder = async (user) => {
+  return axios.post(API_BASE_URL + "CheckOrder" , { ...user });
+}
 const AddCart = async (user) => {
   return axios.post(API_BASE_URL + "AddCart" , { ...user });
 }
@@ -81,6 +84,6 @@ const AdminChats = async (data) => {
 };
 // eslint-disable-next-line
 export default {
-  login, register, userinfo, update, updateUserName, resetPassword, trending, products, customers, orderDetails, getMyOrders, getCart,
+  login, register, userinfo, update, updateUserName, resetPassword, trending, products, customers, orderDetails, getMyOrders, checkOrder, getCart,
   AddCart, DeleteCart, Order, updateQty, addproduct, updateProd, deleteProd, topProducts, pie, linegraph, deliver, sendChat, getChat, AdminChats
 };

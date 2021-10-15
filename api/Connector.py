@@ -248,6 +248,18 @@ class Connection:
         li.reverse()
         return li
 
+    def checkOrder(self,data):
+        self.query='SELECT * FROM orders WHERE username=%s AND order_id=%s'
+        self.exec((data['uname'],data['oid']))
+        vals=self.cur.fetchall()
+        li=[]
+        for row in vals:
+            li.append({"o_id":row[0],"pname":row[2],"size":row[3],"quantity":row[4],"price":row[5],"date":row[6],"status":row[9]})
+        if li!=[]:
+            return li
+        else:
+            return 0
+
     def getcart(self,data):
         def write_file(data, filename):
             with open(filename, 'wb') as file:

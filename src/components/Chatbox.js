@@ -1,7 +1,9 @@
 import "./Chatbox.css";
 import Service from "./Service";
+import { OrderList } from "../Admin/OrderList";
 
 function Chatbox(){
+    var reply=[];
     function show() {
         var coll = document.getElementsByClassName("collapsible");
         for (let i = 0; i < coll.length; i++) {
@@ -37,30 +39,31 @@ function Chatbox(){
             document.getElementById("chat-timestamp").innerHTML=(time);
             document.getElementById("userInput").scrollIntoView(false);
             clearInterval(x);
-        }
-        Service.getChat({username:window.localStorage.getItem("fashion-e-store-user")}).then((resp) =>{
-            if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
-                const values=resp.data.response;
-                document.getElementById("chatbox").innerHTML='<br/>';
-                // eslint-disable-next-line
-                const msgs=values.map((msgs)=>{
-                    if(msgs[0]!==''){
-                        let botHtml = '<p class="botText"><span>' + msgs[0] + '</span></p><br/>';
-                        document.getElementById("chatbox").innerHTML+=(botHtml);
+            Service.getChat({username:window.localStorage.getItem("fashion-e-store-user")}).then((resp) =>{
+                if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
+                    const values=resp.data.response;
+                    document.getElementById("chatbox").innerHTML+='<br/>';
+                    // eslint-disable-next-line
+                    const msgs=values.map((msgs)=>{
+                        if(msgs[0]!==''){
+                            let botHtml = '<p class="botText"><span>' + msgs[0] + '</span></p><br/>';
+                            document.getElementById("chatbox").innerHTML+=(botHtml);
+                        }
+                        if(msgs[1]!==''){
+                            let userHtml = '<p class="userText"><span>'+msgs[1]+'</span></p><br/>';
+                            document.getElementById("chatbox").innerHTML+=(userHtml);
+                        }
+                        return msgs;
+                    });
                     }
-                    if(msgs[1]!==''){
-                        let userHtml = '<p class="userText"><span>'+msgs[1]+'</span></p>';
-                        document.getElementById("chatbox").innerHTML+=(userHtml);
-                    }
-                    return msgs;
-                  });
-                }
-        });
+            });
+            document.getElementById("chat-bar-bottom").scrollIntoView(true);
+        }   
       }, 1);
     function getHardResponse(userText) {
         let botResponse = getBotResponse(userText);
         if(botResponse!==''){
-            let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
+            let botHtml = '<p class="botText"><span>' + botResponse + '</span></p><br/>';
             document.getElementById("chatbox").innerHTML+=(botHtml);
             document.getElementById("chat-bar-bottom").scrollIntoView(true);
         }
@@ -70,7 +73,7 @@ function Chatbox(){
         if (userText==="") {
             userText = "I Love StyleZone";
         }
-        let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+        let userHtml = '<p class="userText"><span>' + userText + '</span></p><br/>';
         document.getElementById("textInput").value="";
         document.getElementById("chatbox").innerHTML+=(userHtml);
         document.getElementById("chat-bar-bottom").scrollIntoView(true);
@@ -80,18 +83,50 @@ function Chatbox(){
     }
     function getBotResponse(input) {
         if (input==="Hello") {
-            return "Hello there!";
+            reply.push("Hello there!");
         } else if (input==="I Love StyleZone") {
-            return "Thank you :)";
-        } else if (input==="I have a complain") {
-            return "You can mail us at Stylezone@gmail.com , and we guarantee of taking necessary steps in 48hrs.";
-        } else {
+            reply.push("Thank you :)");
+        } else if (input==="Thank you!") {
+            reply.push("Enjoy shopping :)");
+        } else if (input.toLowerCase().match("complain")) {
+            reply.push("You can mail us at Stylezone@gmail.com , and we guarantee of taking necessary steps in 48hrs.");
+        } else if (input.toLowerCase()==="yes" && reply[reply.length-1]==="Do you have any queries regarding your previous order? Answer Yes/No") {
+            reply.push("Enter your order id");
+        } else if (input.toLowerCase()==="no") {
+            reply.push("Mention your query and we will get back to you soon :)");
+        } else if (!isNaN(input)) {
+            if(input==='1'){
+                reply.push("Your order will be delivered within x days.");
+            }else if(input==='2'){
+                reply.push("Your order will be returned and refunded within a week, keep the package ready.<br>Feel free to mention any reason to return.");
+            }else if(input==='3'){
+                reply.push("Sorry for the issue. We will replace the correct order within x days.");
+            }else{
+                var c=false;
+                // eslint-disable-next-line
+                OrderList.map((item) => {
+                if(item.order_id===parseInt(input)){
+                    c=true;
+                }
+                if(c){
+                    reply.push("Yes this your order! Choose one option:<br>1. Order not recieved<br>2. Return order<br>3. Wrong items recieved");
+                }else{
+                    reply.push("Order not found!");
+                }
+                });
+            }
+            } else {
             Service.sendChat({uname:window.localStorage.getItem("fashion-e-store-user"),a_msg:'',c_msg:input}).then((resp) =>{
                 if (resp.data.response !== 0 && resp.data.response !== undefined && resp.data.response !== null) {
                 }
             });
-            return "";
+            if(reply[reply.length-1]!=="Mention your query and we will get back to you soon :)"){
+                reply.push("Do you have any queries regarding your previous order? Answer Yes/No");
+            }else{
+                reply.push("");
+            }
         }
+        return reply[reply.length-1];
     }
     function buttonSendText(sampleText) {
         let userHtml = '<p class="userText"><span>' + sampleText + '</span></p>';
