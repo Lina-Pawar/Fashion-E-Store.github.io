@@ -89,7 +89,7 @@ function decrease(){
 function addcart(){
   if(prodSize===''){
     alert("Choose a size!");
-  } else if(ProdList[itemName]["quantity"]===0){
+  }else if(ProdList[itemName]["quantity"]===0){
     alert("Out of stock");
   }else if(document.getElementById("quantity").value>ProdList[itemName]["quantity"]){
     alert("Low stock");
