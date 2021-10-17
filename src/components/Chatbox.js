@@ -173,7 +173,7 @@ function Chatbox(){
                                 <div className="chat-bar-icons">
                                     <i id="chat-icon" style={{color: "crimson"}} className="fa fa-fw fa-heart"
                                         onClick={heartButton}></i>
-                                    <i id="chat-icon" style={{color: "#333"}} className="fa fa-fw fa-send"
+                                    <i id="chat-icon" style={{color: "lightgrey"}} className="fa fa-fw fa-paper-plane"
                                         onClick={sendButton}></i>
                                 </div>
                             </div>
